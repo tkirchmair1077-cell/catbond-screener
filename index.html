@@ -159,6 +159,73 @@ footer a:hover{text-decoration:underline}
   0%{transform:scale(1);stroke-opacity:.75}
   100%{transform:scale(2.7);stroke-opacity:0}
 }
+
+.tag{display:inline-flex;align-items:center;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.tag-assumption{background:var(--amber-bg);color:var(--amber);border-color:var(--amber)}
+.tag-rule{background:var(--neutral-bg);color:var(--accent);border-color:var(--border-strong)}
+.tag-verified{background:var(--green-bg);color:var(--green)}
+.tag-formula{background:var(--neutral-bg);color:var(--text-2);border-color:var(--border-strong)}
+.tag-status{background:var(--neutral-bg);color:var(--text-2);border-color:var(--border)}
+.assume-stack{display:flex;flex-direction:column;gap:16px}
+.assume-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.assume-card h3{margin:0 0 6px;font-size:15px;font-weight:620}
+.assume-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.assume-head .meta-line{color:var(--text-3);font-size:12px;line-height:1.5}
+.assume-card p,.assume-note{margin:0 0 12px;color:var(--text-2);line-height:1.6}
+.assume-card p:last-child,.assume-note:last-child{margin-bottom:0}
+.assume-card a{color:var(--accent);text-decoration:none}
+.assume-card a:hover{text-decoration:underline}
+.assume-quote{margin:0 0 14px;padding:10px 14px;border-left:3px solid var(--navy);background:var(--surface-2);border-radius:0 8px 8px 0;color:var(--text-2);font-size:13px;line-height:1.55}
+.assume-quote + .assume-quote{margin-top:-6px}
+.scale-wrap{overflow-x:auto}
+.scale-table{width:100%;border-collapse:collapse;font-size:13px;margin:4px 0 12px}
+.scale-table th{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);font-weight:650;text-align:left;padding:8px 12px;border-bottom:1px solid var(--border-strong);cursor:default}
+.scale-table th:hover{color:var(--text-3)}
+.scale-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+.scale-table tr:last-child td{border-bottom:0}
+.scale-table tbody tr{cursor:default}
+.scale-table tbody tr:hover td{background:transparent}
+.bands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:8px}
+.band-box{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.band-box .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);font-weight:650}
+.band-box .v{font-size:18px;font-weight:650;margin-top:4px;letter-spacing:-.02em}
+.band-box .s{font-size:12px;color:var(--text-2);margin-top:6px;line-height:1.45}
+.assume-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.assume-item{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.assume-item.full{grid-column:1/-1}
+.assume-item h4{margin:0 0 8px;font-size:14px;font-weight:620;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.assume-item dl{margin:0;display:grid;grid-template-columns:minmax(7rem,34%) 1fr;gap:4px 10px;font-size:13px}
+.assume-item dt{margin:0;color:var(--text-3);font-weight:550}
+.assume-item dd{margin:0;color:var(--text);line-height:1.45}
+.assume-item .src{font-size:12px;color:var(--text-3);margin-top:8px;line-height:1.45}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;background:var(--map-bg);border:1px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--accent);display:inline-block;margin:4px 0 8px}
+.sep-box{border:1px solid var(--border-strong);background:var(--surface-2);border-radius:10px;padding:14px 16px;color:var(--text);line-height:1.6}
+.sep-fields{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.sep-fields span{background:var(--neutral-bg);border:1px solid var(--border);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--text-2)}
+.not-modelled{margin:0;padding:0 0 0 18px}
+.not-modelled li{margin:0 0 6px;color:var(--text-2);line-height:1.5}
+.not-modelled li:last-child{margin-bottom:0}
+.event-panel{width:min(400px,calc(100% - 32px))}
+.event-panel .comps{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--border)}
+.event-panel .comps h4{margin:0 0 8px;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);font-weight:650}
+.event-panel .comps-block{margin:0 0 12px}
+.event-panel .comps-block:last-child{margin-bottom:0}
+.event-panel .comps-kicker{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 6px;font-size:12.5px;font-weight:550;color:var(--text)}
+.event-panel .comps-note{margin:0 0 8px;font-size:11.5px;color:var(--text-3);line-height:1.45}
+.event-panel .comp-item{padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px;line-height:1.4}
+.event-panel .comp-item:last-child{border-bottom:0}
+.event-panel .comp-item .comp-title{font-weight:550;color:var(--text)}
+.event-panel .comp-item .comp-meta{color:var(--text-2);font-size:12px;margin-top:2px}
+.event-panel .comp-item a{color:var(--accent);text-decoration:none;font-weight:550}
+.event-panel .comp-item a:hover{text-decoration:underline}
+.comps-cell{min-width:13rem;max-width:24rem;font-size:12px;line-height:1.45;color:var(--text-2)}
+.comps-cell a{color:var(--accent);text-decoration:none;font-weight:550}
+.comps-cell a:hover{text-decoration:underline}
+.comps-cell .line{margin:0}
+.comps-cell .line + .line{margin-top:3px}
+@media (max-width:1100px){
+  .assume-items,.bands{grid-template-columns:1fr}
+}
 @media (prefers-reduced-motion:reduce){
   .ring.pulse{animation:none}
 }
@@ -260,6 +327,7 @@ footer a:hover{text-decoration:underline}
               <th data-sort="pager" scope="col">PAGER</th>
               <th data-sort="band" scope="col">Band</th>
               <th data-sort="status" scope="col">Overlap status</th>
+              <th scope="col">Historical comps</th>
               <th scope="col">USGS</th>
             </tr>
           </thead>
@@ -269,8 +337,16 @@ footer a:hover{text-decoration:underline}
     </div>
   </section>
 
+  <section id="assumptions-section">
+    <div class="sec-head">
+      <h2>3 · Assumptions and scale</h2>
+      <span class="hint" id="assumptionsHint">From the snapshot file assumptions.json. Not used in any Phase 1 event calculation.</span>
+    </div>
+    <div id="assumptionsRoot"></div>
+  </section>
+
   <section id="method-section">
-    <div class="sec-head"><h2>3 · Methodology</h2></div>
+    <div class="sec-head"><h2>4 · Methodology</h2></div>
     <div class="card method">
       <h3>How to read this page</h3>
       <p>Circles are earthquakes of magnitude 5.8 or greater in the snapshot window. Size is magnitude; colour is the USGS PAGER overall alert level (green, yellow, orange, red). Grey means PAGER has not been published. Translucent overlays, when present, are publicly sourced catastrophe‑bond coverage regions. <strong id="zoneMethodNote">This snapshot has no verified coverage zones, so every event is marked “no overlap”.</strong></p>
@@ -327,6 +403,7 @@ const state = {
   events: [],
   zones: { type: "FeatureCollection", features: [] },
   meta: null,
+  assumptions: null,
   land: null,
   mode: "globe",
   filter: "all",
@@ -367,6 +444,8 @@ const el = {
   zoneMethod: document.getElementById("zoneMethodNote"),
   footerGen: document.getElementById("footerGen"),
   tableHint: document.getElementById("tableHint"),
+  assumptionsRoot: document.getElementById("assumptionsRoot"),
+  assumptionsHint: document.getElementById("assumptionsHint"),
 };
 
 function pagerColour(level) {
@@ -445,14 +524,18 @@ async function loadAll() {
     fetch("data/events.json", FETCH_OPT).then((r) => check(r, "events.json")),
     fetch("data/zones.json", FETCH_OPT).then((r) => check(r, "zones.json")),
     fetch("data/meta.json", FETCH_OPT).then((r) => check(r, "meta.json")),
+    fetch("data/assumptions.json", FETCH_OPT)
+      .then((r) => check(r, "assumptions.json"))
+      .catch((err) => ({ __error: String(err && err.message ? err.message : err) })),
     fetch("data/land-110m.json", FETCH_OPT)
       .then((r) => check(r, "land-110m.json"))
       .catch(() => null),
   ];
-  const [eventsDoc, zonesDoc, metaDoc, landDoc] = await Promise.all(fetches);
+  const [eventsDoc, zonesDoc, metaDoc, assumptionsDoc, landDoc] = await Promise.all(fetches);
   state.events = Array.isArray(eventsDoc.events) ? eventsDoc.events.slice() : [];
   state.zones = zonesDoc && zonesDoc.type === "FeatureCollection" ? zonesDoc : { type: "FeatureCollection", features: [] };
   state.meta = metaDoc;
+  state.assumptions = assumptionsDoc;
   if (landDoc && landDoc.type === "Topology" && landDoc.objects && landDoc.objects.land && typeof topojson !== "undefined") {
     state.land = topojson.feature(landDoc, landDoc.objects.land);
     window.__CATBOND__.landLoaded = true;
@@ -866,7 +949,8 @@ function renderPanel(ev) {
     "<dt>Band</dt><dd><span class='badge " + escapeAttr(ev.band || "") + "'>" + bandLabel + "</span></dd>" +
     "<dt>Overlap status</dt><dd><span class='badge " + statusClass(ev.status) + "'>" + escapeHtml(ev.status || "unavailable") + "</span></dd>" +
     "</dl>" +
-    (links.length ? '<div class="links">' + links.join("") + "</div>" : "");
+    (links.length ? '<div class="links">' + links.join("") + "</div>" : "") +
+    renderCompsHtml(ev);
   document.getElementById("panelClose").addEventListener("click", closePanel);
 }
 
@@ -887,6 +971,352 @@ function escapeHtml(s) {
 
 function escapeAttr(s) {
   return escapeHtml(s).replace(/'/g, "&#39;");
+}
+
+
+function extLink(href, label, stop) {
+  if (!href) return escapeHtml(label);
+  const click = stop ? ' onclick="event.stopPropagation()"' : "";
+  return '<a href="' + escapeAttr(href) + '" target="_blank" rel="noopener noreferrer"' + click + ">" + escapeHtml(label) + "</a>";
+}
+
+function isUnavailable(v) {
+  if (v == null || v === "") return true;
+  return typeof v === "string" && /^unavailable\b/i.test(v.trim());
+}
+
+function fmtDist(km) {
+  if (km == null || !Number.isFinite(Number(km))) return "unavailable";
+  const n = Number(km);
+  const t = Math.abs(n) >= 10 ? n.toFixed(0) : n.toFixed(1);
+  return t + " km";
+}
+
+function fmtCount(n) {
+  if (n == null || !Number.isFinite(Number(n))) return "unavailable";
+  return Number(n).toLocaleString("en-GB");
+}
+
+function fmtMaybe(v) {
+  if (isUnavailable(v)) return "unavailable";
+  return String(v);
+}
+
+function assumptionTag(status) {
+  const s = String(status || "").trim();
+  if (s === "ASSUMPTION") return '<span class="tag tag-assumption">Assumption</span>';
+  if (/our own/i.test(s) || /\(d\)/.test(s)) return '<span class="tag tag-rule">Our own rule (d)</span>';
+  if (/^verified$/i.test(s)) return '<span class="tag tag-verified">Verified</span>';
+  if (/formula/i.test(s)) return '<span class="tag tag-formula">Formula only</span>';
+  if (s) return '<span class="tag tag-status">' + escapeHtml(s) + "</span>";
+  return "";
+}
+
+function compsCellHtml(e) {
+  const hc = e.historical_comps;
+  if (!hc) return '<div class="comps-cell">unavailable</div>';
+  const ph = hc.pager_historical || {};
+  const ca = hc.catalog_analogs || {};
+  const pagerN = Array.isArray(ph.events) ? ph.events.length : 0;
+  const pagerLabel = ph.available === false
+    ? "PAGER unavailable"
+    : (pagerN === 0 ? "PAGER: none listed" : "PAGER: " + pagerN + (pagerN === 1 ? " event" : " events"));
+  const pagerLine = ph.source_url ? extLink(ph.source_url, pagerLabel, true) : escapeHtml(pagerLabel);
+
+  let catalogLine;
+  if (ca.available === false) {
+    catalogLine = escapeHtml(ca.reason ? "Catalog unavailable: " + ca.reason : "Catalog unavailable");
+  } else {
+    const count = ca.count;
+    const listed = Array.isArray(ca.listed) ? ca.listed : [];
+    const head = "Catalog: " + (count == null ? "unavailable" : fmtCount(count) + " since 1900");
+    const headHtml = ca.query_url ? extLink(ca.query_url, head, true) : escapeHtml(head);
+    const mags = listed.map((item) => {
+      const label = "M " + fmtMag(item.magnitude);
+      return item.usgs_event_page ? extLink(item.usgs_event_page, label, true) : escapeHtml(label);
+    });
+    catalogLine = headHtml + (mags.length ? '<div class="time-utc">Largest: ' + mags.join(", ") + "</div>" : "");
+  }
+  return '<div class="comps-cell"><div class="line">' + pagerLine + '</div><div class="line">' + catalogLine + "</div></div>";
+}
+
+function renderCompsHtml(ev) {
+  const hc = ev.historical_comps;
+  if (!hc) {
+    return '<div class="comps"><h4>Historical comparisons</h4><p class="comps-note">unavailable</p></div>';
+  }
+  return (
+    '<div class="comps"><h4>Historical comparisons</h4>' +
+    renderPagerHistBlock(hc.pager_historical) +
+    renderCatalogBlock(hc.catalog_analogs) +
+    "</div>"
+  );
+}
+
+function renderPagerHistBlock(ph) {
+  if (!ph) {
+    return '<div class="comps-block"><div class="comps-kicker">PAGER historical</div><p class="comps-note">unavailable</p></div>';
+  }
+  const events = Array.isArray(ph.events) ? ph.events : [];
+  const kicker = "PAGER historical" + (events.length ? " · " + events.length + (events.length === 1 ? " event" : " events") : "");
+  const source = ph.source_url ? extLink(ph.source_url, ph.source || "USGS PAGER historical comparison", false) : escapeHtml(ph.source || "USGS PAGER");
+  let html = '<div class="comps-block"><div class="comps-kicker">' + escapeHtml(kicker) + "</div>";
+  html += '<p class="comps-note">As published by USGS PAGER · Source: ' + source + "</p>";
+  if (ph.available === false && ph.reason) {
+    html += '<p class="comps-note">' + escapeHtml(ph.reason) + "</p>";
+  }
+  if (ph.historical_comment) {
+    const csrc = ph.historical_comment_source_url
+      ? " " + extLink(ph.historical_comment_source_url, "Comment source", false)
+      : "";
+    html += '<p class="comps-note">' + escapeHtml(ph.historical_comment) + csrc + "</p>";
+  }
+  if (!events.length) {
+    html += '<p class="comps-note">No comparison events were listed in this PAGER product.</p>';
+  } else {
+    html += events.map((item) => {
+      const titleParts = [];
+      if (item.magnitude != null) titleParts.push("M " + fmtMag(item.magnitude));
+      const name = [item.name_as_published, item.country_code_as_published].filter(Boolean).join(", ");
+      if (name) titleParts.push(name);
+      const meta = [];
+      if (item.time_as_published) meta.push(item.time_as_published + " (as published)");
+      if (!isUnavailable(item.distance_km_as_published) && item.distance_km_as_published != null) {
+        meta.push(fmtDist(item.distance_km_as_published) + " away");
+      }
+      if (item.depth_km != null && Number.isFinite(Number(item.depth_km))) meta.push("depth " + fmtDepth(item.depth_km));
+      if (item.max_mmi != null && !isUnavailable(item.max_mmi)) meta.push("max MMI " + item.max_mmi);
+      if (item.population_at_max_mmi != null && !isUnavailable(item.population_at_max_mmi)) {
+        meta.push("population at max MMI " + fmtCount(item.population_at_max_mmi));
+      }
+      if (item.pager_event_id) meta.push("id " + item.pager_event_id);
+      return (
+        '<div class="comp-item"><div class="comp-title">' + escapeHtml(titleParts.join(" · ") || "Comparison event") + "</div>" +
+        (meta.length ? '<div class="comp-meta">' + escapeHtml(meta.join(" · ")) + "</div>" : "") +
+        "</div>"
+      );
+    }).join("");
+  }
+  if (ph.note) html += '<p class="comps-note">' + escapeHtml(ph.note) + "</p>";
+  html += "</div>";
+  return html;
+}
+
+function renderCatalogBlock(ca) {
+  if (!ca) {
+    return '<div class="comps-block"><div class="comps-kicker">USGS catalog analogs</div><p class="comps-note">unavailable</p></div>';
+  }
+  const listed = Array.isArray(ca.listed) ? ca.listed : [];
+  const count = ca.count;
+  const kicker = "USGS catalog analogs" + (count != null ? " · " + fmtCount(count) + " matches" : "");
+  const rule = ca.rule || "our own choice (d): M≥6.0 within 250 km since 1900, up to five largest plus a count";
+  let html = '<div class="comps-block"><div class="comps-kicker">' + escapeHtml(kicker) + " " + assumptionTag("our own choice (d)") + "</div>";
+  html += '<p class="comps-note">' + escapeHtml(rule) + "</p>";
+  if (ca.query_url) {
+    html += '<p class="comps-note">Query: ' + extLink(ca.query_url, "USGS FDSN event API", false) + "</p>";
+  }
+  if (ca.available === false && ca.reason) {
+    html += '<p class="comps-note">' + escapeHtml(ca.reason) + "</p>";
+  }
+  if (!listed.length) {
+    html += '<p class="comps-note">No catalog analogs were listed.</p>';
+  } else {
+    html += listed.map((item) => {
+      const label = "M " + fmtMag(item.magnitude) + (item.mag_type ? " " + item.mag_type : "") + " · " + (item.place || item.id || "catalog event");
+      const titleHtml = item.usgs_event_page ? extLink(item.usgs_event_page, label, false) : escapeHtml(label);
+      const meta = [];
+      if (item.time_utc) meta.push(fmtWhen(item.time_utc, "UTC"));
+      if (item.distance_km != null) meta.push(fmtDist(item.distance_km) + " away");
+      if (item.depth_km != null) meta.push("depth " + fmtDepth(item.depth_km));
+      if (item.id) meta.push(item.id);
+      return (
+        '<div class="comp-item"><div class="comp-title">' + titleHtml + "</div>" +
+        (meta.length ? '<div class="comp-meta">' + escapeHtml(meta.join(" · ")) + "</div>" : "") +
+        "</div>"
+      );
+    }).join("");
+  }
+  if (ca.note) html += '<p class="comps-note">' + escapeHtml(ca.note) + "</p>";
+  html += "</div>";
+  return html;
+}
+
+function renderAssumptions() {
+  const root = el.assumptionsRoot;
+  if (!root) return;
+  const doc = state.assumptions;
+  if (!doc || doc.__error) {
+    root.innerHTML = '<div class="assume-card"><p>Assumptions file could not be loaded' +
+      (doc && doc.__error ? " (" + escapeHtml(doc.__error) + ")" : "") + ".</p></div>";
+    return;
+  }
+  if (el.assumptionsHint) {
+    const ver = doc.version ? "Version " + doc.version + ". " : "";
+    const st = doc.status ? doc.status.charAt(0).toUpperCase() + doc.status.slice(1) + "." : "";
+    el.assumptionsHint.textContent = (ver + st).trim() || el.assumptionsHint.textContent;
+  }
+  const parts = [];
+  parts.push(renderPagerScaleCard(doc));
+  parts.push(renderBandsCard(doc));
+  parts.push(renderScenarioCard(doc));
+  parts.push(renderSeparationCard(doc));
+  parts.push(renderNotModelledCard(doc));
+  parts.push(renderHistRulesCard(doc));
+  root.innerHTML = '<div class="assume-stack">' + parts.filter(Boolean).join("") + "</div>";
+}
+
+function renderPagerScaleCard(doc) {
+  const sev = doc.severity_reading && doc.severity_reading.pager_alert_levels;
+  if (!sev) return "";
+  const fat = Array.isArray(sev.fatality_bins) ? sev.fatality_bins : [];
+  const eco = Array.isArray(sev.economic_bins) ? sev.economic_bins : [];
+  const byLevel = {};
+  fat.forEach((r) => { byLevel[r.level] = Object.assign({}, byLevel[r.level], { fat: r }); });
+  eco.forEach((r) => { byLevel[r.level] = Object.assign({}, byLevel[r.level], { eco: r }); });
+  const order = ["green", "yellow", "orange", "red"];
+  const rows = order.filter((lvl) => byLevel[lvl]).map((lvl) => {
+    const fatR = byLevel[lvl].fat || {};
+    const ecoR = byLevel[lvl].eco || {};
+    const ver = fatR.verification === "verified" && ecoR.verification === "verified"
+      ? assumptionTag("verified")
+      : escapeHtml(fatR.verification || ecoR.verification || "");
+    return (
+      "<tr>" +
+      "<td>" + pagerBadge(lvl) + "</td>" +
+      "<td>" + escapeHtml(fatR.estimated_fatalities || "unavailable") + "</td>" +
+      "<td>" + escapeHtml(ecoR.estimated_losses_usd || "unavailable") + "</td>" +
+      "<td>" + ver + "</td>" +
+      "</tr>"
+    );
+  }).join("");
+  const quotes = sev.quotes || {};
+  const quoteHtml = ["colour_meaning", "thresholds_prose", "overall_alert"]
+    .filter((k) => quotes[k])
+    .map((k) => '<blockquote class="assume-quote">' + escapeHtml(quotes[k]) + "</blockquote>")
+    .join("");
+  const source = sev.source_url
+    ? extLink(sev.source_url, sev.source_title || sev.source_url, false)
+    : escapeHtml(sev.source_title || "USGS PAGER");
+  const fetched = sev.fetched_and_quoted ? " Quoted " + sev.fetched_and_quoted + "." : "";
+  return (
+    '<div class="assume-card">' +
+    '<div class="assume-head"><h3>USGS PAGER Earthquake Impact Scale</h3>' + assumptionTag("verified") + "</div>" +
+    '<p class="meta-line">Source: ' + source + "." + escapeHtml(fetched) + " These thresholds interpret PAGER colour only. They are not attachment levels and are not used as a contractual measure.</p>" +
+    quoteHtml +
+    '<div class="scale-wrap"><table class="scale-table"><thead><tr>' +
+    "<th>Level</th><th>Estimated fatalities</th><th>Estimated losses (USD)</th><th>Verification</th>" +
+    "</tr></thead><tbody>" + rows + "</tbody></table></div>" +
+    (sev.interpretation_note ? '<p class="assume-note">' + escapeHtml(sev.interpretation_note) + "</p>" : "") +
+    "</div>"
+  );
+}
+
+function renderBandsCard(doc) {
+  const bands = doc.severity_reading && doc.severity_reading.screening_magnitude_bands;
+  if (!bands) return "";
+  return (
+    '<div class="assume-card">' +
+    '<div class="assume-head"><h3>Screening magnitude bands</h3>' + assumptionTag(bands.status) + "</div>" +
+    (bands.status ? '<p class="meta-line">' + escapeHtml(bands.status) + "</p>" : "") +
+    '<div class="bands">' +
+    '<div class="band-box"><div class="k">Alert</div><div class="v">' + escapeHtml(bands.alert || "unavailable") + '</div><div class="s">Strictly greater than 6.0</div></div>' +
+    '<div class="band-box"><div class="k">Watch</div><div class="v">' + escapeHtml(bands.watch || "unavailable") + '</div><div class="s">Including magnitude 6.0</div></div>' +
+    "</div>" +
+    (bands.note ? '<p class="assume-note" style="margin-top:12px">' + escapeHtml(bands.note) + "</p>" : "") +
+    "</div>"
+  );
+}
+
+function renderScenarioCard(doc) {
+  const items = doc.scenario_module_assumptions;
+  if (!Array.isArray(items) || !items.length) return "";
+  const cards = items.map((item) => {
+    const full = item.id === "deductibles" || item.id === "linear_layer_formula" || (typeof item.value === "string" && String(item.value).length > 80);
+    const used = item.used_in_phase_1 === false || item.used_in_phase_1 === "false"
+      ? '<span class="tag tag-status">Not used in Phase 1</span>'
+      : "";
+    let valueHtml = "";
+    if (item.id === "linear_layer_formula" && typeof item.value === "string") {
+      valueHtml = '<div class="formula">' + escapeHtml(item.value) + "</div>";
+    } else if (item.value && typeof item.value === "object" && !Array.isArray(item.value)) {
+      const rows = Object.keys(item.value).map((k) => {
+        const v = item.value[k];
+        const shown = Array.isArray(v) ? v.join("–") : String(v);
+        return "<dt>" + escapeHtml(k.replace(/_/g, " ")) + "</dt><dd>" + escapeHtml(shown) + "</dd>";
+      }).join("");
+      valueHtml = "<dl>" + rows + "</dl>";
+    } else {
+      valueHtml = "<p>" + escapeHtml(fmtMaybe(item.value)) + "</p>";
+    }
+    return (
+      '<div class="assume-item' + (full ? " full" : "") + '"><h4>' + escapeHtml(item.label || item.id || "Item") + " " +
+      assumptionTag(item.status) + " " + used + "</h4>" +
+      valueHtml +
+      (item.source ? '<div class="src">Source: ' + escapeHtml(item.source) + "</div>" : "") +
+      (item.note ? '<div class="src">' + escapeHtml(item.note) + "</div>" : "") +
+      (item.used_in_phase_1 && item.used_in_phase_1 !== false && item.used_in_phase_1 !== true
+        ? '<div class="src">' + escapeHtml(String(item.used_in_phase_1)) + "</div>"
+        : "") +
+      "</div>"
+    );
+  }).join("");
+  return (
+    '<div class="assume-card">' +
+    '<div class="assume-head"><h3>Scenario-module figures</h3><span class="tag tag-assumption">Assumption</span></div>' +
+    '<p class="meta-line">Every hard-coded figure below is tagged as an assumption. None of these figures is used in a Phase 1 event calculation.</p>' +
+    '<div class="assume-items">' + cards + "</div>" +
+    "</div>"
+  );
+}
+
+function renderSeparationCard(doc) {
+  const sep = doc.three_way_separation;
+  if (!sep) return "";
+  const fields = Array.isArray(sep.fields) ? sep.fields.map((f) => "<span>" + escapeHtml(f) + "</span>").join("") : "";
+  return (
+    '<div class="assume-card">' +
+    "<h3>Three-way separation</h3>" +
+    '<div class="sep-box">' + escapeHtml(sep.statement || "") +
+    (fields ? '<div class="sep-fields">' + fields + "</div>" : "") +
+    "</div></div>"
+  );
+}
+
+function renderNotModelledCard(doc) {
+  const list = doc.not_modelled_yet;
+  if (!Array.isArray(list) || !list.length) return "";
+  return (
+    '<div class="assume-card"><h3>Not modelled yet</h3>' +
+    '<ul class="not-modelled">' + list.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>" +
+    "</div>"
+  );
+}
+
+function renderHistRulesCard(doc) {
+  const rules = doc.historical_comps_rules;
+  if (!rules) return "";
+  const ph = rules.pager_historical || {};
+  const ca = rules.catalog_analogs || {};
+  const caveats = Array.isArray(rules.caveats) ? rules.caveats : [];
+  const caRows = [
+    ["Magnitude floor", ca.minmagnitude != null ? "M ≥ " + ca.minmagnitude : "unavailable"],
+    ["Radius", ca.maxradius_km != null ? ca.maxradius_km + " km" : "unavailable"],
+    ["Start", ca.start || "unavailable"],
+    ["Listed", ca.max_listed != null ? "Up to " + ca.max_listed + " largest, plus a count" : "unavailable"],
+    ["Earth radius used", ca.earth_radius_km_for_haversine != null ? ca.earth_radius_km_for_haversine + " km (haversine)" : "unavailable"],
+  ].map((r) => "<dt>" + escapeHtml(r[0]) + "</dt><dd>" + escapeHtml(r[1]) + "</dd>").join("");
+  return (
+    '<div class="assume-card">' +
+    "<h3>Historical comparison rules</h3>" +
+    '<div class="assume-items">' +
+    '<div class="assume-item"><h4>PAGER historical ' + assumptionTag(ph.status || "as published") + "</h4>" +
+    "<p>" + escapeHtml(ph.description || "") + "</p></div>" +
+    '<div class="assume-item"><h4>USGS catalog analogs ' + assumptionTag(ca.status) + "</h4>" +
+    "<p>" + escapeHtml(ca.description || "") + "</p><dl>" + caRows + "</dl></div>" +
+    "</div>" +
+    (caveats.length ? '<ul class="not-modelled" style="margin-top:14px">' + caveats.map((c) => "<li>" + escapeHtml(c) + "</li>").join("") + "</ul>" : "") +
+    "</div>"
+  );
 }
 
 function renderKpis() {
@@ -973,6 +1403,7 @@ function renderTable() {
         "<td>" + pagerBadge(e.pager_alert_level) + "</td>" +
         "<td><span class='badge " + escapeAttr(e.band || "") + "'>" + escapeHtml(e.band || "—") + "</span></td>" +
         "<td><span class='badge " + statusClass(e.status) + "'>" + escapeHtml(e.status || "unavailable") + "</span></td>" +
+        '<td>' + compsCellHtml(e) + "</td>" +
         '<td class="src">' + usgs + "</td>" +
         "</tr>"
       );
@@ -1169,6 +1600,7 @@ async function main() {
   renderKpis();
   renderLegend();
   renderCaveats();
+  renderAssumptions();
   renderWindowNote();
   renderTable();
   bindControls();

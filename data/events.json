@@ -19,7 +19,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tx16/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000tx16/us/1794282079557/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 224.79130527851927
+            },
+            {
+              "pager_event_id": "198910272104",
+              "time_as_published": "1989-10-27 21:04:53",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "SB",
+              "magnitude": 6.9,
+              "depth_km": 30.0,
+              "latitude": -10.969,
+              "longitude": 162.404,
+              "max_mmi": 8,
+              "population_at_max_mmi": 5387,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 345.3645659054207
+            },
+            {
+              "pager_event_id": "199912291329",
+              "time_as_published": "1999-12-29 13:29:20",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "SB",
+              "magnitude": 6.8,
+              "depth_km": 30.7,
+              "latitude": -10.925,
+              "longitude": 165.522,
+              "max_mmi": 8,
+              "population_at_max_mmi": 7192,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 7.748865818059538
+            }
+          ],
+          "historical_comment": "A magnitude 6.8 earthquake 8 km se of this event struck UK on December 29, 1999 (UTC), with estimated population exposures of 9,000 at intensity VII and 7,000 at intensity VIII, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000tx16/us/1794282079557/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-10.8669&longitude=165.5616&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 186,
+          "listed": [
+            {
+              "id": "usc000f1s0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usc000f1s0",
+              "time_utc": "2013-02-06T01:12:25.830Z",
+              "time_europe_zurich": "2013-02-06T02:12:25.830+01:00",
+              "magnitude": 8,
+              "mag_type": "mww",
+              "depth_km": 24,
+              "distance_km": 49.5,
+              "place": "2013 Santa Cruz Islands Earthquake"
+            },
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 188.4,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 211.4,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem841173",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem841173",
+              "time_utc": "1966-12-31T18:23:09.130Z",
+              "time_europe_zurich": "1966-12-31T19:23:09.130+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 59,
+              "distance_km": 149.0,
+              "place": "146 km SSE of Lata, Solomon Islands"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 204.1,
+              "place": "196 km NW of Sola, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000twun",
@@ -40,7 +171,89 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000twun/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000twun/us/1794180171933/json/historical_earthquakes.json",
+          "events": [],
+          "historical_comment": "There were no earthquakes with significant population exposure to shaking within a 400 km radius of this event.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000twun/us/1794180171933/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=7.4618&longitude=-36.8221&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 22,
+          "listed": [
+            {
+              "id": "iscgem913146",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem913146",
+              "time_utc": "1918-05-20T14:36:06.500Z",
+              "time_europe_zurich": "1918-05-20T15:36:06.500+01:00",
+              "magnitude": 7.26,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 211.4,
+              "place": "central Mid-Atlantic Ridge"
+            },
+            {
+              "id": "iscgem900570",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem900570",
+              "time_utc": "1942-11-28T10:38:46.800Z",
+              "time_europe_zurich": "1942-11-28T11:38:46.800+01:00",
+              "magnitude": 7.12,
+              "mag_type": "mw",
+              "depth_km": 10,
+              "distance_km": 140.8,
+              "place": "central Mid-Atlantic Ridge"
+            },
+            {
+              "id": "usp00028pr",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00028pr",
+              "time_utc": "1984-11-01T04:48:50.270Z",
+              "time_europe_zurich": "1984-11-01T05:48:50.270+01:00",
+              "magnitude": 7.1,
+              "mag_type": "mw",
+              "depth_km": 10,
+              "distance_km": 231.6,
+              "place": "central Mid-Atlantic Ridge"
+            },
+            {
+              "id": "iscgem872872",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem872872",
+              "time_utc": "1963-08-03T10:21:34.810Z",
+              "time_europe_zurich": "1963-08-03T11:21:34.810+01:00",
+              "magnitude": 6.9,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 104.7,
+              "place": "central Mid-Atlantic Ridge"
+            },
+            {
+              "id": "iscgem873547",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem873547",
+              "time_utc": "1963-11-17T00:48:04.250Z",
+              "time_europe_zurich": "1963-11-17T01:48:04.250+01:00",
+              "magnitude": 6.8,
+              "mag_type": "mw",
+              "depth_km": 20,
+              "distance_km": 68.4,
+              "place": "central Mid-Atlantic Ridge"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000twg9",
@@ -61,7 +274,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000twg9/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000twg9/us/1794048332258/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198308080347",
+              "time_as_published": "1983-08-08 03:47:57",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "JP",
+              "magnitude": 5.6,
+              "depth_km": 18.1,
+              "latitude": 35.507,
+              "longitude": 139.045,
+              "max_mmi": 7,
+              "population_at_max_mmi": 6611,
+              "fatalities_shaking_as_published": 1,
+              "fatalities_total_as_published": 1,
+              "distance_km_as_published": 285.9858162939364
+            },
+            {
+              "pager_event_id": "198712170208",
+              "time_as_published": "1987-12-17 02:08:19",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "JP",
+              "magnitude": 6.5,
+              "depth_km": 48.6,
+              "latitude": 35.412,
+              "longitude": 140.313,
+              "max_mmi": 7,
+              "population_at_max_mmi": 8017859,
+              "fatalities_shaking_as_published": 2,
+              "fatalities_total_as_published": 2,
+              "distance_km_as_published": 171.5778860206033
+            },
+            {
+              "pager_event_id": "197405082333",
+              "time_as_published": "1974-05-08 23:33:28",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "\"Izu-Hanto-Oki, Japan\"",
+              "country_code_as_published": "JP",
+              "magnitude": 6.7,
+              "depth_km": 11.9,
+              "latitude": 34.571,
+              "longitude": 138.77,
+              "max_mmi": 9,
+              "population_at_max_mmi": 30481,
+              "fatalities_shaking_as_published": 27,
+              "fatalities_total_as_published": 30,
+              "distance_km_as_published": 309.57056660109555
+            }
+          ],
+          "historical_comment": "A magnitude 6.6 earthquake 393 km sw of this event struck Niigata, Japan on October 23, 2004 (UTC), with estimated population exposures of 347,000 at intensity VIII and 76,000 at intensity IX or greater, resulting in a reported 48 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000twg9/us/1794048332258/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=34.9677&longitude=142.1175&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 184,
+          "listed": [
+            {
+              "id": "iscgem892187",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem892187",
+              "time_utc": "1953-11-25T17:48:55.090Z",
+              "time_europe_zurich": "1953-11-25T18:48:55.090+01:00",
+              "magnitude": 7.9,
+              "mag_type": "mw",
+              "depth_km": 25,
+              "distance_km": 116.1,
+              "place": "174 km SE of Katsuura, Japan"
+            },
+            {
+              "id": "usp000hvpa",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000hvpa",
+              "time_utc": "2011-03-11T06:15:40.280Z",
+              "time_europe_zurich": "2011-03-11T07:15:40.280+01:00",
+              "magnitude": 7.9,
+              "mag_type": "mwc",
+              "depth_km": 42.6,
+              "distance_km": 172.0,
+              "place": "47 km E of ?arai, Japan"
+            },
+            {
+              "id": "iscgem911591",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem911591",
+              "time_utc": "1923-09-02T02:46:41.720Z",
+              "time_europe_zurich": "1923-09-02T03:46:41.720+01:00",
+              "magnitude": 7.85,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 199.5,
+              "place": "5 km E of Tateyama, Japan"
+            },
+            {
+              "id": "iscgem902740",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem902740",
+              "time_utc": "1938-11-05T08:43:24.230Z",
+              "time_europe_zurich": "1938-11-05T09:43:24.230+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 35,
+              "distance_km": 222.8,
+              "place": "105 km E of Iwaki, Japan"
+            },
+            {
+              "id": "iscgem902498",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem902498",
+              "time_utc": "1938-05-23T07:18:30.500Z",
+              "time_europe_zurich": "1938-05-23T08:18:30.500+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 184.0,
+              "place": "69 km ESE of Kitaibaraki, Japan"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000tw8r",
@@ -82,7 +426,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tw8r/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000tw8r/us/1793986058917/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "197910011223",
+              "time_as_published": "1979-10-01 12:23:47",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "TO",
+              "magnitude": 5.6,
+              "depth_km": 15.0,
+              "latitude": -21.047,
+              "longitude": -175.62,
+              "max_mmi": 5,
+              "population_at_max_mmi": 49832,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 321.90426954774654
+            },
+            {
+              "pager_event_id": "198303210744",
+              "time_as_published": "1983-03-21 07:44:17",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "TO",
+              "magnitude": 6.7,
+              "depth_km": 61.6,
+              "latitude": -21.527,
+              "longitude": -175.278,
+              "max_mmi": 7,
+              "population_at_max_mmi": 53058,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 358.26839947687927
+            },
+            {
+              "pager_event_id": "197706221208",
+              "time_as_published": "1977-06-22 12:08:34",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "TO",
+              "magnitude": 8.0,
+              "depth_km": 64.2,
+              "latitude": -22.908,
+              "longitude": -175.749,
+              "max_mmi": 7,
+              "population_at_max_mmi": 46791,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 359.89782326957805
+            }
+          ],
+          "historical_comment": "A magnitude 8.0 earthquake 360 km ne of this event struck UK on June 22, 1977 (UTC), with estimated population exposures of 1,000 at intensity VI and 47,000 at intensity VII, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000tw8r/us/1793986058917/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-21.1984&longitude=-178.7145&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 125,
+          "listed": [
+            {
+              "id": "iscgem912700",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem912700",
+              "time_utc": "1919-01-01T03:00:34.460Z",
+              "time_europe_zurich": "1919-01-01T04:00:34.460+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 485,
+              "distance_km": 219.3,
+              "place": "Fiji region"
+            },
+            {
+              "id": "usp000890q",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000890q",
+              "time_utc": "1997-10-14T09:53:18.150Z",
+              "time_europe_zurich": "1997-10-14T11:53:18.150+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwb",
+              "depth_km": 167.3,
+              "distance_km": 224.4,
+              "place": "192 km WSW of Haveluloto, Tonga"
+            },
+            {
+              "id": "usp000ba6g",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000ba6g",
+              "time_utc": "2002-08-19T11:01:01.190Z",
+              "time_europe_zurich": "2002-08-19T13:01:01.190+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mwc",
+              "depth_km": 580,
+              "distance_km": 99.5,
+              "place": "Fiji region"
+            },
+            {
+              "id": "iscgem874777",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem874777",
+              "time_utc": "1962-05-21T21:15:37.770Z",
+              "time_europe_zurich": "1962-05-21T22:15:37.770+01:00",
+              "magnitude": 7.47,
+              "mag_type": "mw",
+              "depth_km": 390,
+              "distance_km": 179.8,
+              "place": "262 km WNW of Haveluloto, Tonga"
+            },
+            {
+              "id": "iscgem887265",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887265",
+              "time_utc": "1957-09-28T14:20:03.940Z",
+              "time_europe_zurich": "1957-09-28T15:20:03.940+01:00",
+              "magnitude": 7.4,
+              "mag_type": "mw",
+              "depth_km": 586.6,
+              "distance_km": 82.4,
+              "place": "Fiji region"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000tupl",
@@ -103,7 +578,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tupl/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000tupl/us/1793724300454/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 155.2000459831839
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 328.5239291321006
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 232.51528350407278
+            }
+          ],
+          "historical_comment": "A magnitude 7.4 earthquake 363 km ne of this event struck UK on November 26, 1999 (UTC), with estimated population exposures of 32,000 at intensity VII and 5,000 at intensity VIII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000tupl/us/1793724300454/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-14.1689&longitude=165.8242&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 271,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 183.1,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 215.8,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 193.3,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 157.5,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp00080wt",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00080wt",
+              "time_utc": "1997-04-21T12:02:26.430Z",
+              "time_europe_zurich": "1997-04-21T14:02:26.430+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 198.9,
+              "place": "171 km NNW of Sola, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000tuku",
@@ -124,7 +730,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tuku/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000tuku/us/1793571637699/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198303151727",
+              "time_as_published": "1983-03-15 17:27:27",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "JP",
+              "magnitude": 5.4,
+              "depth_km": 34.5,
+              "latitude": 34.797,
+              "longitude": 137.58,
+              "max_mmi": 7,
+              "population_at_max_mmi": 259308,
+              "fatalities_shaking_as_published": 1,
+              "fatalities_total_as_published": 1,
+              "distance_km_as_published": 121.21413589828359
+            },
+            {
+              "pager_event_id": "198308080347",
+              "time_as_published": "1983-08-08 03:47:57",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "JP",
+              "magnitude": 5.6,
+              "depth_km": 18.1,
+              "latitude": 35.507,
+              "longitude": 139.045,
+              "max_mmi": 7,
+              "population_at_max_mmi": 6611,
+              "fatalities_shaking_as_published": 1,
+              "fatalities_total_as_published": 1,
+              "distance_km_as_published": 265.65331072043017
+            },
+            {
+              "pager_event_id": "199501162046",
+              "time_as_published": "1995-01-16 20:46:52",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "\"Kobe, Japan\"",
+              "country_code_as_published": "JP",
+              "magnitude": 6.9,
+              "depth_km": 15.0,
+              "latitude": 34.578,
+              "longitude": 135.015,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1740167,
+              "fatalities_shaking_as_published": 5502,
+              "fatalities_total_as_published": 6432,
+              "distance_km_as_published": 200.02883423466216
+            }
+          ],
+          "historical_comment": "A magnitude 6.9 earthquake 200 km s of this event struck Kobe, Japan on January 16, 1995 (UTC), with estimated population exposures of 3,176,000 at intensity VIII and 1,740,000 at intensity IX or greater, resulting in a reported 6,432 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000tuku/us/1793571637699/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=33.822&longitude=136.9854&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 80,
+          "listed": [
+            {
+              "id": "iscgem898698",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem898698",
+              "time_utc": "1946-12-20T19:19:10.650Z",
+              "time_europe_zurich": "1946-12-20T20:19:10.650+01:00",
+              "magnitude": 8.3,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 126.8,
+              "place": "68 km S of Shing?, Japan"
+            },
+            {
+              "id": "iscgem899647",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem899647",
+              "time_utc": "1944-12-07T04:35:45.790Z",
+              "time_europe_zurich": "1944-12-07T05:35:45.790+01:00",
+              "magnitude": 8.1,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 73.3,
+              "place": "1944 Toankai Earthquake"
+            },
+            {
+              "id": "iscgem897281",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem897281",
+              "time_utc": "1948-04-17T16:11:32.070Z",
+              "time_europe_zurich": "1948-04-17T17:11:32.070+01:00",
+              "magnitude": 7.44,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 137.1,
+              "place": "67 km SSW of Shing?, Japan"
+            },
+            {
+              "id": "iscgem16957883",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem16957883",
+              "time_utc": "1906-01-21T13:49:33.570Z",
+              "time_europe_zurich": "1906-01-21T14:49:33.570+01:00",
+              "magnitude": 7.4,
+              "mag_type": "mw",
+              "depth_km": 300,
+              "distance_km": 103.6,
+              "place": "50 km SSW of Ōyama, Japan"
+            },
+            {
+              "id": "usp000d3mb",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000d3mb",
+              "time_utc": "2004-09-05T14:57:18.610Z",
+              "time_europe_zurich": "2004-09-05T16:57:18.610+02:00",
+              "magnitude": 7.4,
+              "mag_type": "mwb",
+              "depth_km": 10,
+              "distance_km": 71.4,
+              "place": "118 km ESE of Shing?, Japan"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000tu4f",
@@ -145,7 +882,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tu4f/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000tu4f/us/1793397145533/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 98.35794339556206
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 125.0068250534852
+            },
+            {
+              "pager_event_id": "200201021722",
+              "time_as_published": "2002-01-02 17:22:50",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 7.2,
+              "depth_km": 21.0,
+              "latitude": -17.59,
+              "longitude": 167.97,
+              "max_mmi": 8,
+              "population_at_max_mmi": 28336,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 271.3840557885838
+            }
+          ],
+          "historical_comment": "A magnitude 7.4 earthquake 162 km ne of this event struck UK on November 26, 1999 (UTC), with estimated population exposures of 32,000 at intensity VII and 5,000 at intensity VIII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000tu4f/us/1793397145533/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-15.1891&longitude=167.4523&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 294,
+          "listed": [
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 65.9,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "iscgem854473",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem854473",
+              "time_utc": "1965-08-11T22:31:52.870Z",
+              "time_europe_zurich": "1965-08-11T23:31:52.870+01:00",
+              "magnitude": 7.6,
+              "mag_type": "mw",
+              "depth_km": 47.6,
+              "distance_km": 74.3,
+              "place": "31 km S of Luganville, Vanuatu"
+            },
+            {
+              "id": "usp00004p9",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00004p9",
+              "time_utc": "1973-12-28T13:41:45.800Z",
+              "time_europe_zurich": "1973-12-28T14:41:45.800+01:00",
+              "magnitude": 7.5,
+              "mag_type": "ms",
+              "depth_km": 26,
+              "distance_km": 122.0,
+              "place": "81 km NW of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp0009j4n",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0009j4n",
+              "time_utc": "1999-11-26T13:21:15.570Z",
+              "time_europe_zurich": "1999-11-26T14:21:15.570+01:00",
+              "magnitude": 7.5,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 159.6,
+              "place": "92 km ESE of Lakatoro, Vanuatu"
+            },
+            {
+              "id": "iscgem16958113",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem16958113",
+              "time_utc": "1910-11-09T06:01:59.950Z",
+              "time_europe_zurich": "1910-11-09T07:01:59.950+01:00",
+              "magnitude": 7.41,
+              "mag_type": "mw",
+              "depth_km": 20,
+              "distance_km": 129.4,
+              "place": "47 km WSW of Norsup, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000ttxz",
@@ -166,7 +1034,89 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttxz/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000ttxz/us/1794471510586/json/historical_earthquakes.json",
+          "events": [],
+          "historical_comment": "There were no earthquakes with significant population exposure to shaking within a 400 km radius of this event.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000ttxz/us/1794471510586/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-36.4649&longitude=-98.0105&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 22,
+          "listed": [
+            {
+              "id": "us6000de34",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000de34",
+              "time_utc": "2021-02-03T05:23:43.520Z",
+              "time_europe_zurich": "2021-02-03T06:23:43.520+01:00",
+              "magnitude": 6.7,
+              "mag_type": "mww",
+              "depth_km": 10,
+              "distance_km": 27.9,
+              "place": "West Chile Rise"
+            },
+            {
+              "id": "iscgem890900",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem890900",
+              "time_utc": "1954-07-30T08:46:06.670Z",
+              "time_europe_zurich": "1954-07-30T09:46:06.670+01:00",
+              "magnitude": 6.62,
+              "mag_type": "mw",
+              "depth_km": 10,
+              "distance_km": 64.3,
+              "place": "West Chile Rise"
+            },
+            {
+              "id": "usp000824u",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000824u",
+              "time_utc": "1997-05-11T22:16:13.930Z",
+              "time_europe_zurich": "1997-05-12T00:16:13.930+02:00",
+              "magnitude": 6.5,
+              "mag_type": "mwc",
+              "depth_km": 10,
+              "distance_km": 29.0,
+              "place": "West Chile Rise"
+            },
+            {
+              "id": "usp0009jpx",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0009jpx",
+              "time_utc": "1999-12-10T18:38:30.100Z",
+              "time_europe_zurich": "1999-12-10T19:38:30.100+01:00",
+              "magnitude": 6.5,
+              "mag_type": "mwc",
+              "depth_km": 10,
+              "distance_km": 68.5,
+              "place": "West Chile Rise"
+            },
+            {
+              "id": "usp000crz0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000crz0",
+              "time_utc": "2004-04-08T04:57:50.480Z",
+              "time_europe_zurich": "2004-04-08T06:57:50.480+02:00",
+              "magnitude": 6.4,
+              "mag_type": "mwc",
+              "depth_km": 10,
+              "distance_km": 28.5,
+              "place": "West Chile Rise"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000ttw3",
@@ -187,7 +1137,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttw3/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000ttw3/us/1793330660477/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198705231709",
+              "time_as_published": "1987-05-23 17:09:05",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "PH",
+              "magnitude": 5.7,
+              "depth_km": 22.4,
+              "latitude": 8.023,
+              "longitude": 125.479,
+              "max_mmi": 7,
+              "population_at_max_mmi": 70462,
+              "fatalities_shaking_as_published": 1,
+              "fatalities_total_as_published": 1,
+              "distance_km_as_published": 217.2187583395034
+            },
+            {
+              "pager_event_id": "199002080715",
+              "time_as_published": "1990-02-08 07:15:33",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "PH",
+              "magnitude": 6.7,
+              "depth_km": 23.5,
+              "latitude": 9.766,
+              "longitude": 124.629,
+              "max_mmi": 8,
+              "population_at_max_mmi": 96167,
+              "fatalities_shaking_as_published": 1,
+              "fatalities_total_as_published": 1,
+              "distance_km_as_published": 343.83512291232506
+            },
+            {
+              "pager_event_id": "198912151843",
+              "time_as_published": "1989-12-15 18:43:47",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "PH",
+              "magnitude": 7.5,
+              "depth_km": 24.0,
+              "latitude": 8.366,
+              "longitude": 126.687,
+              "max_mmi": 8,
+              "population_at_max_mmi": 1294,
+              "fatalities_shaking_as_published": 2,
+              "fatalities_total_as_published": 2,
+              "distance_km_as_published": 80.77925776358529
+            }
+          ],
+          "historical_comment": "A magnitude 7.5 earthquake 81 km s of this event struck UK on December 15, 1989 (UTC), with estimated population exposures of 527,000 at intensity VII and 1,000 at intensity VIII, resulting in a reported 2 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000ttw3/us/1793330660477/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=8.3638&longitude=127.4204&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 149,
+          "listed": [
+            {
+              "id": "iscgem910911",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem910911",
+              "time_utc": "1924-04-14T16:20:37.490Z",
+              "time_europe_zurich": "1924-04-14T17:20:37.490+01:00",
+              "magnitude": 8.12,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 237.6,
+              "place": "1924 Mindanao, Philippines Earthquake"
+            },
+            {
+              "id": "iscgem765501",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem765501",
+              "time_utc": "1972-12-02T00:19:51.490Z",
+              "time_europe_zurich": "1972-12-02T01:19:51.490+01:00",
+              "magnitude": 8,
+              "mag_type": "mw",
+              "depth_km": 51.3,
+              "distance_km": 230.6,
+              "place": "1972 Mindanao, Philippines Earthquake"
+            },
+            {
+              "id": "iscgem899851",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem899851",
+              "time_utc": "1943-05-25T23:07:39.280Z",
+              "time_europe_zurich": "1943-05-26T00:07:39.280+01:00",
+              "magnitude": 7.76,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 111.5,
+              "place": "77 km E of Baculin, Philippines"
+            },
+            {
+              "id": "iscgem16958154",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem16958154",
+              "time_utc": "1911-07-12T04:07:38.110Z",
+              "time_europe_zurich": "1911-07-12T05:07:38.110+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 45.2,
+              "place": "74 km ENE of Barcelona, Philippines"
+            },
+            {
+              "id": "usp000433j",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000433j",
+              "time_utc": "1989-12-15T18:43:45.030Z",
+              "time_europe_zurich": "1989-12-15T19:43:45.030+01:00",
+              "magnitude": 7.6,
+              "mag_type": "mw",
+              "depth_km": 24.4,
+              "distance_km": 76.1,
+              "place": "37 km ENE of Barcelona, Philippines"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000ttlm",
@@ -208,7 +1289,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttlm/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000ttlm/us/1793240836965/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 147.05705051493132
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 376.70117380370897
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 277.3740131799688
+            }
+          ],
+          "historical_comment": "A magnitude 5.8 earthquake 277 km n of this event struck UK on November 27, 2002 (UTC), with estimated population exposures of 70,000 at intensity IV and 19,000 at intensity V, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000ttlm/us/1793240836965/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-13.9312&longitude=165.446&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 239,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 164.4,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 215.1,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 187.1,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 205.2,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp00080wt",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00080wt",
+              "time_utc": "1997-04-21T12:02:26.430Z",
+              "time_europe_zurich": "1997-04-21T14:02:26.430+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 200.4,
+              "place": "171 km NNW of Sola, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us7000ttfb",
@@ -229,7 +1441,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ttfb/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us7000ttfb/us/1793178024259/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 134.03791080133576
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 359.9172434482249
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 254.5156229014836
+            }
+          ],
+          "historical_comment": "A magnitude 7.4 earthquake 395 km ne of this event struck UK on November 26, 1999 (UTC), with estimated population exposures of 32,000 at intensity VII and 5,000 at intensity VIII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us7000ttfb/us/1793178024259/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-13.9141&longitude=165.6671&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 261,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 156.8,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 199.5,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem841173",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem841173",
+              "time_utc": "1966-12-31T18:23:09.130Z",
+              "time_europe_zurich": "1966-12-31T19:23:09.130+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 59,
+              "distance_km": 243.9,
+              "place": "146 km SSE of Lata, Solomon Islands"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 173.6,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem905046",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem905046",
+              "time_utc": "1934-07-18T19:40:20.150Z",
+              "time_europe_zurich": "1934-07-18T20:40:20.150+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 10,
+              "distance_km": 246.7,
+              "place": "138 km SSE of Lata, Solomon Islands"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4ty",
@@ -250,7 +1593,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4ty/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4ty/us/1793014349001/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198106092208",
+              "time_as_published": "1981-06-09 22:08:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "CN",
+              "magnitude": 6.0,
+              "depth_km": 0.4,
+              "latitude": 34.478,
+              "longitude": 91.427,
+              "max_mmi": 5,
+              "population_at_max_mmi": 3747,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 330.99389699722985
+            },
+            {
+              "pager_event_id": "200604192105",
+              "time_as_published": "2006-04-19 21:05:42",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "CN",
+              "magnitude": 5.7,
+              "depth_km": 33.0,
+              "latitude": 31.607,
+              "longitude": 90.413,
+              "max_mmi": 7,
+              "population_at_max_mmi": 1364,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 356.68617241605216
+            },
+            {
+              "pager_event_id": "197903290707",
+              "time_as_published": "1979-03-29 07:07:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "CN",
+              "magnitude": 5.8,
+              "depth_km": 7.4,
+              "latitude": 32.477,
+              "longitude": 97.182,
+              "max_mmi": 7,
+              "population_at_max_mmi": 2107,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 294.10793189999794
+            }
+          ],
+          "historical_comment": "A magnitude 5.8 earthquake 294 km n of this event struck UK on March 29, 1979 (UTC), with estimated population exposures of 2,000 at intensity VII and 1,000 at intensity VIII, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4ty/us/1793014349001/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=32.4625&longitude=94.0534&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 6,
+          "listed": [
+            {
+              "id": "us6000u43g",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u43g",
+              "time_utc": "2026-10-22T14:33:40.289Z",
+              "time_europe_zurich": "2026-10-22T16:33:40.289+02:00",
+              "magnitude": 7,
+              "mag_type": "mww",
+              "depth_km": 18,
+              "distance_km": 28.9,
+              "place": "189 km ENE of Nagqu, China"
+            },
+            {
+              "id": "usp000hbbt",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000hbbt",
+              "time_utc": "2010-04-13T23:49:38.330Z",
+              "time_europe_zurich": "2010-04-14T01:49:38.330+02:00",
+              "magnitude": 6.9,
+              "mag_type": "mwc",
+              "depth_km": 17,
+              "distance_km": 245.9,
+              "place": "233 km NNW of Qamdo, China"
+            },
+            {
+              "id": "iscgem905006",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem905006",
+              "time_utc": "1934-06-23T05:19:57.290Z",
+              "time_europe_zurich": "1934-06-23T06:19:57.290+01:00",
+              "magnitude": 6.23,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 129.7,
+              "place": "161 km NNE of Nagqu, China"
+            },
+            {
+              "id": "usp0000axa",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0000axa",
+              "time_utc": "1975-05-05T05:18:49.300Z",
+              "time_europe_zurich": "1975-05-05T06:18:49.300+01:00",
+              "magnitude": 6.1,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 126.7,
+              "place": "196 km NNE of Nagqu, China"
+            },
+            {
+              "id": "usp000hbc2",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000hbc2",
+              "time_utc": "2010-04-14T01:25:15.580Z",
+              "time_europe_zurich": "2010-04-14T03:25:15.580+02:00",
+              "magnitude": 6.1,
+              "mag_type": "mwc",
+              "depth_km": 7.6,
+              "distance_km": 238.2,
+              "place": "239 km NNW of Qamdo, China"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4rf",
@@ -271,7 +1745,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4rf/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4rf/us/1792981789963/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 92.9890476197263
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 151.6367321351142
+            },
+            {
+              "pager_event_id": "200201021722",
+              "time_as_published": "2002-01-02 17:22:50",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 7.2,
+              "depth_km": 21.0,
+              "latitude": -17.59,
+              "longitude": 167.97,
+              "max_mmi": 8,
+              "population_at_max_mmi": 28336,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 295.708139714726
+            }
+          ],
+          "historical_comment": "A magnitude 7.4 earthquake 189 km ne of this event struck UK on November 26, 1999 (UTC), with estimated population exposures of 32,000 at intensity VII and 5,000 at intensity VIII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4rf/us/1792981789963/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-14.9964&longitude=167.3039&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 291,
+          "listed": [
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 40.2,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp000h2g9",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2g9",
+              "time_utc": "2009-10-07T22:03:14.470Z",
+              "time_europe_zurich": "2009-10-08T00:03:14.470+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mww",
+              "depth_km": 45,
+              "distance_km": 237.3,
+              "place": "148 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem854473",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem854473",
+              "time_utc": "1965-08-11T22:31:52.870Z",
+              "time_europe_zurich": "1965-08-11T23:31:52.870+01:00",
+              "magnitude": 7.6,
+              "mag_type": "mw",
+              "depth_km": 47.6,
+              "distance_km": 90.8,
+              "place": "31 km S of Luganville, Vanuatu"
+            },
+            {
+              "id": "usp00004p9",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00004p9",
+              "time_utc": "1973-12-28T13:41:45.800Z",
+              "time_europe_zurich": "1973-12-28T14:41:45.800+01:00",
+              "magnitude": 7.5,
+              "mag_type": "ms",
+              "depth_km": 26,
+              "distance_km": 96.0,
+              "place": "81 km NW of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp0009j4n",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0009j4n",
+              "time_utc": "1999-11-26T13:21:15.570Z",
+              "time_europe_zurich": "1999-11-26T14:21:15.570+01:00",
+              "magnitude": 7.5,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 186.2,
+              "place": "92 km ESE of Lakatoro, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4r9",
@@ -292,7 +1897,106 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4r9/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4r9/us/1792980948547/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198201011851",
+              "time_as_published": "1982-01-01 18:51:06",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "JP",
+              "magnitude": 6.6,
+              "depth_km": 45.6,
+              "latitude": 26.82,
+              "longitude": 142.632,
+              "max_mmi": 7,
+              "population_at_max_mmi": 1566,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 317.2568335809592
+            }
+          ],
+          "historical_comment": "A magnitude 6.6 earthquake 317 km n of this event struck UK on January 1, 1982 (UTC), with estimated population exposures of 1,000 at intensity IV and 2,000 at intensity VII, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4r9/us/1792980948547/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=27.7953&longitude=139.6184&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 53,
+          "listed": [
+            {
+              "id": "us20002ki3",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/us20002ki3",
+              "time_utc": "2015-05-30T11:23:02.110Z",
+              "time_europe_zurich": "2015-05-30T13:23:02.110+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mww",
+              "depth_km": 664,
+              "distance_km": 86.2,
+              "place": "Bonin Islands, Japan region"
+            },
+            {
+              "id": "usp00022fa",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00022fa",
+              "time_utc": "1984-03-06T02:17:21.260Z",
+              "time_europe_zurich": "1984-03-06T03:17:21.260+01:00",
+              "magnitude": 7.4,
+              "mag_type": "mw",
+              "depth_km": 457.4,
+              "distance_km": 188.8,
+              "place": "Izu Islands, Japan region"
+            },
+            {
+              "id": "usp0009xzy",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0009xzy",
+              "time_utc": "2000-08-06T07:27:12.900Z",
+              "time_europe_zurich": "2000-08-06T09:27:12.900+02:00",
+              "magnitude": 7.4,
+              "mag_type": "mwc",
+              "depth_km": 394.8,
+              "distance_km": 118.1,
+              "place": "Bonin Islands, Japan region"
+            },
+            {
+              "id": "iscgem815709",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem815709",
+              "time_utc": "1968-10-07T19:20:20.890Z",
+              "time_europe_zurich": "1968-10-07T20:20:20.890+01:00",
+              "magnitude": 7.31,
+              "mag_type": "mw",
+              "depth_km": 500,
+              "distance_km": 188.9,
+              "place": "Bonin Islands, Japan region"
+            },
+            {
+              "id": "iscgem796043",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem796043",
+              "time_utc": "1970-05-27T12:05:07.570Z",
+              "time_europe_zurich": "1970-05-27T13:05:07.570+01:00",
+              "magnitude": 7.12,
+              "mag_type": "mw",
+              "depth_km": 390,
+              "distance_km": 86.6,
+              "place": "Bonin Islands, Japan region"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4mn",
@@ -313,7 +2017,89 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4mn/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4mn/us/1793208739227/json/historical_earthquakes.json",
+          "events": [],
+          "historical_comment": "There were no earthquakes with significant population exposure to shaking within a 400 km radius of this event.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4mn/us/1793208739227/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-54.0337&longitude=7.044&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 13,
+          "listed": [
+            {
+              "id": "usb000pkxl",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usb000pkxl",
+              "time_utc": "2014-04-15T03:57:01.370Z",
+              "time_europe_zurich": "2014-04-15T05:57:01.370+02:00",
+              "magnitude": 6.8,
+              "mag_type": "mww",
+              "depth_km": 11.18,
+              "distance_km": 125.4,
+              "place": "Bouvet Island region"
+            },
+            {
+              "id": "us1000apql",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/us1000apql",
+              "time_utc": "2017-10-10T18:53:27.830Z",
+              "time_europe_zurich": "2017-10-10T20:53:27.830+02:00",
+              "magnitude": 6.7,
+              "mag_type": "mww",
+              "depth_km": 9,
+              "distance_km": 105.0,
+              "place": "Bouvet Island region"
+            },
+            {
+              "id": "us2000cqnn",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/us2000cqnn",
+              "time_utc": "2018-01-28T16:03:03.970Z",
+              "time_europe_zurich": "2018-01-28T17:03:03.970+01:00",
+              "magnitude": 6.6,
+              "mag_type": "mww",
+              "depth_km": 10,
+              "distance_km": 205.1,
+              "place": "southwest of Africa"
+            },
+            {
+              "id": "usp0007k3j",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0007k3j",
+              "time_utc": "1996-06-22T00:32:13.470Z",
+              "time_europe_zurich": "1996-06-22T02:32:13.470+02:00",
+              "magnitude": 6.4,
+              "mag_type": "mwc",
+              "depth_km": 10,
+              "distance_km": 118.6,
+              "place": "Bouvet Island region"
+            },
+            {
+              "id": "iscgem731814",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem731814",
+              "time_utc": "1975-03-30T22:32:05.540Z",
+              "time_europe_zurich": "1975-03-30T23:32:05.540+01:00",
+              "magnitude": 6.36,
+              "mag_type": "mw",
+              "depth_km": 18.9,
+              "distance_km": 90.1,
+              "place": "Bouvet Island region"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4lm",
@@ -334,7 +2120,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4lm/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4lm/us/1792918990644/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 137.72043011151095
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 359.46938592218316
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 255.9102154689847
+            }
+          ],
+          "historical_comment": "A magnitude 7.4 earthquake 395 km ne of this event struck UK on November 26, 1999 (UTC), with estimated population exposures of 32,000 at intensity VII and 5,000 at intensity VIII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4lm/us/1792918990644/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-13.9418&longitude=165.6471&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 257,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 160.2,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 203.3,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem841173",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem841173",
+              "time_utc": "1966-12-31T18:23:09.130Z",
+              "time_europe_zurich": "1966-12-31T19:23:09.130+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 59,
+              "distance_km": 247.6,
+              "place": "146 km SSE of Lata, Solomon Islands"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 177.3,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 184.9,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4k6",
@@ -355,7 +2272,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4k6/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4k6/us/1794211126632/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 146.96172239107108
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 339.7131635949867
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 239.99224631550274
+            }
+          ],
+          "historical_comment": "A magnitude 7.4 earthquake 375 km ne of this event struck UK on November 26, 1999 (UTC), with estimated population exposures of 32,000 at intensity VII and 5,000 at intensity VIII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4k6/us/1794211126632/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-14.0765&longitude=165.7692&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 262,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 173.2,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 209.3,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 185.7,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 166.8,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp00080wt",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00080wt",
+              "time_utc": "1997-04-21T12:02:26.430Z",
+              "time_europe_zurich": "1997-04-21T14:02:26.430+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 192.8,
+              "place": "171 km NNW of Sola, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4jw",
@@ -376,7 +2424,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4jw/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4jw/us/1794462888438/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 127.53082121256027
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 370.6472775093726
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 262.2999635977211
+            }
+          ],
+          "historical_comment": "A magnitude 5.8 earthquake 262 km n of this event struck UK on November 27, 2002 (UTC), with estimated population exposures of 70,000 at intensity IV and 19,000 at intensity V, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4jw/us/1794462888438/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-13.8244&longitude=165.6167&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 258,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 148.1,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 194.5,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem841173",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem841173",
+              "time_utc": "1966-12-31T18:23:09.130Z",
+              "time_europe_zurich": "1966-12-31T19:23:09.130+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 59,
+              "distance_km": 236.7,
+              "place": "146 km SSE of Lata, Solomon Islands"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 167.3,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem905046",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem905046",
+              "time_utc": "1934-07-18T19:40:20.150Z",
+              "time_europe_zurich": "1934-07-18T20:40:20.150+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 10,
+              "distance_km": 239.2,
+              "place": "138 km SSE of Lata, Solomon Islands"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4jb",
@@ -397,7 +2576,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4jb/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4jb/us/1794022673029/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 147.2379364518309
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 327.1649008846975
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 226.08402031427627
+            }
+          ],
+          "historical_comment": "A magnitude 7.4 earthquake 362 km ne of this event struck UK on November 26, 1999 (UTC), with estimated population exposures of 32,000 at intensity VII and 5,000 at intensity VIII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4jb/us/1794022673029/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-14.1107&longitude=165.8938&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 274,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 176.3,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 206.7,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 184.9,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 152.9,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp00080wt",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00080wt",
+              "time_utc": "1997-04-21T12:02:26.430Z",
+              "time_europe_zurich": "1997-04-21T14:02:26.430+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 189.7,
+              "place": "171 km NNW of Sola, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u4j2",
@@ -418,7 +2728,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u4j2/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4j2/us/1794011369575/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 141.2500041194029
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 366.6604328284311
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 264.90255797969706
+            }
+          ],
+          "historical_comment": "A magnitude 5.8 earthquake 265 km n of this event struck UK on November 27, 2002 (UTC), with estimated population exposures of 70,000 at intensity IV and 19,000 at intensity V, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u4j2/us/1794011369575/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-13.9369&longitude=165.5629&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 248,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 161.6,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 208.0,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 181.1,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 193.4,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp00080wt",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00080wt",
+              "time_utc": "1997-04-21T12:02:26.430Z",
+              "time_europe_zurich": "1997-04-21T14:02:26.430+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 192.7,
+              "place": "171 km NNW of Sola, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u43g",
@@ -439,7 +2880,116 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u43g/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u43g/us/1793743985062/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198106092208",
+              "time_as_published": "1981-06-09 22:08:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "CN",
+              "magnitude": 6.0,
+              "depth_km": 0.4,
+              "latitude": 34.478,
+              "longitude": 91.427,
+              "max_mmi": 5,
+              "population_at_max_mmi": 3747,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 323.1101910034744
+            },
+            {
+              "pager_event_id": "197903290707",
+              "time_as_published": "1979-03-29 07:07:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "CN",
+              "magnitude": 5.8,
+              "depth_km": 7.4,
+              "latitude": 32.477,
+              "longitude": 97.182,
+              "max_mmi": 7,
+              "population_at_max_mmi": 2107,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 320.04832402113266
+            },
+            {
+              "pager_event_id": "200506012006",
+              "time_as_published": "2005-06-01 20:06:41",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "IN",
+              "magnitude": 5.8,
+              "depth_km": 24.4,
+              "latitude": 28.87,
+              "longitude": 94.58,
+              "max_mmi": 7,
+              "population_at_max_mmi": 15292,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 391.93427141706775
+            }
+          ],
+          "historical_comment": "A magnitude 5.8 earthquake 392 km n of this event struck UK on June 1, 2005 (UTC), with estimated population exposures of 25,000 at intensity VI and 15,000 at intensity VII, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u43g/us/1793743985062/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=32.3376&longitude=93.7837&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 3,
+          "listed": [
+            {
+              "id": "iscgem905006",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem905006",
+              "time_utc": "1934-06-23T05:19:57.290Z",
+              "time_europe_zurich": "1934-06-23T06:19:57.290+01:00",
+              "magnitude": 6.23,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 111.8,
+              "place": "161 km NNE of Nagqu, China"
+            },
+            {
+              "id": "usp0000axa",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0000axa",
+              "time_utc": "1975-05-05T05:18:49.300Z",
+              "time_europe_zurich": "1975-05-05T06:18:49.300+01:00",
+              "magnitude": 6.1,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 116.3,
+              "place": "196 km NNE of Nagqu, China"
+            },
+            {
+              "id": "iscgem17291220",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem17291220",
+              "time_utc": "1961-12-04T12:38:14.130Z",
+              "time_europe_zurich": "1961-12-04T13:38:14.130+01:00",
+              "magnitude": 6.08,
+              "mag_type": "mw",
+              "depth_km": 15.8,
+              "distance_km": 177.0,
+              "place": "Southern Qinghai, China"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u3jl",
@@ -460,7 +3010,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u3jl/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u3jl/us/1794291154627/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 140.4465703180249
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 365.8654282629616
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 263.7228453733531
+            }
+          ],
+          "historical_comment": "A magnitude 5.8 earthquake 264 km n of this event struck UK on November 27, 2002 (UTC), with estimated population exposures of 70,000 at intensity IV and 19,000 at intensity V, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u3jl/us/1794291154627/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-13.9347&longitude=165.5746&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 249,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 161.0,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 207.0,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem841173",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem841173",
+              "time_utc": "1966-12-31T18:23:09.130Z",
+              "time_europe_zurich": "1966-12-31T19:23:09.130+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 59,
+              "distance_km": 249.8,
+              "place": "146 km SSE of Lata, Solomon Islands"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 180.2,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 192.3,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u3bc",
@@ -481,7 +3162,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u3bc/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u3bc/us/1794493833863/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198007091100",
+              "time_as_published": "1980-07-09 11:00:18",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.0,
+              "depth_km": 19.1,
+              "latitude": -12.808,
+              "longitude": 166.172,
+              "max_mmi": 4,
+              "population_at_max_mmi": 2071,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 142.93221644279467
+            },
+            {
+              "pager_event_id": "199908221240",
+              "time_as_published": "1999-08-22 12:40:44",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 6.5,
+              "depth_km": 12.0,
+              "latitude": -16.092,
+              "longitude": 168.153,
+              "max_mmi": 9,
+              "population_at_max_mmi": 1886,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 348.151843954195
+            },
+            {
+              "pager_event_id": "200211271643",
+              "time_as_published": "2002-11-27 16:43:15",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "VU",
+              "magnitude": 5.8,
+              "depth_km": 8.0,
+              "latitude": -14.45,
+              "longitude": 167.96,
+              "max_mmi": 5,
+              "population_at_max_mmi": 18917,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 246.82180492486955
+            }
+          ],
+          "historical_comment": "A magnitude 7.4 earthquake 383 km ne of this event struck UK on November 26, 1999 (UTC), with estimated population exposures of 32,000 at intensity VII and 5,000 at intensity VIII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u3bc/us/1794493833863/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-14.0203&longitude=165.7158&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 255,
+          "listed": [
+            {
+              "id": "usp00018y0",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00018y0",
+              "time_utc": "1980-07-17T19:42:23.200Z",
+              "time_europe_zurich": "1980-07-17T20:42:23.200+01:00",
+              "magnitude": 7.9,
+              "mag_type": "ms",
+              "depth_km": 33,
+              "distance_km": 167.7,
+              "place": "199 km S of Lata, Solomon Islands"
+            },
+            {
+              "id": "iscgem887702",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887702",
+              "time_utc": "1957-12-17T13:50:22.120Z",
+              "time_europe_zurich": "1957-12-17T14:50:22.120+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 123.6,
+              "distance_km": 206.7,
+              "place": "186 km NNW of Sola, Vanuatu"
+            },
+            {
+              "id": "usp000h2gd",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000h2gd",
+              "time_utc": "2009-10-07T22:18:51.240Z",
+              "time_europe_zurich": "2009-10-08T00:18:51.240+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwc",
+              "depth_km": 35,
+              "distance_km": 182.0,
+              "place": "196 km NW of Sola, Vanuatu"
+            },
+            {
+              "id": "iscgem857011",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem857011",
+              "time_utc": "1965-05-20T00:40:18.860Z",
+              "time_europe_zurich": "1965-05-20T01:40:18.860+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 50,
+              "distance_km": 174.5,
+              "place": "45 km NNE of Port-Olry, Vanuatu"
+            },
+            {
+              "id": "usp00080wt",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp00080wt",
+              "time_utc": "1997-04-21T12:02:26.430Z",
+              "time_europe_zurich": "1997-04-21T14:02:26.430+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 190.5,
+              "place": "171 km NNW of Sola, Vanuatu"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u2mq",
@@ -502,7 +3314,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u2mq/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u2mq/us/1793845604705/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "198304042312",
+              "time_as_published": "1983-04-04 23:12:49",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "RU",
+              "magnitude": 6.5,
+              "depth_km": 55.0,
+              "latitude": 49.458,
+              "longitude": 155.508,
+              "max_mmi": 5,
+              "population_at_max_mmi": 1261,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 306.7202193571802
+            },
+            {
+              "pager_event_id": "199203021229",
+              "time_as_published": "1992-03-02 12:29:41",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "RU",
+              "magnitude": 6.8,
+              "depth_km": 44.1,
+              "latitude": 52.915,
+              "longitude": 159.799,
+              "max_mmi": 7,
+              "population_at_max_mmi": 2150,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 206.99198638723703
+            },
+            {
+              "pager_event_id": "199306081303",
+              "time_as_published": "1993-06-08 13:03:36",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "RU",
+              "magnitude": 7.5,
+              "depth_km": 60.5,
+              "latitude": 51.195,
+              "longitude": 157.755,
+              "max_mmi": 7,
+              "population_at_max_mmi": 3999,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 100.92737671051896
+            }
+          ],
+          "historical_comment": "A magnitude 7.5 earthquake 101 km ne of this event struck UK on June 8, 1993 (UTC), with estimated population exposures of 2,000 at intensity VI and 4,000 at intensity VII, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u2mq/us/1793845604705/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=52.0153&longitude=157.133&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 184,
+          "listed": [
+            {
+              "id": "official19521104165830_30",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/official19521104165830_30",
+              "time_utc": "1952-11-04T16:58:30.000Z",
+              "time_europe_zurich": "1952-11-04T17:58:30.000+01:00",
+              "magnitude": 9,
+              "mag_type": "mw",
+              "depth_km": 21.6,
+              "distance_km": 192.1,
+              "place": "89 km ESE of Petropavlovsk-Kamchatsky, Russia"
+            },
+            {
+              "id": "us6000qw60",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000qw60",
+              "time_utc": "2025-07-29T23:24:52.483Z",
+              "time_europe_zurich": "2025-07-30T01:24:52.483+02:00",
+              "magnitude": 8.8,
+              "mag_type": "mww",
+              "depth_km": 35,
+              "distance_km": 218.1,
+              "place": "2025 Kamchatka Peninsula, Russia Earthquake"
+            },
+            {
+              "id": "iscgem881925",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem881925",
+              "time_utc": "1959-05-04T07:15:47.930Z",
+              "time_europe_zurich": "1959-05-04T08:15:47.930+01:00",
+              "magnitude": 7.9,
+              "mag_type": "mw",
+              "depth_km": 55,
+              "distance_km": 223.2,
+              "place": "76 km ENE of Petropavlovsk-Kamchatsky, Russia"
+            },
+            {
+              "id": "iscgem16957819",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem16957819",
+              "time_utc": "1904-06-25T21:00:38.720Z",
+              "time_europe_zurich": "1904-06-25T22:00:38.720+01:00",
+              "magnitude": 7.7,
+              "mag_type": "mw",
+              "depth_km": 30,
+              "distance_km": 229.0,
+              "place": "115 km ESE of Petropavlovsk-Kamchatsky, Russia"
+            },
+            {
+              "id": "usp0005u7b",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0005u7b",
+              "time_utc": "1993-06-08T13:03:36.480Z",
+              "time_europe_zurich": "1993-06-08T15:03:36.480+02:00",
+              "magnitude": 7.5,
+              "mag_type": "mw",
+              "depth_km": 70.6,
+              "distance_km": 100.8,
+              "place": "97 km ESE of Ozernovskiy, Russia"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u28y",
@@ -523,7 +3466,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u28y/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u28y/us/1791996170258/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "197910011223",
+              "time_as_published": "1979-10-01 12:23:47",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "TO",
+              "magnitude": 5.6,
+              "depth_km": 15.0,
+              "latitude": -21.047,
+              "longitude": -175.62,
+              "max_mmi": 5,
+              "population_at_max_mmi": 49832,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 327.6365207276745
+            },
+            {
+              "pager_event_id": "198303210744",
+              "time_as_published": "1983-03-21 07:44:17",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "TO",
+              "magnitude": 6.7,
+              "depth_km": 61.6,
+              "latitude": -21.527,
+              "longitude": -175.278,
+              "max_mmi": 7,
+              "population_at_max_mmi": 53058,
+              "fatalities_shaking_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "fatalities_total_as_published": "unavailable: not reported in the PAGER historical comparison",
+              "distance_km_as_published": 367.3857516299964
+            },
+            {
+              "pager_event_id": "197706221208",
+              "time_as_published": "1977-06-22 12:08:34",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "TO",
+              "magnitude": 8.0,
+              "depth_km": 64.2,
+              "latitude": -22.908,
+              "longitude": -175.749,
+              "max_mmi": 7,
+              "population_at_max_mmi": 46791,
+              "fatalities_shaking_as_published": 0,
+              "fatalities_total_as_published": 0,
+              "distance_km_as_published": 377.5572857523132
+            }
+          ],
+          "historical_comment": "A magnitude 8.0 earthquake 378 km ne of this event struck UK on June 22, 1977 (UTC), with estimated population exposures of 1,000 at intensity VI and 47,000 at intensity VII, with no reported fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u28y/us/1791996170258/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-21.0156&longitude=-178.8624&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 121,
+          "listed": [
+            {
+              "id": "iscgem912700",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem912700",
+              "time_utc": "1919-01-01T03:00:34.460Z",
+              "time_europe_zurich": "1919-01-01T04:00:34.460+01:00",
+              "magnitude": 7.8,
+              "mag_type": "mw",
+              "depth_km": 485,
+              "distance_km": 205.7,
+              "place": "Fiji region"
+            },
+            {
+              "id": "usp000890q",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000890q",
+              "time_utc": "1997-10-14T09:53:18.150Z",
+              "time_europe_zurich": "1997-10-14T11:53:18.150+02:00",
+              "magnitude": 7.8,
+              "mag_type": "mwb",
+              "depth_km": 167.3,
+              "distance_km": 247.6,
+              "place": "192 km WSW of Haveluloto, Tonga"
+            },
+            {
+              "id": "usp000ba6g",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000ba6g",
+              "time_utc": "2002-08-19T11:01:01.190Z",
+              "time_europe_zurich": "2002-08-19T13:01:01.190+02:00",
+              "magnitude": 7.7,
+              "mag_type": "mwc",
+              "depth_km": 580,
+              "distance_km": 101.3,
+              "place": "Fiji region"
+            },
+            {
+              "id": "iscgem874777",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem874777",
+              "time_utc": "1962-05-21T21:15:37.770Z",
+              "time_europe_zurich": "1962-05-21T22:15:37.770+01:00",
+              "magnitude": 7.47,
+              "mag_type": "mw",
+              "depth_km": 390,
+              "distance_km": 178.9,
+              "place": "262 km WNW of Haveluloto, Tonga"
+            },
+            {
+              "id": "iscgem887265",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem887265",
+              "time_utc": "1957-09-28T14:20:03.940Z",
+              "time_europe_zurich": "1957-09-28T15:20:03.940+01:00",
+              "magnitude": 7.4,
+              "mag_type": "mw",
+              "depth_km": 586.6,
+              "distance_km": 75.1,
+              "place": "Fiji region"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     },
     {
       "id": "us6000u24c",
@@ -544,7 +3618,138 @@
       "pager_alert_level_reason": null,
       "shakemap_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u24c/shakemap",
       "shakemap_url_reason": null,
-      "status": "no overlap"
+      "status": "no overlap",
+      "historical_comps": {
+        "pager_historical": {
+          "available": true,
+          "reason": null,
+          "source": "losspager historical_earthquakes.json",
+          "source_url": "https://earthquake.usgs.gov/product/losspager/us6000u24c/us/1793045878487/json/historical_earthquakes.json",
+          "events": [
+            {
+              "pager_event_id": "199604291440",
+              "time_as_published": "1996-04-29 14:40:43",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "PG",
+              "magnitude": 7.2,
+              "depth_km": 48.9,
+              "latitude": -6.538,
+              "longitude": 155.104,
+              "max_mmi": 7,
+              "population_at_max_mmi": 56800,
+              "fatalities_shaking_as_published": 1,
+              "fatalities_total_as_published": 1,
+              "distance_km_as_published": 346.71144462096856
+            },
+            {
+              "pager_event_id": "198505101535",
+              "time_as_published": "1985-05-10 15:35:54",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "PG",
+              "magnitude": 7.2,
+              "depth_km": 46.6,
+              "latitude": -5.596,
+              "longitude": 151.061,
+              "max_mmi": 7,
+              "population_at_max_mmi": 28277,
+              "fatalities_shaking_as_published": 1,
+              "fatalities_total_as_published": 1,
+              "distance_km_as_published": 121.17482353341168
+            },
+            {
+              "pager_event_id": "198312212332",
+              "time_as_published": "1983-12-21 23:32:14",
+              "time_zone_note": "unavailable: PAGER historical comparison times are typically published without a timezone suffix; shown as published",
+              "name_as_published": "UK",
+              "country_code_as_published": "PG",
+              "magnitude": 6.2,
+              "depth_km": 42.7,
+              "latitude": -5.447,
+              "longitude": 151.896,
+              "max_mmi": 7,
+              "population_at_max_mmi": 4847,
+              "fatalities_shaking_as_published": 10,
+              "fatalities_total_as_published": 10,
+              "distance_km_as_published": 28.68537547485921
+            }
+          ],
+          "historical_comment": "A magnitude 6.2 earthquake 29 km s of this event struck UK on December 21, 1983 (UTC), with estimated population exposures of 5,000 at intensity VI and 5,000 at intensity VII, resulting in a reported 10 fatalities.",
+          "historical_comment_source_url": "https://earthquake.usgs.gov/product/losspager/us6000u24c/us/1793045878487/json/comments.json",
+          "note": "Listed as published by USGS PAGER. Place names and country codes are PAGER's own (they may not be ISO). Fatalities are PAGER-published comparison figures, not a confirmed death toll and not an insured loss."
+        },
+        "catalog_analogs": {
+          "available": true,
+          "reason": null,
+          "rule": "our own choice (d): M>=6.0 within 250 km since 1900-01-01, up to 5 largest plus a count; distance is a haversine (d) with R=6371.0 km",
+          "minmagnitude": 6.0,
+          "maxradius_km": 250,
+          "start": "1900-01-01",
+          "queried_at_utc": "2026-11-12T16:35:22.256Z",
+          "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=-5.4965&longitude=152.1501&maxradiuskm=250&minmagnitude=6.0&starttime=1900-01-01&orderby=magnitude",
+          "count": 409,
+          "listed": [
+            {
+              "id": "iscgem912783",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem912783",
+              "time_utc": "1919-05-06T19:41:13.010Z",
+              "time_europe_zurich": "1919-05-06T20:41:13.010+01:00",
+              "magnitude": 8.15,
+              "mag_type": "mw",
+              "depth_km": 35,
+              "distance_km": 204.2,
+              "place": "1919 Papua New Guinea Earthquake"
+            },
+            {
+              "id": "iscgem782684",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem782684",
+              "time_utc": "1971-07-26T01:23:24.130Z",
+              "time_europe_zurich": "1971-07-26T02:23:24.130+01:00",
+              "magnitude": 8.1,
+              "mag_type": "mw",
+              "depth_km": 51.5,
+              "distance_km": 133.9,
+              "place": "1971 Bougainville Earthquake"
+            },
+            {
+              "id": "iscgem782181",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem782181",
+              "time_utc": "1971-07-14T06:11:26.520Z",
+              "time_europe_zurich": "1971-07-14T07:11:26.520+01:00",
+              "magnitude": 8,
+              "mag_type": "mw",
+              "depth_km": 15,
+              "distance_km": 189.7,
+              "place": "1971 New Britain Earthquake"
+            },
+            {
+              "id": "usp000a3qq",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/usp000a3qq",
+              "time_utc": "2000-11-16T04:54:56.740Z",
+              "time_europe_zurich": "2000-11-16T05:54:56.740+01:00",
+              "magnitude": 8,
+              "mag_type": "mwc",
+              "depth_km": 33,
+              "distance_km": 168.6,
+              "place": "2000 New Ireland Earthquake"
+            },
+            {
+              "id": "iscgem913746",
+              "usgs_event_page": "https://earthquake.usgs.gov/earthquakes/eventpage/iscgem913746",
+              "time_utc": "1916-01-01T13:20:48.920Z",
+              "time_europe_zurich": "1916-01-01T14:20:48.920+01:00",
+              "magnitude": 7.96,
+              "mag_type": "mw",
+              "depth_km": 35,
+              "distance_km": 97.8,
+              "place": "60 km SE of Kokopo, Papua New Guinea"
+            }
+          ],
+          "earth_radius_km": 6371.0,
+          "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      }
     }
   ]
 }
