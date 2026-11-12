@@ -1,0 +1,51 @@
+{
+  "generated_at_utc": "2026-11-12T16:25:08.968Z",
+  "generated_at_europe_zurich": "2026-11-12T17:25:08.968+01:00",
+  "window": {
+    "start_utc": "2026-10-13T16:25:08.968Z",
+    "end_utc": "2026-11-12T16:25:08.968Z",
+    "days": 30
+  },
+  "thresholds": {
+    "alert": "M > 6.0 (strictly greater)",
+    "watch": "5.8 <= M <= 6.0",
+    "minmagnitude": 5.8
+  },
+  "sources": {
+    "usgs_fdsn": "https://earthquake.usgs.gov/fdsnws/event/1/",
+    "usgs_feeds": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/",
+    "pager": "https://earthquake.usgs.gov/data/pager/",
+    "pager_background": "https://earthquake.usgs.gov/data/pager/background.php"
+  },
+  "version": "phase1-0.1",
+  "counts": {
+    "events": 26,
+    "alert_band": 12,
+    "watch_band": 14,
+    "pager_levels": {
+      "green": 25,
+      "yellow": 0,
+      "orange": 1,
+      "red": 0,
+      "unavailable": 0
+    },
+    "status": {
+      "overlap, assessment pending": 0,
+      "threshold met": 0,
+      "no overlap": 26
+    },
+    "zones": 0
+  },
+  "caveats": [
+    "zones.json is an empty FeatureCollection: no publicly disclosed cat-bond coverage regions were verified from a primary public source. No zones were invented or filled from memory.",
+    "Because there are no public zones, every event status is 'no overlap'.",
+    "'threshold met' is never assigned without a stated public basis; Phase 1 has no such public criterion, so this status is not used.",
+    "Public site files contain no PCS/PERILS or broker data, no deal terms, and no loss estimates. PAGER economic/fatality distributions and empirical dollar figures are excluded from the public site.",
+    "PAGER alert level is the USGS overall colour (the higher of the fatality and economic alerts) as published on the event; it is not an insured-loss figure and not a contract result. It is provided so a consumer can colour a map.",
+    "Magnitudes, locations, depths and PAGER levels can be revised by USGS. This file is a snapshot at generated_at_utc.",
+    "The verified bond watchlist is empty (no verified deal documents). Private contract tests are not represented on this public site.",
+    "This snapshot was produced by a one-shot `run` (or `site`) command. No routine or polling service is installed.",
+    "Times are converted from the USGS epoch-millisecond origin to UTC and Europe/Zurich (CET/CEST).",
+    "ALERT band is M > 6.0 (strictly greater). WATCH band is 5.8 ≤ M ≤ 6.0. Events below M 5.8 are not included."
+  ]
+}

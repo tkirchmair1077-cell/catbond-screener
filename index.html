@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earthquake cat-bond screener</title>
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Public Phase 1 map of recent earthquakes from USGS ComCat and PAGER, for catastrophe‑bond geographic screening. Not investment advice. No deal terms or principal‑impairment figures.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230a111e' stroke='%237ba5e6' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='9.5' fill='none' stroke='%233d6cb3' stroke-width='0.8' opacity='0.7'/%3E%3Ccircle cx='22' cy='12' r='2.2' fill='%23f08a2c'/%3E%3Ccircle cx='11' cy='18' r='1.4' fill='%233dcc7a'/%3E%3Ccircle cx='18' cy='22' r='1.1' fill='%233dcc7a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a111e; --surface:#111a2b; --surface-2:#0e1626; --border:#223149; --border-strong:#2f4262;
+  --text:#e5ebf4; --text-2:#9aabc3; --text-3:#6f819b; --grid:#1d2a40;
+  --navy:#3d6cb3; --navy-ink:#ffffff; --accent:#7ba5e6;
+  --green:#4cc08a; --green-bg:#12301f; --red:#ec7b76; --red-bg:#3a1a1a;
+  --amber:#e3b25a; --amber-bg:#33280f; --neutral-bg:#18233a;
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --pager-green:#3dcc7a; --pager-yellow:#f0d24a; --pager-orange:#f08a2c;
+  --pager-red:#e85d5d; --pager-none:#8a94a6;
+  --map-bg:#070c16;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1360px;margin:0 auto;padding:0 28px}
+header.top{position:sticky;top:0;z-index:30;background:rgba(17,26,43,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top-inner{display:flex;align-items:center;gap:20px;padding:14px 28px;max-width:1360px;margin:0 auto;flex-wrap:wrap}
+.brand{flex:1 1 280px;min-width:220px}
+.brand .kicker{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);font-weight:650;margin:0 0 2px}
+.brand h1{margin:0;font-size:22px;font-weight:650;letter-spacing:-.01em;color:var(--text)}
+.brand .sub{color:var(--text-2);font-size:12.5px;margin-top:2px}
+.meta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;color:var(--text-2);font-size:12.5px}
+.meta .lbl{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.meta .val{color:var(--text);font-weight:550}
+.fresh{display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--text-3);flex:none;box-shadow:0 0 0 3px rgba(128,140,160,.18)}
+.dot.green{background:var(--green);box-shadow:0 0 0 3px rgba(76,192,138,.18)}
+.dot.amber{background:#d9a21b;box-shadow:0 0 0 3px rgba(217,162,27,.2)}
+button{font:inherit;cursor:pointer}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border-strong);border-radius:8px;padding:8px 12px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
+.btn-ghost:hover{background:var(--neutral-bg)}
+.banner{background:var(--amber-bg);border-bottom:1px solid var(--amber);color:var(--text);font-weight:550;text-align:center;padding:9px 16px;font-size:13px;line-height:1.45}
+.banner[hidden]{display:none}
+.banner a{color:var(--accent)}
+main{padding:28px 0 20px}
+section{margin-bottom:42px;scroll-margin-top:84px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.sec-head h2{margin:0;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-2);font-weight:650}
+.sec-head .hint{color:var(--text-3);font-size:12px}
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.kpi .k{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);font-weight:650}
+.kpi .v{font-size:22px;font-weight:650;letter-spacing:-.02em;line-height:1.2;margin-top:4px;color:var(--text)}
+.kpi .s{font-size:11.5px;color:var(--text-2);margin-top:3px;line-height:1.4}
+.kpi .s .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px;vertical-align:middle}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px}
+.map-card{position:relative;background:var(--map-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;height:min(72vh,760px);min-height:480px}
+#starCanvas,#globeCanvas,#eventLayer{position:absolute;inset:0;width:100%;height:100%;display:block}
+#eventLayer{z-index:2;touch-action:none}
+#globeCanvas{z-index:1}
+#starCanvas{z-index:0}
+.map-status{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;color:var(--text-2);font-size:14px;background:rgba(7,12,22,.35);pointer-events:none}
+.map-status[hidden]{display:none}
+.map-controls{position:absolute;top:16px;left:16px;z-index:5;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.seg{display:inline-flex;border:1px solid var(--border-strong);border-radius:8px;overflow:hidden;background:rgba(17,26,43,.78);backdrop-filter:blur(10px)}
+.seg button{background:transparent;border:0;padding:6px 13px;font-size:12.5px;color:var(--text-2);font-weight:550;border-right:1px solid var(--border)}
+.seg button:last-child{border-right:0}
+.seg button:hover{background:var(--neutral-bg);color:var(--text)}
+.seg button.active{background:var(--navy);color:var(--navy-ink)}
+.ctrl-row{display:flex;gap:8px;flex-wrap:wrap}
+.map-legend{position:absolute;left:16px;bottom:40px;z-index:5;background:rgba(17,26,43,.82);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:12px;padding:12px 14px;font-size:12px;color:var(--text-2);max-width:280px;line-height:1.45}
+.map-legend h3{margin:0 0 8px;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);font-weight:650}
+.leg-row{display:flex;align-items:center;gap:8px;margin:4px 0}
+.leg-dot{width:11px;height:11px;border-radius:50%;flex:none;box-shadow:0 0 0 3px rgba(255,255,255,.06)}
+.leg-sizes{display:flex;align-items:flex-end;gap:12px;margin:8px 0 4px;padding-top:6px;border-top:1px solid var(--border)}
+.leg-sz{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--text-3);font-size:10.5px}
+.leg-sz i{display:block;border-radius:50%;background:var(--pager-green);box-shadow:0 0 8px rgba(61,204,122,.35)}
+.zone-note{margin:8px 0 0;padding-top:8px;border-top:1px solid var(--border);color:var(--amber);font-size:11.5px;font-weight:550;line-height:1.45}
+.map-hint{position:absolute;left:16px;bottom:12px;z-index:5;margin:0;font-size:11px;color:var(--text-3)}
+.event-panel{position:absolute;top:16px;right:16px;z-index:6;width:min(360px,calc(100% - 32px));background:rgba(17,26,43,.9);backdrop-filter:blur(16px);border:1px solid var(--border-strong);border-radius:14px;padding:16px 18px 18px;box-shadow:0 16px 40px rgba(0,0,0,.4);max-height:calc(100% - 32px);overflow:auto}
+.event-panel[hidden]{display:none}
+.event-panel .panel-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.event-panel .mag{font-size:32px;font-weight:650;letter-spacing:-.03em;line-height:1;color:var(--text)}
+.event-panel .mag small{font-size:13px;font-weight:500;color:var(--text-2);margin-left:6px;letter-spacing:0}
+.event-panel .place{margin:8px 0 0;font-size:14.5px;font-weight:550;line-height:1.35}
+.event-panel .idline{margin:4px 0 0;font-size:11.5px;color:var(--text-3)}
+.event-panel dl{margin:14px 0 0;display:grid;grid-template-columns:118px 1fr;gap:7px 10px}
+.event-panel dt{margin:0;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);font-weight:650;padding-top:2px}
+.event-panel dd{margin:0;font-size:13px;color:var(--text);line-height:1.4}
+.event-panel .links{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.event-panel .links a{color:var(--accent);text-decoration:none;font-size:13px;font-weight:550}
+.event-panel .links a:hover{text-decoration:underline}
+.btn-close{background:transparent;border:1px solid var(--border-strong);color:var(--text-2);border-radius:8px;width:28px;height:28px;padding:0;font-size:16px;line-height:1;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.btn-close:hover{background:var(--neutral-bg);color:var(--text)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:650;padding:3px 9px;border-radius:999px;border:1px solid var(--border-strong);color:var(--text-2);background:var(--neutral-bg);white-space:nowrap}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--text-3)}
+.badge.green{color:var(--pager-green);background:#12301f;border-color:transparent}
+.badge.green::before{background:var(--pager-green)}
+.badge.yellow{color:var(--pager-yellow);background:#33280f;border-color:transparent}
+.badge.yellow::before{background:var(--pager-yellow)}
+.badge.orange{color:var(--pager-orange);background:#3a2410;border-color:transparent}
+.badge.orange::before{background:var(--pager-orange)}
+.badge.red{color:var(--pager-red);background:var(--red-bg);border-color:transparent}
+.badge.red::before{background:var(--pager-red)}
+.badge.none,.badge.unavailable{color:var(--pager-none)}
+.badge.none::before,.badge.unavailable::before{background:var(--pager-none)}
+.badge.alert{color:var(--accent);background:var(--neutral-bg);border-color:transparent}
+.badge.alert::before{background:var(--accent)}
+.badge.watch{color:var(--text-2);background:var(--neutral-bg)}
+.badge.status-no{color:var(--text-2)}
+.badge.status-pending{color:var(--amber);background:var(--amber-bg);border-color:transparent}
+.badge.status-pending::before{background:var(--amber)}
+.badge.status-met{color:var(--pager-orange);background:#3a2410;border-color:transparent}
+.badge.status-met::before{background:var(--pager-orange)}
+#tooltip{position:absolute;z-index:7;pointer-events:none;background:rgba(17,26,43,.94);border:1px solid var(--border-strong);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--text);white-space:nowrap;transform:translate(12px,12px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+#tooltip[hidden]{display:none}
+.window-note{margin:12px 0 0;font-size:12.5px;color:var(--text-2);line-height:1.55;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--navy);border-radius:8px;padding:11px 16px}
+.window-note a{color:var(--accent);text-decoration:none}
+.window-note a:hover{text-decoration:underline}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);font-weight:650;text-align:left;padding:8px 12px;border-bottom:1px solid var(--border-strong);white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--text)}
+th.r,td.r{text-align:right}
+th.sorted{color:var(--accent)}
+td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:rgba(61,108,179,.12)}
+tbody tr.selected td{background:rgba(61,108,179,.2)}
+tbody tr:last-child td{border-bottom:0}
+.time-zh{font-weight:550;color:var(--text)}
+.time-utc{font-size:11.5px;color:var(--text-3);margin-top:2px}
+.place-cell{min-width:14rem;max-width:26rem}
+.src a{color:var(--accent);text-decoration:none}
+.src a:hover{text-decoration:underline}
+.filter-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.method h3{margin:0 0 8px;font-size:15px;font-weight:620}
+.method p{margin:0 0 12px;color:var(--text-2);line-height:1.6;max-width:72rem}
+.method p:last-child{margin-bottom:0}
+.method strong{color:var(--text);font-weight:620}
+.caveat{border:1px solid var(--amber);background:var(--amber-bg);border-radius:12px;padding:18px 22px;color:var(--text)}
+.caveat h2{margin:0 0 10px;font-size:15px;color:var(--amber);letter-spacing:.01em;font-weight:650}
+.caveat ul{margin:0;padding:0 0 0 18px}
+.caveat li{margin:0 0 8px;color:var(--text);line-height:1.55;font-size:13.5px}
+.caveat li:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--border);padding:28px 0 52px;color:var(--text-3);font-size:12px;line-height:1.6}
+footer p{margin:0 0 8px;max-width:72rem}
+footer p:last-child{margin:0}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.quake{cursor:pointer}
+.quake .ring{pointer-events:none}
+.quake.selected .core{stroke:#fff;stroke-width:2;stroke-opacity:1}
+.ring.pulse{transform-origin:0 0;animation:ringpulse 2.6s ease-out infinite}
+@keyframes ringpulse{
+  0%{transform:scale(1);stroke-opacity:.75}
+  100%{transform:scale(2.7);stroke-opacity:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .ring.pulse{animation:none}
+}
+@media (max-width:1100px){
+  .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  .top-inner{padding:12px 16px}
+  .brand h1{font-size:18px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .map-card{height:min(78vh,640px);min-height:420px;border-radius:12px}
+  .event-panel{width:calc(100% - 24px);top:auto;bottom:36px;right:12px;left:12px;max-height:48%}
+  .map-legend{display:none}
+  .map-hint{display:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <div class="kicker">Cat-bond desk · Phase 1</div>
+      <h1>Earthquake cat-bond screener</h1>
+      <div class="sub">A planet-wide view of recent earthquakes relevant to catastrophe‑bond screening</div>
+    </div>
+    <div class="meta">
+      <div class="fresh">
+        <span class="dot" id="freshDot"></span>
+        <div>
+          <span class="lbl">Snapshot</span>
+          <span class="val" id="generatedAt">Loading…</span>
+        </div>
+      </div>
+      <div>
+        <span class="lbl">Window</span>
+        <span class="val" id="windowLabel">—</span>
+      </div>
+      <div>
+        <span class="lbl">Events</span>
+        <span class="val" id="eventCount">—</span>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="banner" id="banner" hidden></div>
+
+<main class="wrap">
+  <section id="map-section">
+    <div class="sec-head">
+      <h2>1 · The planet</h2>
+      <div class="filter-row">
+        <span class="hint">Circles sized by magnitude, coloured by PAGER alert</span>
+        <div class="seg" id="filterSeg" role="group" aria-label="Magnitude band filter">
+          <button type="button" data-filter="all" class="active">All</button>
+          <button type="button" data-filter="alert">Alert M&gt;6.0</button>
+          <button type="button" data-filter="watch">Watch 5.8–6.0</button>
+        </div>
+      </div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="map-card" id="mapCard">
+      <canvas id="starCanvas" aria-hidden="true"></canvas>
+      <canvas id="globeCanvas" aria-hidden="true"></canvas>
+      <svg id="eventLayer" role="img" aria-label="Earthquakes on the world map"></svg>
+      <div id="tooltip" hidden></div>
+      <aside id="eventPanel" class="event-panel" hidden aria-live="polite"></aside>
+      <div class="map-controls">
+        <div class="seg" id="modeSeg" role="group" aria-label="Map projection">
+          <button type="button" data-mode="globe" class="active">Globe</button>
+          <button type="button" data-mode="flat">Flat map</button>
+        </div>
+        <div class="ctrl-row">
+          <button type="button" class="btn-ghost" id="spinBtn" aria-pressed="true">Pause spin</button>
+          <button type="button" class="btn-ghost" id="resetBtn">Reset view</button>
+        </div>
+      </div>
+      <div class="map-legend" id="legend"></div>
+      <p class="map-hint" id="mapHint">Drag to rotate · scroll to zoom · click a circle for details</p>
+      <div class="map-status" id="mapStatus">Loading the earth…</div>
+    </div>
+    <p class="window-note" id="windowNote"></p>
+  </section>
+
+  <section id="table-section">
+    <div class="sec-head">
+      <h2>2 · Events</h2>
+      <span class="hint" id="tableHint">Click a row to open it on the map. Status values are as published in the snapshot.</span>
+    </div>
+    <div class="card">
+      <div class="tbl-wrap">
+        <table id="eventTable">
+          <thead>
+            <tr>
+              <th data-sort="time" class="sorted" scope="col">Time</th>
+              <th data-sort="magnitude" class="r" scope="col">M</th>
+              <th data-sort="place" scope="col">Place</th>
+              <th data-sort="depth_km" class="r" scope="col">Depth</th>
+              <th data-sort="pager" scope="col">PAGER</th>
+              <th data-sort="band" scope="col">Band</th>
+              <th data-sort="status" scope="col">Overlap status</th>
+              <th scope="col">USGS</th>
+            </tr>
+          </thead>
+          <tbody id="eventBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="method-section">
+    <div class="sec-head"><h2>3 · Methodology</h2></div>
+    <div class="card method">
+      <h3>How to read this page</h3>
+      <p>Circles are earthquakes of magnitude 5.8 or greater in the snapshot window. Size is magnitude; colour is the USGS PAGER overall alert level (green, yellow, orange, red). Grey means PAGER has not been published. Translucent overlays, when present, are publicly sourced catastrophe‑bond coverage regions. <strong id="zoneMethodNote">This snapshot has no verified coverage zones, so every event is marked “no overlap”.</strong></p>
+      <p><strong>What the colours are not.</strong> PAGER is a USGS estimate of humanitarian and economic impact. It is not an insured‑loss figure, not an industry‑loss index, and not a contract result.</p>
+      <p><strong>The loss ladder stays separate.</strong> Economic loss, insured (industry) loss and bond principal impairment are three different quantities and are kept apart. This public page does not publish numeric principal‑impairment estimates. A principal‑loss figure would appear only when the contractual measure and the attachment and exhaustion points have all been verified from deal documents — and those terms stay off this page.</p>
+      <p><strong>Phase 1 scope.</strong> Detection uses the USGS earthquake catalogue (ComCat via the FDSN API). Alert‑band events are M&gt;6.0 (strictly greater); watch band events are 5.8≤M≤6.0. Public status values are “no overlap”, “overlap, assessment pending”, or “threshold met”. The last of these is used only with a stated public basis; Phase 1 has no such criterion. The map and table show the status carried in the snapshot; they do not recompute it.</p>
+    </div>
+  </section>
+
+  <section id="caveats-section">
+    <div class="caveat" id="caveats">
+      <h2>Data and sources: caveats</h2>
+      <ul id="caveatList"></ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Data: <a href="https://www.usgs.gov/programs/earthquake-hazards">USGS Earthquake Hazards Program</a> / <a href="https://earthquake.usgs.gov/data/comcat/">ComCat</a> and <a href="https://earthquake.usgs.gov/data/pager/">PAGER</a>. Event catalogue via the <a href="https://earthquake.usgs.gov/fdsnws/event/1/">FDSN event API</a>.</p>
+    <p>This page is a public research view of a Phase 1 geographic screen. It is not investment advice, and it does not publish insured‑loss figures, deal terms or principal‑impairment estimates. Magnitudes, locations, depths and PAGER levels can be revised by USGS.</p>
+    <p id="footerGen"></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+
+<script>
+"use strict";
+window.__CATBOND__ = { ready: false, mapDrawn: false, eventMarkers: 0, landLoaded: false, eventCount: 0, ink: 0 };
+
+const PAGER_COLOUR = {
+  green: getCss("--pager-green", "#3dcc7a"),
+  yellow: getCss("--pager-yellow", "#f0d24a"),
+  orange: getCss("--pager-orange", "#f08a2c"),
+  red: getCss("--pager-red", "#e85d5d"),
+};
+const PAGER_NONE = getCss("--pager-none", "#8a94a6");
+const FETCH_OPT = { cache: "no-store" };
+const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INITIAL_ROTATION = [-130, -15]; // Pacific / East Asia overview
+
+function getCss(name, fallback) {
+  try {
+    const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return v || fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+
+const state = {
+  events: [],
+  zones: { type: "FeatureCollection", features: [] },
+  meta: null,
+  land: null,
+  mode: "globe",
+  filter: "all",
+  selectedId: null,
+  rotation: INITIAL_ROTATION.slice(),
+  scale: 1,
+  pan: [0, 0],
+  autoRotate: !REDUCE,
+  dragging: false,
+  flying: false,
+  spinning: false,
+  sort: { key: "time", dir: -1 },
+  width: 0,
+  height: 0,
+};
+
+const el = {
+  card: document.getElementById("mapCard"),
+  stars: document.getElementById("starCanvas"),
+  globe: document.getElementById("globeCanvas"),
+  svg: d3.select("#eventLayer"),
+  status: document.getElementById("mapStatus"),
+  panel: document.getElementById("eventPanel"),
+  tooltip: document.getElementById("tooltip"),
+  legend: document.getElementById("legend"),
+  kpis: document.getElementById("kpis"),
+  body: document.getElementById("eventBody"),
+  caveats: document.getElementById("caveatList"),
+  generatedAt: document.getElementById("generatedAt"),
+  windowLabel: document.getElementById("windowLabel"),
+  eventCount: document.getElementById("eventCount"),
+  freshDot: document.getElementById("freshDot"),
+  spinBtn: document.getElementById("spinBtn"),
+  resetBtn: document.getElementById("resetBtn"),
+  windowNote: document.getElementById("windowNote"),
+  banner: document.getElementById("banner"),
+  mapHint: document.getElementById("mapHint"),
+  zoneMethod: document.getElementById("zoneMethodNote"),
+  footerGen: document.getElementById("footerGen"),
+  tableHint: document.getElementById("tableHint"),
+};
+
+function pagerColour(level) {
+  if (!level) return PAGER_NONE;
+  return PAGER_COLOUR[String(level).toLowerCase()] || PAGER_NONE;
+}
+
+function magRadius(m) {
+  const mag = Number(m);
+  if (!Number.isFinite(mag)) return 4;
+  const t = Math.max(0, (mag - 5.6) / 2.4);
+  return 3.2 + t * t * 13;
+}
+
+function visibleEvents() {
+  return state.events.filter((e) => {
+    if (e.latitude == null || e.longitude == null) return false;
+    if (state.filter === "alert") return e.band === "alert";
+    if (state.filter === "watch") return e.band === "watch";
+    return true;
+  });
+}
+
+function fmtMag(m) {
+  if (m == null || !Number.isFinite(Number(m))) return "unavailable";
+  return Number(m).toFixed(1);
+}
+
+function fmtDepth(km) {
+  if (km == null || !Number.isFinite(Number(km))) return "unavailable";
+  const n = Number(km);
+  const t = Number.isInteger(n) ? String(n) : n.toFixed(1).replace(/\.0$/, "");
+  return t + " km";
+}
+
+function fmtWhen(iso, tz) {
+  if (!iso) return "unavailable";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "unavailable";
+  const fmt = new Intl.DateTimeFormat("en-GB", {
+    timeZone: tz,
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+    timeZoneName: "short",
+  });
+  let text = fmt.format(d).replace(",", "");
+  if (tz === "Europe/Zurich" && !/Europe\/Zurich/.test(text)) text += " (Europe/Zurich)";
+  return text;
+}
+
+function fmtDayRange(startIso, endIso, tz) {
+  if (!startIso || !endIso) return "—";
+  const fmt = new Intl.DateTimeFormat("en-GB", {
+    timeZone: tz,
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+  const a = fmt.format(new Date(startIso));
+  const b = fmt.format(new Date(endIso));
+  return a + " – " + b;
+}
+
+async function check(resp, label) {
+  if (!resp.ok) throw new Error(label + " HTTP " + resp.status);
+  return resp.json();
+}
+
+async function loadAll() {
+  const fetches = [
+    fetch("data/events.json", FETCH_OPT).then((r) => check(r, "events.json")),
+    fetch("data/zones.json", FETCH_OPT).then((r) => check(r, "zones.json")),
+    fetch("data/meta.json", FETCH_OPT).then((r) => check(r, "meta.json")),
+    fetch("data/land-110m.json", FETCH_OPT)
+      .then((r) => check(r, "land-110m.json"))
+      .catch(() => null),
+  ];
+  const [eventsDoc, zonesDoc, metaDoc, landDoc] = await Promise.all(fetches);
+  state.events = Array.isArray(eventsDoc.events) ? eventsDoc.events.slice() : [];
+  state.zones = zonesDoc && zonesDoc.type === "FeatureCollection" ? zonesDoc : { type: "FeatureCollection", features: [] };
+  state.meta = metaDoc;
+  if (landDoc && landDoc.type === "Topology" && landDoc.objects && landDoc.objects.land && typeof topojson !== "undefined") {
+    state.land = topojson.feature(landDoc, landDoc.objects.land);
+    window.__CATBOND__.landLoaded = true;
+  } else if (landDoc && (landDoc.type === "Feature" || landDoc.type === "FeatureCollection")) {
+    state.land = landDoc;
+    window.__CATBOND__.landLoaded = true;
+  }
+  window.__CATBOND__.eventCount = state.events.length;
+}
+
+function makeProjection(width, height) {
+  if (state.mode === "globe") {
+    const base = Math.min(width, height) * 0.44;
+    return d3.geoOrthographic()
+      .precision(0.3)
+      .clipAngle(90)
+      .scale(base * state.scale)
+      .translate([width / 2, height / 2])
+      .rotate(state.rotation);
+  }
+  const proj = d3.geoNaturalEarth1()
+    .precision(0.3)
+    .rotate([-150, 0, 0])
+    .fitExtent([[28, 32], [width - 28, height - 36]], { type: "Sphere" });
+  const s = proj.scale() * state.scale;
+  const t = proj.translate();
+  return proj.scale(s).translate([t[0] + state.pan[0], t[1] + state.pan[1]]);
+}
+
+
+function frontPoint(proj, lon, lat) {
+  if (lon == null || lat == null) return null;
+  if (state.mode === "globe") {
+    const r = proj.rotate();
+    const center = [-r[0], -r[1]];
+    if (d3.geoDistance([lon, lat], center) > Math.PI / 2 + 1e-6) return null;
+  }
+  const p = proj([lon, lat]);
+  return p && Number.isFinite(p[0]) && Number.isFinite(p[1]) ? p : null;
+}
+
+function sizeCanvases() {
+  const rect = el.card.getBoundingClientRect();
+  const width = Math.max(320, Math.floor(rect.width));
+  const height = Math.max(360, Math.floor(rect.height));
+  state.width = width;
+  state.height = height;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  for (const c of [el.stars, el.globe]) {
+    c.width = Math.floor(width * dpr);
+    c.height = Math.floor(height * dpr);
+    c.style.width = width + "px";
+    c.style.height = height + "px";
+    const ctx = c.getContext("2d", { willReadFrequently: c === el.globe });
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  el.svg.attr("width", width).attr("height", height).attr("viewBox", "0 0 " + width + " " + height);
+  drawStars();
+}
+
+function drawStars() {
+  const ctx = el.stars.getContext("2d");
+  const w = state.width, h = state.height;
+  ctx.clearRect(0, 0, w, h);
+  const g = ctx.createRadialGradient(w * 0.5, h * 0.5, Math.min(w, h) * 0.15, w * 0.5, h * 0.5, Math.max(w, h) * 0.7);
+  g.addColorStop(0, "#0a1220");
+  g.addColorStop(1, "#05080f");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, w, h);
+  const n = Math.floor((w * h) / 2800);
+  // Deterministic starfield so the preview is stable
+  let s = 42;
+  function rnd() {
+    s = (s * 1664525 + 1013904223) >>> 0;
+    return s / 4294967296;
+  }
+  for (let i = 0; i < n; i++) {
+    const x = rnd() * w, y = rnd() * h, a = 0.25 + rnd() * 0.7, r = rnd() < 0.12 ? 1.2 : 0.6;
+    ctx.fillStyle = rnd() < 0.15 ? "rgba(180,210,255," + a + ")" : "rgba(230,235,245," + a + ")";
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function drawGlobe() {
+  const ctx = el.globe.getContext("2d");
+  const w = state.width, h = state.height;
+  ctx.clearRect(0, 0, w, h);
+  if (typeof d3 === "undefined") return;
+  const proj = makeProjection(w, h);
+  const path = d3.geoPath(proj, ctx);
+  const graticule = d3.geoGraticule().step([30, 30])();
+  const r = proj.scale();
+  const t = proj.translate();
+  const cx = t[0], cy = t[1];
+
+  if (state.mode === "globe") {
+    // Atmosphere
+    const ag = ctx.createRadialGradient(cx, cy, r * 0.9, cx, cy, r * 1.14);
+    ag.addColorStop(0, "rgba(90,160,255,0)");
+    ag.addColorStop(0.55, "rgba(80,150,255,0.06)");
+    ag.addColorStop(0.78, "rgba(110,180,255,0.28)");
+    ag.addColorStop(1, "rgba(110,180,255,0)");
+    ctx.fillStyle = ag;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r * 1.14, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Ocean / sphere
+  ctx.beginPath();
+  path({ type: "Sphere" });
+  if (state.mode === "globe") {
+    const og = ctx.createRadialGradient(cx - r * 0.32, cy - r * 0.38, r * 0.08, cx, cy, r);
+    og.addColorStop(0, "#1a4a78");
+    og.addColorStop(0.45, "#102844");
+    og.addColorStop(1, "#070e1a");
+    ctx.fillStyle = og;
+  } else {
+    ctx.fillStyle = "#102844";
+  }
+  ctx.fill();
+
+  // Land
+  if (state.land) {
+    ctx.beginPath();
+    path(state.land);
+    ctx.fillStyle = "rgba(70, 130, 165, 0.9)";
+    ctx.fill();
+    ctx.strokeStyle = "rgba(155, 210, 240, 0.5)";
+    ctx.lineWidth = 0.65;
+    ctx.stroke();
+  }
+
+  // Graticule
+  ctx.beginPath();
+  path(graticule);
+  ctx.strokeStyle = "rgba(140, 180, 220, 0.13)";
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+
+  // Public coverage zones
+  if (state.zones && state.zones.features && state.zones.features.length) {
+    ctx.beginPath();
+    path(state.zones);
+    ctx.fillStyle = "rgba(123, 165, 230, 0.22)";
+    ctx.fill();
+    ctx.strokeStyle = "rgba(160, 200, 255, 0.75)";
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+  }
+
+  // Rim
+  ctx.beginPath();
+  path({ type: "Sphere" });
+  ctx.strokeStyle = "rgba(170, 210, 245, 0.55)";
+  ctx.lineWidth = state.mode === "globe" ? 1.5 : 1.1;
+  ctx.stroke();
+
+  // Lighting on the globe (screen-fixed light)
+  if (state.mode === "globe") {
+    ctx.save();
+    ctx.beginPath();
+    path({ type: "Sphere" });
+    ctx.clip();
+    const light = ctx.createRadialGradient(cx - r * 0.35, cy - r * 0.42, r * 0.05, cx, cy, r * 1.05);
+    light.addColorStop(0, "rgba(255,255,255,0.22)");
+    light.addColorStop(0.38, "rgba(255,255,255,0)");
+    light.addColorStop(0.72, "rgba(0,0,20,0.14)");
+    light.addColorStop(1, "rgba(0,0,10,0.52)");
+    ctx.fillStyle = light;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+  }
+
+  // Sample ink so a headless check can confirm the globe drew
+  try {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const img = ctx.getImageData(0, 0, Math.min(el.globe.width, 64), Math.min(el.globe.height, 64));
+    let ink = 0;
+    for (let i = 0; i < img.data.length; i += 16) {
+      if (img.data[i] + img.data[i + 1] + img.data[i + 2] > 20 && img.data[i + 3] > 10) ink++;
+    }
+    window.__CATBOND__.ink = ink;
+  } catch (e) {
+    window.__CATBOND__.ink = -1;
+  }
+  window.__CATBOND__.mapDrawn = true;
+  return proj;
+}
+
+function drawEvents(proj) {
+  const evs = visibleEvents().slice().sort((a, b) => (b.magnitude || 0) - (a.magnitude || 0));
+  const sel = el.svg.selectAll("g.quake").data(evs, (d) => d.id);
+  sel.exit().remove();
+  const enter = sel.enter().append("g").attr("class", "quake");
+  enter.append("circle").attr("class", "glow");
+  enter.append("circle").attr("class", "core");
+  enter.append("circle").attr("class", "ring");
+  enter.append("title");
+
+  const all = enter.merge(sel);
+  let shown = 0;
+  all.each(function (d) {
+    const p = frontPoint(proj, d.longitude, d.latitude);
+    const g = d3.select(this);
+    if (!p) {
+      g.attr("display", "none");
+      return;
+    }
+    shown += 1;
+    const r = magRadius(d.magnitude);
+    const color = pagerColour(d.pager_alert_level);
+    const pulse = !REDUCE && (d.pager_alert_level === "orange" || d.pager_alert_level === "red" || (d.magnitude && d.magnitude >= 6.8));
+    g.attr("display", null)
+      .attr("transform", "translate(" + p[0] + "," + p[1] + ")")
+      .classed("selected", d.id === state.selectedId)
+      .attr("tabindex", 0)
+      .attr("role", "button")
+      .attr("aria-label", ariaEvent(d));
+    g.select(".glow").attr("r", r * 2.4).attr("fill", color).attr("fill-opacity", 0.22).attr("pointer-events", "none");
+    g.select(".core").attr("r", r).attr("fill", color).attr("stroke", "#fff").attr("stroke-opacity", d.id === state.selectedId ? 1 : 0.7).attr("stroke-width", d.id === state.selectedId ? 2 : 0.85);
+    g.select(".ring")
+      .attr("r", r)
+      .attr("fill", "none")
+      .attr("stroke", color)
+      .attr("stroke-width", 1.4)
+      .attr("class", pulse ? "ring pulse" : "ring");
+    g.select("title").text(titleEvent(d));
+  });
+  window.__CATBOND__.eventMarkers = shown;
+
+  all.on("click", function (event, d) {
+    event.stopPropagation();
+    selectEvent(d.id, { fly: state.mode === "globe" });
+  });
+  all.on("keydown", function (event, d) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectEvent(d.id, { fly: state.mode === "globe" });
+    }
+  });
+  all.on("mouseenter", function (event, d) {
+    showTooltip(event, d);
+  });
+  all.on("mousemove", function (event, d) {
+    showTooltip(event, d);
+  });
+  all.on("mouseleave", hideTooltip);
+}
+
+function titleEvent(d) {
+  const lvl = d.pager_alert_level ? "PAGER " + d.pager_alert_level : "PAGER unavailable";
+  return "M " + fmtMag(d.magnitude) + " · " + (d.place || d.id) + " · " + lvl;
+}
+
+function ariaEvent(d) {
+  return titleEvent(d) + ", status " + (d.status || "unavailable");
+}
+
+function showTooltip(event, d) {
+  const t = el.tooltip;
+  t.hidden = false;
+  t.textContent = "M " + fmtMag(d.magnitude) + "  ·  " + (d.place || d.id);
+  const rect = el.card.getBoundingClientRect();
+  let x = event.clientX - rect.left + 14;
+  let y = event.clientY - rect.top + 14;
+  t.style.left = x + "px";
+  t.style.top = y + "px";
+}
+
+function hideTooltip() {
+  el.tooltip.hidden = true;
+}
+
+function render() {
+  if (!state.width) return;
+  const proj = drawGlobe();
+  if (proj) drawEvents(proj);
+}
+
+function startSpin() {
+  if (REDUCE) return;
+  state.autoRotate = true;
+  updateSpinBtn();
+  if (!state.spinning) {
+    state.spinning = true;
+    requestAnimationFrame(spinFrame);
+  }
+}
+
+function stopSpin() {
+  state.autoRotate = false;
+  updateSpinBtn();
+}
+
+function updateSpinBtn() {
+  const on = state.autoRotate && state.mode === "globe" && !REDUCE;
+  el.spinBtn.textContent = on ? "Pause spin" : "Spin";
+  el.spinBtn.setAttribute("aria-pressed", on ? "true" : "false");
+  el.spinBtn.disabled = state.mode !== "globe";
+  el.mapHint.textContent = state.mode === "globe"
+    ? "Drag to rotate · scroll to zoom · click a circle for details"
+    : "Drag to pan · scroll to zoom · click a circle for details";
+}
+
+function spinFrame() {
+  if (!state.autoRotate || state.mode !== "globe" || REDUCE) {
+    state.spinning = false;
+    return;
+  }
+  if (!state.dragging && !state.flying) {
+    state.rotation[0] += 0.045;
+    render();
+  }
+  requestAnimationFrame(spinFrame);
+}
+
+function shortestYaw(from, to) {
+  let d = to - from;
+  d = ((((d + 180) % 360) + 360) % 360) - 180;
+  return from + d;
+}
+
+function flyTo(lon, lat) {
+  if (state.mode !== "globe") return;
+  stopSpin();
+  const target0 = shortestYaw(state.rotation[0], -lon);
+  const target1 = -lat;
+  const i0 = d3.interpolateNumber(state.rotation[0], target0);
+  const i1 = d3.interpolateNumber(state.rotation[1], target1);
+  state.flying = true;
+  d3.select(el.card)
+    .transition()
+    .duration(REDUCE ? 0 : 850)
+    .ease(d3.easeCubicInOut)
+    .tween("rotate", function () {
+      return function (t) {
+        state.rotation[0] = i0(t);
+        state.rotation[1] = i1(t);
+        render();
+      };
+    })
+    .on("end interrupt", function () {
+      state.flying = false;
+    });
+}
+
+function selectEvent(id, opts) {
+  const ev = state.events.find((e) => e.id === id);
+  if (!ev) return;
+  state.selectedId = id;
+  renderPanel(ev);
+  renderTable();
+  render();
+  if (opts && opts.fly && ev.longitude != null && ev.latitude != null) flyTo(ev.longitude, ev.latitude);
+  const row = document.querySelector('tr[data-id="' + CSS.escape(id) + '"]');
+  if (opts && opts.scrollRow && row) row.scrollIntoView({ block: "nearest", behavior: REDUCE ? "auto" : "smooth" });
+}
+
+function closePanel() {
+  state.selectedId = null;
+  el.panel.hidden = true;
+  el.panel.innerHTML = "";
+  renderTable();
+  render();
+}
+
+function statusClass(status) {
+  if (status === "threshold met") return "status-met";
+  if (status === "overlap, assessment pending") return "status-pending";
+  return "status-no";
+}
+
+function pagerBadge(level) {
+  const lvl = level ? String(level).toLowerCase() : "none";
+  const label = level ? level : "unavailable";
+  return '<span class="badge ' + lvl + '">PAGER ' + label + "</span>";
+}
+
+function renderPanel(ev) {
+  const magType = ev.mag_type ? " " + ev.mag_type : "";
+  const pager = ev.pager_alert_level
+    ? pagerBadge(ev.pager_alert_level)
+    : '<span class="badge none">PAGER unavailable</span>';
+  const pagerReason = !ev.pager_alert_level && ev.pager_alert_level_reason
+    ? "<div class='idline'>" + escapeHtml(ev.pager_alert_level_reason) + "</div>"
+    : "";
+  const bandLabel = ev.band === "alert" ? "Alert (M&gt;6.0)" : ev.band === "watch" ? "Watch (5.8–6.0)" : escapeHtml(ev.band || "unavailable");
+  const links = [];
+  if (ev.usgs_event_page) {
+    links.push('<a href="' + escapeAttr(ev.usgs_event_page) + '" target="_blank" rel="noopener noreferrer">USGS event page</a>');
+  }
+  if (ev.shakemap_url) {
+    links.push('<a href="' + escapeAttr(ev.shakemap_url) + '" target="_blank" rel="noopener noreferrer">ShakeMap</a>');
+  }
+  el.panel.hidden = false;
+  el.panel.innerHTML =
+    '<div class="panel-top"><div>' +
+    '<div class="mag">M ' + fmtMag(ev.magnitude) + "<small>" + escapeHtml(magType.trim()) + "</small></div>" +
+    pager + pagerReason +
+    "</div><button type='button' class='btn-close' id='panelClose' aria-label='Close'>×</button></div>" +
+    '<div class="place">' + escapeHtml(ev.place || "unavailable") + "</div>" +
+    '<div class="idline">' + escapeHtml(ev.id) + (ev.review_status ? " · " + escapeHtml(ev.review_status) : "") + "</div>" +
+    "<dl>" +
+    "<dt>Time (UTC)</dt><dd>" + escapeHtml(fmtWhen(ev.time_utc, "UTC")) + "</dd>" +
+    "<dt>Europe/Zurich</dt><dd>" + escapeHtml(fmtWhen(ev.time_europe_zurich || ev.time_utc, "Europe/Zurich")) + "</dd>" +
+    "<dt>Depth</dt><dd>" + escapeHtml(fmtDepth(ev.depth_km)) + "</dd>" +
+    "<dt>Location</dt><dd>" + escapeHtml(fmtCoord(ev.latitude, ev.longitude)) + "</dd>" +
+    "<dt>Band</dt><dd><span class='badge " + escapeAttr(ev.band || "") + "'>" + bandLabel + "</span></dd>" +
+    "<dt>Overlap status</dt><dd><span class='badge " + statusClass(ev.status) + "'>" + escapeHtml(ev.status || "unavailable") + "</span></dd>" +
+    "</dl>" +
+    (links.length ? '<div class="links">' + links.join("") + "</div>" : "");
+  document.getElementById("panelClose").addEventListener("click", closePanel);
+}
+
+function fmtCoord(lat, lon) {
+  if (lat == null || lon == null) return "unavailable";
+  const ns = lat >= 0 ? "N" : "S";
+  const ew = lon >= 0 ? "E" : "W";
+  return Math.abs(lat).toFixed(3) + "°" + ns + ", " + Math.abs(lon).toFixed(3) + "°" + ew;
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function escapeAttr(s) {
+  return escapeHtml(s).replace(/'/g, "&#39;");
+}
+
+function renderKpis() {
+  const evs = state.events;
+  const meta = state.meta || {};
+  const counts = meta.counts || {};
+  const n = counts.events != null ? counts.events : evs.length;
+  const alert = counts.alert_band != null ? counts.alert_band : evs.filter((e) => e.band === "alert").length;
+  const watch = counts.watch_band != null ? counts.watch_band : evs.filter((e) => e.band === "watch").length;
+  const pager = counts.pager_levels || {};
+  const highest = evs.reduce((m, e) => (e.magnitude != null && e.magnitude > m ? e.magnitude : m), -Infinity);
+  const zones = counts.zones != null ? counts.zones : (state.zones.features || []).length;
+  const pagerParts = ["green", "yellow", "orange", "red", "unavailable"]
+    .filter((k) => (pager[k] || 0) > 0)
+    .map((k) => {
+      const col = k === "unavailable" ? PAGER_NONE : pagerColour(k);
+      return '<span class="sw" style="background:' + col + '"></span>' + pager[k] + " " + k;
+    })
+    .join(" · ");
+  el.kpis.innerHTML =
+    kpi("Events", String(n), "M ≥ 5.8 in the 30-day window") +
+    kpi("Alert band", String(alert), "M &gt; 6.0") +
+    kpi("Watch band", String(watch), "5.8 ≤ M ≤ 6.0") +
+    kpi("Highest M", Number.isFinite(highest) ? fmtMag(highest) : "—", highestPlace(evs, highest)) +
+    kpi("PAGER", pagerSummary(pager), pagerParts || "No levels") +
+    kpi("Coverage zones", String(zones), zones === 0 ? "None verified in this snapshot" : "Publicly sourced regions");
+}
+
+function kpi(k, v, s) {
+  return '<div class="kpi"><div class="k">' + k + '</div><div class="v">' + v + '</div><div class="s">' + s + "</div></div>";
+}
+
+function pagerSummary(p) {
+  const order = ["red", "orange", "yellow", "green"];
+  const top = order.find((k) => (p[k] || 0) > 0);
+  if (top && top !== "green") return (p[top] || 0) + " " + top;
+  return (p.green || 0) + " green";
+}
+
+function highestPlace(evs, highest) {
+  const hit = evs.find((e) => e.magnitude === highest);
+  return hit && hit.place ? escapeHtml(hit.place) : "";
+}
+
+function renderLegend() {
+  const sizes = [5.8, 6.5, 7.0];
+  const sizeHtml = sizes
+    .map((m) => {
+      const r = magRadius(m);
+      return '<div class="leg-sz"><i style="width:' + (r * 2) + "px;height:" + (r * 2) + 'px"></i>M ' + m.toFixed(1) + "</div>";
+    })
+    .join("");
+  const zoneCount = (state.zones.features || []).length;
+  const zoneNote = zoneCount === 0
+    ? '<p class="zone-note">No verified coverage zones yet. Every event is marked “no overlap”.</p>'
+    : '<p class="zone-note" style="color:var(--text-2)">Translucent overlays are publicly sourced coverage regions (' + zoneCount + ").</p>";
+  el.legend.innerHTML =
+    "<h3>Legend</h3>" +
+    '<div class="leg-row"><span class="leg-dot" style="background:' + pagerColour("green") + '"></span>PAGER green</div>' +
+    '<div class="leg-row"><span class="leg-dot" style="background:' + pagerColour("yellow") + '"></span>PAGER yellow</div>' +
+    '<div class="leg-row"><span class="leg-dot" style="background:' + pagerColour("orange") + '"></span>PAGER orange</div>' +
+    '<div class="leg-row"><span class="leg-dot" style="background:' + pagerColour("red") + '"></span>PAGER red</div>' +
+    '<div class="leg-row"><span class="leg-dot" style="background:' + PAGER_NONE + '"></span>PAGER unavailable</div>' +
+    '<div class="leg-sizes">' + sizeHtml + "</div>" +
+    zoneNote;
+}
+
+function renderTable() {
+  const evs = visibleEvents().slice().sort(compareEvents);
+  el.body.innerHTML = evs
+    .map((e) => {
+      const sel = e.id === state.selectedId ? " selected" : "";
+      const usgs = e.usgs_event_page
+        ? '<a href="' + escapeAttr(e.usgs_event_page) + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Event</a>'
+        : "—";
+      return (
+        '<tr data-id="' + escapeAttr(e.id) + '" class="' + sel.trim() + '">' +
+        '<td><div class="time-zh">' + escapeHtml(fmtWhen(e.time_europe_zurich || e.time_utc, "Europe/Zurich")) + "</div>" +
+        '<div class="time-utc">' + escapeHtml(fmtWhen(e.time_utc, "UTC")) + "</div></td>" +
+        '<td class="r"><strong>M ' + fmtMag(e.magnitude) + "</strong>" +
+        (e.mag_type ? '<div class="time-utc">' + escapeHtml(e.mag_type) + "</div>" : "") + "</td>" +
+        '<td class="place-cell">' + escapeHtml(e.place || "unavailable") + "</td>" +
+        '<td class="r">' + escapeHtml(fmtDepth(e.depth_km)) + "</td>" +
+        "<td>" + pagerBadge(e.pager_alert_level) + "</td>" +
+        "<td><span class='badge " + escapeAttr(e.band || "") + "'>" + escapeHtml(e.band || "—") + "</span></td>" +
+        "<td><span class='badge " + statusClass(e.status) + "'>" + escapeHtml(e.status || "unavailable") + "</span></td>" +
+        '<td class="src">' + usgs + "</td>" +
+        "</tr>"
+      );
+    })
+    .join("");
+  el.body.querySelectorAll("tr").forEach((tr) => {
+    tr.addEventListener("click", () => selectEvent(tr.getAttribute("data-id"), { fly: state.mode === "globe", scrollRow: false }));
+  });
+  document.querySelectorAll("#eventTable th[data-sort]").forEach((th) => {
+    th.classList.toggle("sorted", th.getAttribute("data-sort") === state.sort.key);
+  });
+  if (el.tableHint) {
+    el.tableHint.textContent =
+      evs.length + " of " + state.events.length + " events shown. Click a row to open it on the map. Status values are as published in the snapshot.";
+  }
+}
+
+function compareEvents(a, b) {
+  const { key, dir } = state.sort;
+  let av, bv;
+  if (key === "time") {
+    av = a.time_utc || "";
+    bv = b.time_utc || "";
+  } else if (key === "magnitude") {
+    av = a.magnitude == null ? -Infinity : a.magnitude;
+    bv = b.magnitude == null ? -Infinity : b.magnitude;
+  } else if (key === "depth_km") {
+    av = a.depth_km == null ? -Infinity : a.depth_km;
+    bv = b.depth_km == null ? -Infinity : b.depth_km;
+  } else if (key === "pager") {
+    const order = { red: 4, orange: 3, yellow: 2, green: 1 };
+    av = order[a.pager_alert_level] || 0;
+    bv = order[b.pager_alert_level] || 0;
+  } else if (key === "place") {
+    av = (a.place || "").toLowerCase();
+    bv = (b.place || "").toLowerCase();
+  } else {
+    av = a[key] || "";
+    bv = b[key] || "";
+  }
+  if (av < bv) return -1 * dir;
+  if (av > bv) return 1 * dir;
+  return 0;
+}
+
+function renderHeader() {
+  const m = state.meta || {};
+  const gen = m.generated_at_europe_zurich || m.generated_at_utc;
+  el.generatedAt.textContent = gen ? fmtWhen(gen, "Europe/Zurich") : "unavailable";
+  const w = m.window || {};
+  const days = w.days != null ? w.days + "-day window" : "Window";
+  el.windowLabel.textContent = fmtDayRange(w.start_utc, w.end_utc, "UTC") + (w.days ? " · " + w.days + " days" : "");
+  el.eventCount.textContent = String((m.counts && m.counts.events) != null ? m.counts.events : state.events.length);
+  if (gen) {
+    const ageH = (Date.now() - new Date(gen).getTime()) / 36e5;
+    el.freshDot.className = "dot " + (ageH < 24 ? "green" : ageH < 72 ? "amber" : "");
+  }
+  if (el.footerGen) {
+    el.footerGen.textContent =
+      "Snapshot generated " + (gen ? fmtWhen(gen, "Europe/Zurich") : "at an unavailable time") +
+      (m.version ? " · data version " + m.version : "") + ".";
+  }
+  const zoneCount = (m.counts && m.counts.zones) || (state.zones.features || []).length;
+  if (el.zoneMethod) {
+    if (zoneCount === 0) {
+      el.zoneMethod.textContent = "This snapshot has no verified coverage zones, so every event is marked “no overlap”.";
+    } else {
+      el.zoneMethod.textContent = "This snapshot has " + zoneCount + " publicly sourced coverage region(s). Status is taken from the snapshot.";
+    }
+  }
+}
+
+function renderCaveats() {
+  const list = (state.meta && state.meta.caveats) || [];
+  el.caveats.innerHTML = list.map((c) => "<li>" + escapeHtml(c).replace(/(\w)-(\w)/g, "$1\u2011$2") + "</li>").join("") || "<li>No caveats were supplied in meta.json.</li>";
+}
+
+function renderWindowNote() {
+  // us6000u18k is a verified USGS event just outside the snapshot window; it is not in events.json and is not plotted.
+  const start = state.meta && state.meta.window && state.meta.window.start_utc;
+  const startTxt = start ? fmtWhen(start, "UTC") : "the window start";
+  el.windowNote.innerHTML =
+    "<strong>Just outside this window.</strong> " +
+    '<a href="https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k" target="_blank" rel="noopener noreferrer">us6000u18k</a>, ' +
+    "M 7.7, 10 km WSW of Pitaloza Arriba, Panama, occurred on 9 Oct 2026 at 17:56 UTC " +
+    "(19:56 CEST, Europe/Zurich). That is 3 days 22 hours before the window start of " +
+    escapeHtml(startTxt) +
+    " and the event is not plotted on the map or listed in the table. " +
+    "Source: <a href=\"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k\" target=\"_blank\" rel=\"noopener noreferrer\">USGS event page</a>.";
+}
+
+function bindControls() {
+  document.getElementById("modeSeg").addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-mode]");
+    if (!btn) return;
+    const mode = btn.getAttribute("data-mode");
+    if (mode === state.mode) return;
+    state.mode = mode;
+    document.querySelectorAll("#modeSeg button").forEach((b) => b.classList.toggle("active", b === btn));
+    if (mode === "flat") stopSpin();
+    else if (!REDUCE) startSpin();
+    updateSpinBtn();
+    render();
+  });
+  document.getElementById("filterSeg").addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-filter]");
+    if (!btn) return;
+    state.filter = btn.getAttribute("data-filter");
+    document.querySelectorAll("#filterSeg button").forEach((b) => b.classList.toggle("active", b === btn));
+    renderTable();
+    render();
+  });
+  el.spinBtn.addEventListener("click", () => {
+    if (state.mode !== "globe") return;
+    if (state.autoRotate) stopSpin();
+    else startSpin();
+  });
+  el.resetBtn.addEventListener("click", () => {
+    state.rotation = INITIAL_ROTATION.slice();
+    state.scale = 1;
+    state.pan = [0, 0];
+    render();
+  });
+  document.querySelectorAll("#eventTable th[data-sort]").forEach((th) => {
+    th.addEventListener("click", () => {
+      const key = th.getAttribute("data-sort");
+      if (state.sort.key === key) state.sort.dir *= -1;
+      else {
+        state.sort.key = key;
+        state.sort.dir = key === "place" || key === "status" || key === "band" ? 1 : -1;
+      }
+      renderTable();
+    });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePanel();
+  });
+
+  const drag = d3.drag()
+    .on("start", function () {
+      state.dragging = true;
+      if (state.mode === "globe") stopSpin();
+    })
+    .on("drag", function (event) {
+      if (state.mode === "globe") {
+        const base = Math.min(state.width, state.height) * 0.44 * state.scale;
+        const sens = 110 / Math.max(base, 80);
+        state.rotation[0] += event.dx * sens;
+        state.rotation[1] = Math.max(-88, Math.min(88, state.rotation[1] - event.dy * sens));
+      } else {
+        state.pan[0] += event.dx;
+        state.pan[1] += event.dy;
+      }
+      render();
+    })
+    .on("end", function () {
+      state.dragging = false;
+    });
+  el.svg.call(drag);
+
+  el.card.addEventListener(
+    "wheel",
+    function (e) {
+      e.preventDefault();
+      const factor = e.deltaY < 0 ? 1.07 : 1 / 1.07;
+      state.scale = Math.max(0.65, Math.min(3.8, state.scale * factor));
+      render();
+    },
+    { passive: false }
+  );
+
+  const ro = new ResizeObserver(() => {
+    sizeCanvases();
+    render();
+  });
+  ro.observe(el.card);
+}
+
+async function main() {
+  if (typeof d3 === "undefined") {
+    el.status.hidden = false;
+    el.status.textContent = "The map library (d3) could not be loaded. The event table below still works once the data arrives.";
+  }
+  try {
+    await loadAll();
+  } catch (err) {
+    el.status.hidden = false;
+    el.status.textContent = "Could not load snapshot data: " + err.message;
+    console.error(err);
+    return;
+  }
+  el.status.hidden = true;
+  renderHeader();
+  renderKpis();
+  renderLegend();
+  renderCaveats();
+  renderWindowNote();
+  renderTable();
+  bindControls();
+  sizeCanvases();
+  render();
+  updateSpinBtn();
+  if (state.autoRotate && state.mode === "globe") startSpin();
+  window.__CATBOND__.ready = true;
+}
+
+main();
+</script>
+</body>
+</html>
