@@ -1,7 +1,7 @@
 {
   "version": "phase1-0.1",
-  "generated_at_utc": "2026-11-12T17:22:55.183Z",
-  "generated_at_europe_zurich": "2026-11-12T18:22:55.183+01:00",
+  "generated_at_utc": "2026-11-12T20:58:59.484Z",
+  "generated_at_europe_zurich": "2026-11-12T21:58:59.484+01:00",
   "status": "not used in any event calculation in Phase 1",
   "severity_reading": {
     "pager_alert_levels": {
@@ -169,7 +169,7 @@
     "Insurance-math module (damage ratios, penetration, coverage, deductibles, demand surge)",
     "Monte Carlo / sampling of the PAGER loss distribution to obtain P(X > A)",
     "Verified bond watchlist and trigger engine",
-    "Public coverage zones (zones.json is an empty FeatureCollection)"
+    "A numeric contract-trigger engine (contractual coverage boxes and payout figures are not shown on this site)"
   ],
   "historical_comps_rules": {
     "pager_historical": {
