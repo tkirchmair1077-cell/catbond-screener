@@ -115,8 +115,11 @@ section{margin-bottom:42px;scroll-margin-top:84px}
 .badge.status-pending::before{background:var(--amber)}
 .badge.status-met{color:var(--pager-orange);background:#3a2410;border-color:transparent}
 .badge.status-met::before{background:var(--pager-orange)}
-#tooltip{position:absolute;z-index:7;pointer-events:none;background:rgba(17,26,43,.94);border:1px solid var(--border-strong);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--text);white-space:nowrap;transform:translate(12px,12px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+#tooltip{position:absolute;z-index:7;pointer-events:none;background:rgba(17,26,43,.94);border:1px solid var(--border-strong);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--text);white-space:normal;max-width:280px;line-height:1.4;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 #tooltip[hidden]{display:none}
+#tooltip .tt-mag{font-weight:650}
+#tooltip .tt-place{margin-top:2px}
+#tooltip .tt-loss{color:var(--text-2);font-size:11.5px;margin-top:4px;line-height:1.4}
 .window-note{margin:12px 0 0;font-size:12.5px;color:var(--text-2);line-height:1.55;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--navy);border-radius:8px;padding:11px 16px}
 .window-note a{color:var(--accent);text-decoration:none}
 .window-note a:hover{text-decoration:underline}
@@ -205,7 +208,7 @@ footer a:hover{text-decoration:underline}
 .not-modelled{margin:0;padding:0 0 0 18px}
 .not-modelled li{margin:0 0 6px;color:var(--text-2);line-height:1.5}
 .not-modelled li:last-child{margin-bottom:0}
-.event-panel{width:min(400px,calc(100% - 32px))}
+.event-panel{width:min(420px,calc(100% - 32px))}
 .event-panel .comps{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--border)}
 .event-panel .comps h4{margin:0 0 8px;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);font-weight:650}
 .event-panel .comps-block{margin:0 0 12px}
@@ -223,6 +226,17 @@ footer a:hover{text-decoration:underline}
 .comps-cell a:hover{text-decoration:underline}
 .comps-cell .line{margin:0}
 .comps-cell .line + .line{margin-top:3px}
+.loss-block{margin:12px 0 0;padding:10px 12px;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px}
+.loss-block .loss-display{font-size:15px;font-weight:620;letter-spacing:-.01em;line-height:1.35;color:var(--text)}
+.loss-block .loss-label{font-size:11.5px;color:var(--text-2);margin-top:6px;line-height:1.45}
+.loss-block .loss-note{font-size:11.5px;color:var(--text-3);margin-top:4px;line-height:1.45}
+.loss-cell{min-width:9.5rem;max-width:16rem;font-size:12.5px;line-height:1.4;color:var(--text)}
+.loss-cell .loss-display{font-weight:550;color:var(--text)}
+#eventTable th.src, #eventTable td.src{white-space:nowrap;min-width:4.2rem}
+#eventTable th[data-sort="loss"]{white-space:normal;max-width:16rem;line-height:1.3}
+.quake-label{font-family:var(--font);font-size:11px;font-weight:650;fill:#e5ebf4;paint-order:stroke;stroke:#070c16;stroke-width:3.5px;stroke-linejoin:round;pointer-events:none}
+.leg-note{margin:8px 0 0;padding-top:8px;border-top:1px solid var(--border);color:var(--text-2);font-size:11px;line-height:1.45}
+.map-legend{max-width:300px}
 @media (max-width:1100px){
   .assume-items,.bands{grid-template-columns:1fr}
 }
@@ -278,7 +292,7 @@ footer a:hover{text-decoration:underline}
     <div class="sec-head">
       <h2>1 · The planet</h2>
       <div class="filter-row">
-        <span class="hint">Circles sized by magnitude, coloured by PAGER alert</span>
+        <span class="hint">Circles sized by magnitude, coloured by PAGER alert. Hover or click for modelled economic loss (USD)</span>
         <div class="seg" id="filterSeg" role="group" aria-label="Magnitude band filter">
           <button type="button" data-filter="all" class="active">All</button>
           <button type="button" data-filter="alert">Alert M&gt;6.0</button>
@@ -325,10 +339,11 @@ footer a:hover{text-decoration:underline}
               <th data-sort="place" scope="col">Place</th>
               <th data-sort="depth_km" class="r" scope="col">Depth</th>
               <th data-sort="pager" scope="col">PAGER</th>
+              <th data-sort="loss" scope="col">PAGER econ. loss</th>
               <th data-sort="band" scope="col">Band</th>
               <th data-sort="status" scope="col">Overlap status</th>
               <th scope="col">Historical comps</th>
-              <th scope="col">USGS</th>
+              <th class="src" scope="col">USGS</th>
             </tr>
           </thead>
           <tbody id="eventBody"></tbody>
@@ -351,7 +366,8 @@ footer a:hover{text-decoration:underline}
       <h3>How to read this page</h3>
       <p>Circles are earthquakes of magnitude 5.8 or greater in the snapshot window. Size is magnitude; colour is the USGS PAGER overall alert level (green, yellow, orange, red). Grey means PAGER has not been published. Translucent overlays, when present, are publicly sourced catastrophe‑bond coverage regions. <strong id="zoneMethodNote">This snapshot has no verified coverage zones, so every event is marked “no overlap”.</strong></p>
       <p><strong>What the colours are not.</strong> PAGER is a USGS estimate of humanitarian and economic impact. It is not an insured‑loss figure, not an industry‑loss index, and not a contract result.</p>
-      <p><strong>The loss ladder stays separate.</strong> Economic loss, insured (industry) loss and bond principal impairment are three different quantities and are kept apart. This public page does not publish numeric principal‑impairment estimates. A principal‑loss figure would appear only when the contractual measure and the attachment and exhaustion points have all been verified from deal documents — and those terms stay off this page.</p>
+      <p><strong>USGS PAGER modelled economic loss.</strong> Each event may carry a USD figure from the public PAGER product, shown on the map tooltip, in the event panel and in the table, using the snapshot’s own <span style="font-variant:normal">display</span> text. The label on this page is: “USGS PAGER modelled economic loss: all losses, not insured loss, not a bond trigger.” The 50% and 90% ranges attached to that figure are this desk’s own calculation (d), not a USGS published range. Missing values are shown as n/a. These figures are never used as a contractual measure or a bond trigger.</p>
+      <p><strong>The loss ladder stays separate.</strong> Economic loss, insured (industry) loss and bond principal impairment are three different quantities and are kept apart. This public page does not publish insured‑loss figures or numeric principal‑impairment estimates. A principal‑loss figure would appear only when the contractual measure and the attachment and exhaustion points have all been verified from deal documents — and those terms stay off this page.</p>
       <p><strong>Phase 1 scope.</strong> Detection uses the USGS earthquake catalogue (ComCat via the FDSN API). Alert‑band events are M&gt;6.0 (strictly greater); watch band events are 5.8≤M≤6.0. Public status values are “no overlap”, “overlap, assessment pending”, or “threshold met”. The last of these is used only with a stated public basis; Phase 1 has no such criterion. The map and table show the status carried in the snapshot; they do not recompute it.</p>
     </div>
   </section>
@@ -386,6 +402,8 @@ const PAGER_COLOUR = {
   red: getCss("--pager-red", "#e85d5d"),
 };
 const PAGER_NONE = getCss("--pager-none", "#8a94a6");
+const PAGER_ECON_LABEL = "USGS PAGER modelled economic loss: all losses, not insured loss, not a bond trigger";
+const PAGER_RANGE_NOTE = "The 50% and 90% ranges are this desk's own calculation (d).";
 const FETCH_OPT = { cache: "no-store" };
 const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const INITIAL_ROTATION = [-130, -15]; // Pacific / East Asia overview
@@ -472,6 +490,40 @@ function visibleEvents() {
 function fmtMag(m) {
   if (m == null || !Number.isFinite(Number(m))) return "unavailable";
   return Number(m).toFixed(1);
+}
+
+function economicLoss(ev) {
+  const pel = ev && ev.pager_economic_loss_usd;
+  if (!pel || typeof pel !== "object") {
+    return { display: "n/a", available: false, point: null, version: null };
+  }
+  const rawDisplay = pel.display;
+  const display = typeof rawDisplay === "string" && rawDisplay.trim() ? rawDisplay.trim() : "n/a";
+  let point = null;
+  if (pel.point_estimate_usd != null && pel.point_estimate_usd !== "" && Number.isFinite(Number(pel.point_estimate_usd))) {
+    point = Number(pel.point_estimate_usd);
+  }
+  const version = pel.pager_version != null ? pel.pager_version : null;
+  return { display: display, available: display !== "n/a" || point != null, point: point, version: version, pel: pel };
+}
+
+function compactLossDisplay(ev) {
+  const d = economicLoss(ev).display;
+  if (d === "n/a") return "n/a";
+  const cut = d.indexOf(" (");
+  return cut > 0 ? d.slice(0, cut) : d;
+}
+
+function lossCellHtml(ev) {
+  const d = economicLoss(ev).display;
+  if (d === "n/a") return '<td class="loss-cell">n/a</td>';
+  const cut = d.indexOf(" (");
+  if (cut < 0) {
+    return '<td class="loss-cell"><div class="loss-display">' + escapeHtml(d) + "</div></td>";
+  }
+  const head = d.slice(0, cut);
+  const rest = d.slice(cut + 2).replace(/\)$/, "");
+  return '<td class="loss-cell"><div class="loss-display">' + escapeHtml(head) + '</div><div class="time-utc">' + escapeHtml(rest) + "</div></td>";
 }
 
 function fmtDepth(km) {
@@ -736,6 +788,7 @@ function drawEvents(proj) {
   enter.append("circle").attr("class", "glow");
   enter.append("circle").attr("class", "core");
   enter.append("circle").attr("class", "ring");
+  enter.append("text").attr("class", "quake-label");
   enter.append("title");
 
   const all = enter.merge(sel);
@@ -765,6 +818,22 @@ function drawEvents(proj) {
       .attr("stroke", color)
       .attr("stroke-width", 1.4)
       .attr("class", pulse ? "ring pulse" : "ring");
+    const loss = economicLoss(d);
+    const showLabel = d.id === state.selectedId || (loss.point != null && loss.point >= 1e6);
+    const label = g.select(".quake-label");
+    if (showLabel && loss.display !== "n/a") {
+      const text = compactLossDisplay(d);
+      const flip = p[0] > state.width * 0.68;
+      label
+        .attr("display", null)
+        .text(text)
+        .attr("x", flip ? -(r + 8) : (r + 8))
+        .attr("y", 0)
+        .attr("dy", "0.35em")
+        .attr("text-anchor", flip ? "end" : "start");
+    } else {
+      label.attr("display", "none").text("");
+    }
     g.select("title").text(titleEvent(d));
   });
   window.__CATBOND__.eventMarkers = shown;
@@ -790,7 +859,8 @@ function drawEvents(proj) {
 
 function titleEvent(d) {
   const lvl = d.pager_alert_level ? "PAGER " + d.pager_alert_level : "PAGER unavailable";
-  return "M " + fmtMag(d.magnitude) + " · " + (d.place || d.id) + " · " + lvl;
+  const loss = economicLoss(d).display;
+  return "M " + fmtMag(d.magnitude) + " · " + (d.place || d.id) + " · " + lvl + " · " + loss;
 }
 
 function ariaEvent(d) {
@@ -800,10 +870,20 @@ function ariaEvent(d) {
 function showTooltip(event, d) {
   const t = el.tooltip;
   t.hidden = false;
-  t.textContent = "M " + fmtMag(d.magnitude) + "  ·  " + (d.place || d.id);
+  const loss = economicLoss(d);
+  t.innerHTML =
+    '<div class="tt-mag">M ' + escapeHtml(fmtMag(d.magnitude)) + "</div>" +
+    '<div class="tt-place">' + escapeHtml(d.place || d.id) + "</div>" +
+    '<div class="tt-loss">' + escapeHtml(loss.display) + "</div>";
   const rect = el.card.getBoundingClientRect();
+  t.style.left = "0px";
+  t.style.top = "0px";
+  const tw = t.offsetWidth || 180;
+  const th = t.offsetHeight || 48;
   let x = event.clientX - rect.left + 14;
   let y = event.clientY - rect.top + 14;
+  if (x + tw + 8 > rect.width) x = Math.max(8, event.clientX - rect.left - tw - 12);
+  if (y + th + 8 > rect.height) y = Math.max(8, event.clientY - rect.top - th - 12);
   t.style.left = x + "px";
   t.style.top = y + "px";
 }
@@ -905,6 +985,17 @@ function closePanel() {
   render();
 }
 
+function renderLossBlock(ev) {
+  const loss = economicLoss(ev);
+  return (
+    '<div class="loss-block">' +
+    '<div class="loss-display">' + escapeHtml(loss.display) + "</div>" +
+    '<div class="loss-label">' + escapeHtml(PAGER_ECON_LABEL) + "</div>" +
+    '<div class="loss-note">' + escapeHtml(PAGER_RANGE_NOTE) + "</div>" +
+    "</div>"
+  );
+}
+
 function statusClass(status) {
   if (status === "threshold met") return "status-met";
   if (status === "overlap, assessment pending") return "status-pending";
@@ -941,6 +1032,7 @@ function renderPanel(ev) {
     "</div><button type='button' class='btn-close' id='panelClose' aria-label='Close'>×</button></div>" +
     '<div class="place">' + escapeHtml(ev.place || "unavailable") + "</div>" +
     '<div class="idline">' + escapeHtml(ev.id) + (ev.review_status ? " · " + escapeHtml(ev.review_status) : "") + "</div>" +
+    renderLossBlock(ev) +
     "<dl>" +
     "<dt>Time (UTC)</dt><dd>" + escapeHtml(fmtWhen(ev.time_utc, "UTC")) + "</dd>" +
     "<dt>Europe/Zurich</dt><dd>" + escapeHtml(fmtWhen(ev.time_europe_zurich || ev.time_utc, "Europe/Zurich")) + "</dd>" +
@@ -1151,18 +1243,138 @@ function renderAssumptions() {
     return;
   }
   if (el.assumptionsHint) {
-    const ver = doc.version ? "Version " + doc.version + ". " : "";
-    const st = doc.status ? doc.status.charAt(0).toUpperCase() + doc.status.slice(1) + "." : "";
-    el.assumptionsHint.textContent = (ver + st).trim() || el.assumptionsHint.textContent;
+    const bits = [];
+    if (doc.version) bits.push("Version " + doc.version + ".");
+    if (doc.pager_economic_usd) {
+      bits.push("The PAGER economic-USD method is used for the public figures; scenario-module figures carry their own status.");
+    } else if (doc.status) {
+      bits.push(doc.status.charAt(0).toUpperCase() + doc.status.slice(1) + ".");
+    }
+    if (bits.length) el.assumptionsHint.textContent = bits.join(" ");
   }
   const parts = [];
   parts.push(renderPagerScaleCard(doc));
+  parts.push(renderPagerEconomicUsdCard(doc));
   parts.push(renderBandsCard(doc));
   parts.push(renderScenarioCard(doc));
   parts.push(renderSeparationCard(doc));
   parts.push(renderNotModelledCard(doc));
   parts.push(renderHistRulesCard(doc));
+  const known = ["version","generated_at_utc","generated_at_europe_zurich","status","severity_reading","pager_economic_usd","scenario_module_assumptions","three_way_separation","not_modelled_yet","historical_comps_rules"];
+  const extra = Object.keys(doc).filter((k) => known.indexOf(k) < 0);
+  if (extra.length) {
+    const leftover = {};
+    extra.forEach((k) => { leftover[k] = doc[k]; });
+    parts.push(
+      '<div class="assume-card"><h3>Further entries in assumptions.json</h3>' +
+      renderGenericValue(leftover) +
+      "</div>"
+    );
+  }
   root.innerHTML = '<div class="assume-stack">' + parts.filter(Boolean).join("") + "</div>";
+}
+
+function renderGenericValue(v) {
+  if (v == null || v === "") return "n/a";
+  if (typeof v === "boolean" || typeof v === "number") return escapeHtml(String(v));
+  if (typeof v === "string") return escapeHtml(v);
+  if (Array.isArray(v)) {
+    if (!v.length) return "n/a";
+    if (v.every((x) => x == null || typeof x !== "object")) return escapeHtml(v.join(", "));
+    return '<ul class="not-modelled">' + v.map((x) => "<li>" + (x != null && typeof x === "object" ? renderGenericDl(x) : escapeHtml(String(x))) + "</li>").join("") + "</ul>";
+  }
+  if (typeof v === "object") return renderGenericDl(v);
+  return escapeHtml(String(v));
+}
+
+function renderGenericDl(obj) {
+  const keys = Object.keys(obj || {});
+  if (!keys.length) return "n/a";
+  return "<dl>" + keys.map((k) => "<dt>" + escapeHtml(String(k).replace(/_/g, " ")) + "</dt><dd>" + renderGenericValue(obj[k]) + "</dd>").join("") + "</dl>";
+}
+
+function renderPagerEconomicUsdCard(doc) {
+  const pe = doc.pager_economic_usd;
+  if (!pe) return "";
+  const bc = pe.bin_conversion || {};
+  const q = pe.quantiles || {};
+  const pt = pe.point_estimate || {};
+  const disp = pe.display || {};
+  const used = q.used_in_phase_1 === true
+    ? '<span class="tag tag-verified">Used for public figures</span>'
+    : (q.used_in_phase_1 === false ? '<span class="tag tag-status">Not used in Phase 1</span>' : "");
+  const evHtml = Array.isArray(bc.evidence) && bc.evidence.length
+    ? '<ul class="not-modelled">' + bc.evidence.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>"
+    : "";
+  const p50 = q.p50_range || {};
+  const p90 = q.p90_range || {};
+  function rangeLine(label, rec) {
+    if (!rec || typeof rec !== "object" || !Object.keys(rec).length) return "";
+    const bits = [];
+    if (rec.meaning) bits.push(rec.meaning);
+    if (Array.isArray(rec.percentiles)) bits.push("percentiles " + rec.percentiles.join(", "));
+    const extra = Object.keys(rec).filter((k) => k !== "meaning" && k !== "percentiles");
+    extra.forEach((k) => bits.push(k.replace(/_/g, " ") + ": " + (typeof rec[k] === "object" ? JSON.stringify(rec[k]) : String(rec[k]))));
+    return "<dt>" + escapeHtml(label) + "</dt><dd>" + escapeHtml(bits.join(" · ") || "n/a") + "</dd>";
+  }
+  const leftoverKeys = Object.keys(pe).filter((k) => [
+    "status", "label", "not_insured_not_a_bond_trigger", "bin_conversion",
+    "quantiles", "point_estimate", "display", "three_way_reminder"
+  ].indexOf(k) < 0);
+  const leftoverHtml = leftoverKeys.length
+    ? '<div class="assume-item full"><h4>Further keys</h4>' + renderGenericDl(leftoverKeys.reduce((o, k) => { o[k] = pe[k]; return o; }, {})) + "</div>"
+    : "";
+  const bcLeft = Object.keys(bc).filter((k) => [
+    "verified", "factor", "raw_edges", "statement", "evidence",
+    "pager_background_url", "onepager_axis_label", "source_of_raw_edges"
+  ].indexOf(k) < 0);
+  const qLeft = Object.keys(q).filter((k) => [
+    "status", "used_in_phase_1", "p50_range", "p90_range", "method",
+    "zero_edge_floor_usd", "renormalize_probabilities"
+  ].indexOf(k) < 0);
+  return (
+    '<div class="assume-card">' +
+    '<div class="assume-head"><h3>' + escapeHtml(pe.label || "PAGER economic loss (USD)") + "</h3>" +
+    assumptionTag(q.status || pe.status) + " " + used + "</div>" +
+    (pe.status ? '<p class="meta-line">' + escapeHtml(pe.status) + "</p>" : "") +
+    (pe.not_insured_not_a_bond_trigger != null
+      ? '<p class="meta-line">Not insured, not a bond trigger: ' + escapeHtml(String(pe.not_insured_not_a_bond_trigger)) + "</p>"
+      : "") +
+    (pe.three_way_reminder ? '<div class="sep-box">' + escapeHtml(pe.three_way_reminder) + "</div>" : "") +
+    '<div class="assume-items" style="margin-top:14px">' +
+    '<div class="assume-item full"><h4>Bin conversion ' +
+    (bc.verified === true ? assumptionTag("verified") : (bc.verified === false ? assumptionTag("ASSUMPTION") : "")) +
+    "</h4>" +
+    (bc.statement ? "<p>" + escapeHtml(bc.statement) + "</p>" : "") +
+    "<dl>" +
+    (bc.factor != null ? "<dt>Factor</dt><dd>" + escapeHtml(String(bc.factor)) + "</dd>" : "") +
+    (Array.isArray(bc.raw_edges) ? "<dt>Raw edges</dt><dd>" + escapeHtml(bc.raw_edges.join(", ")) + "</dd>" : "") +
+    (bc.source_of_raw_edges ? "<dt>Source of raw edges</dt><dd>" + escapeHtml(bc.source_of_raw_edges) + "</dd>" : "") +
+    (bc.onepager_axis_label ? "<dt>One-pager axis label</dt><dd>" + escapeHtml(bc.onepager_axis_label) + "</dd>" : "") +
+    (bc.pager_background_url ? "<dt>PAGER background</dt><dd>" + extLink(bc.pager_background_url, bc.pager_background_url, false) + "</dd>" : "") +
+    (bcLeft.length ? bcLeft.map((k) => "<dt>" + escapeHtml(k.replace(/_/g, " ")) + "</dt><dd>" + renderGenericValue(bc[k]) + "</dd>").join("") : "") +
+    "</dl>" +
+    (evHtml ? '<div class="src">Evidence</div>' + evHtml : "") +
+    "</div>" +
+    '<div class="assume-item full"><h4>Quantiles ' + assumptionTag(q.status) + " " + used + "</h4>" +
+    (q.method ? "<p>" + escapeHtml(q.method) + "</p>" : "") +
+    "<dl>" +
+    rangeLine("p50 range", p50) +
+    rangeLine("p90 range", p90) +
+    (q.zero_edge_floor_usd != null ? "<dt>Zero-edge floor</dt><dd>" + escapeHtml(String(q.zero_edge_floor_usd)) + " USD</dd>" : "") +
+    (q.renormalize_probabilities != null ? "<dt>Renormalize probabilities</dt><dd>" + escapeHtml(String(q.renormalize_probabilities)) + "</dd>" : "") +
+    (q.used_in_phase_1 != null ? "<dt>Used in Phase 1</dt><dd>" + escapeHtml(String(q.used_in_phase_1)) + "</dd>" : "") +
+    (qLeft.length ? qLeft.map((k) => "<dt>" + escapeHtml(k.replace(/_/g, " ")) + "</dt><dd>" + renderGenericValue(q[k]) + "</dd>").join("") : "") +
+    "</dl></div>" +
+    '<div class="assume-item"><h4>Point estimate ' + assumptionTag(pt.status) + "</h4>" +
+    renderGenericDl(pt) +
+    "</div>" +
+    '<div class="assume-item"><h4>Display ' + assumptionTag(disp.status) + "</h4>" +
+    renderGenericDl(disp) +
+    "</div>" +
+    leftoverHtml +
+    "</div></div>"
+  );
 }
 
 function renderPagerScaleCard(doc) {
@@ -1381,6 +1593,7 @@ function renderLegend() {
     '<div class="leg-row"><span class="leg-dot" style="background:' + pagerColour("red") + '"></span>PAGER red</div>' +
     '<div class="leg-row"><span class="leg-dot" style="background:' + PAGER_NONE + '"></span>PAGER unavailable</div>' +
     '<div class="leg-sizes">' + sizeHtml + "</div>" +
+    '<p class="leg-note">' + escapeHtml(PAGER_ECON_LABEL) + " " + escapeHtml(PAGER_RANGE_NOTE) + "</p>" +
     zoneNote;
 }
 
@@ -1401,6 +1614,7 @@ function renderTable() {
         '<td class="place-cell">' + escapeHtml(e.place || "unavailable") + "</td>" +
         '<td class="r">' + escapeHtml(fmtDepth(e.depth_km)) + "</td>" +
         "<td>" + pagerBadge(e.pager_alert_level) + "</td>" +
+        lossCellHtml(e) +
         "<td><span class='badge " + escapeAttr(e.band || "") + "'>" + escapeHtml(e.band || "—") + "</span></td>" +
         "<td><span class='badge " + statusClass(e.status) + "'>" + escapeHtml(e.status || "unavailable") + "</span></td>" +
         '<td>' + compsCellHtml(e) + "</td>" +
@@ -1437,6 +1651,11 @@ function compareEvents(a, b) {
     const order = { red: 4, orange: 3, yellow: 2, green: 1 };
     av = order[a.pager_alert_level] || 0;
     bv = order[b.pager_alert_level] || 0;
+  } else if (key === "loss") {
+    const ae = economicLoss(a).point;
+    const be = economicLoss(b).point;
+    av = ae == null ? -Infinity : ae;
+    bv = be == null ? -Infinity : be;
   } else if (key === "place") {
     av = (a.place || "").toLowerCase();
     bv = (b.place || "").toLowerCase();
@@ -1607,7 +1826,14 @@ async function main() {
   sizeCanvases();
   render();
   updateSpinBtn();
-  if (state.autoRotate && state.mode === "globe") startSpin();
+  const params = new URLSearchParams(location.search);
+  const want = params.get("event") || (location.hash ? location.hash.replace(/^#/, "") : "");
+  if (want && state.events.some((e) => e.id === want)) {
+    stopSpin();
+    selectEvent(want, { fly: state.mode === "globe" });
+  } else if (state.autoRotate && state.mode === "globe") {
+    startSpin();
+  }
   window.__CATBOND__.ready = true;
 }
 

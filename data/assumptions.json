@@ -1,7 +1,7 @@
 {
   "version": "phase1-0.1",
-  "generated_at_utc": "2026-11-12T16:39:38.983Z",
-  "generated_at_europe_zurich": "2026-11-12T17:39:38.983+01:00",
+  "generated_at_utc": "2026-11-12T17:22:55.183Z",
+  "generated_at_europe_zurich": "2026-11-12T18:22:55.183+01:00",
   "status": "not used in any event calculation in Phase 1",
   "severity_reading": {
     "pager_alert_levels": {
@@ -192,5 +192,67 @@
       "PAGER historical comparison times are often published without a timezone suffix and are shown as published.",
       "No insured-loss figures, PCS/PERILS values, or bond outcomes are included in historical comps."
     ]
+  },
+  "pager_economic_usd": {
+    "status": "used for public site and alert figures",
+    "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger)",
+    "not_insured_not_a_bond_trigger": true,
+    "bin_conversion": {
+      "verified": true,
+      "factor": 1000000,
+      "raw_edges": [
+        0,
+        1,
+        10,
+        100,
+        1000,
+        10000,
+        100000,
+        10000000
+      ],
+      "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+      "evidence": [
+        "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+        "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+        "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+      ],
+      "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+      "onepager_axis_label": "USD (Millions)",
+      "source_of_raw_edges": "losspager alerts.json (and the same edges in pager.xml)"
+    },
+    "quantiles": {
+      "status": "own calculation (d), not a USGS published range",
+      "used_in_phase_1": true,
+      "p50_range": {
+        "meaning": "central 50% range",
+        "percentiles": [
+          0.25,
+          0.75
+        ]
+      },
+      "p90_range": {
+        "meaning": "central 90% range",
+        "percentiles": [
+          0.05,
+          0.95
+        ]
+      },
+      "method": "From the published economic-bin probabilities, form a cumulative distribution (probabilities are renormalized to sum to 1, which is this tool's own choice (d) to absorb published rounding residuals). The quantile q is located in the bin whose cumulative interval contains q. Inside that bin the loss is interpolated in log space: if the bin is [L, U] with incoming cumulative F_L and mass p, x = L * (U/L)^((q - F_L)/p). This is equivalent to treating log(loss) as uniform within the bin. When a published lower edge is 0, L is replaced by 1 USD for the logarithm only (this floor is our own choice (d); the q=0 edge stays the published 0). The last published upper edge is used as the finite cap; no further tail is invented. The point estimate is not an input to this calculation — only the bin probabilities and converted edges are.",
+      "zero_edge_floor_usd": 1.0,
+      "renormalize_probabilities": true
+    },
+    "point_estimate": {
+      "field": "point_estimate_usd",
+      "source": "losspager losses.json empirical_economic.total_dollars, as published",
+      "units": "USD",
+      "status": "as published by USGS PAGER",
+      "unavailable": "If the field is missing, the value is 'unavailable: <reason>'. A published 0 is 0, not unavailable."
+    },
+    "display": {
+      "status": "own formatting (d)",
+      "pattern": "~USD <point> (90% range <p90_low>–<p90_high>, USGS PAGER v<version>)",
+      "compact_units": "Values under 1,000 USD are shown as whole dollars; then k, m, bn, tn (thousands, millions, billions, trillions). Millions and billions of 100 or more are rounded to the nearest whole unit (301m); 10–99 to a whole unit (27bn); under 10 to one decimal (3.3m, 8.2bn). The tilde marks a model estimate. This is a display rule only; stored USD figures are not rounded this way."
+    },
+    "three_way_reminder": "These USD figures are USGS PAGER modelled economic loss (all losses). They are not insured industry loss and not a bond-impairment figure, and they are never used as contract X."
   }
 }
