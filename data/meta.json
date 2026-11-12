@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-11-12T16:39:38.983Z",
-  "generated_at_europe_zurich": "2026-11-12T17:39:38.983+01:00",
+  "generated_at_utc": "2026-11-12T17:22:55.183Z",
+  "generated_at_europe_zurich": "2026-11-12T18:22:55.183+01:00",
   "window": {
-    "start_utc": "2026-10-13T16:39:38.983Z",
-    "end_utc": "2026-11-12T16:39:38.983Z",
+    "start_utc": "2026-10-13T17:22:55.183Z",
+    "end_utc": "2026-11-12T17:22:55.183Z",
     "days": 30
   },
   "thresholds": {
@@ -42,9 +42,9 @@
       "unavailable": 0
     },
     "status": {
-      "threshold met": 0,
+      "overlap, assessment pending": 0,
       "no overlap": 26,
-      "overlap, assessment pending": 0
+      "threshold met": 0
     },
     "zones": 0
   },
@@ -52,14 +52,15 @@
     "zones.json is an empty FeatureCollection: no publicly disclosed cat-bond coverage regions were verified from a primary public source. No zones were invented or filled from memory.",
     "Because there are no public zones, every event status is 'no overlap'.",
     "'threshold met' is never assigned without a stated public basis; Phase 1 has no such public criterion, so this status is not used.",
-    "Public site files contain no PCS/PERILS or broker data, no deal terms, and no loss estimates. PAGER economic/fatality distributions and empirical dollar figures are excluded from the public site.",
+    "Public site files contain no PCS/PERILS or broker data, no deal terms, and no insured-loss or bond-impairment USD figures. USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger) is published on each event as pager_economic_loss_usd, from the public losspager product (losses.json empirical_economic.total_dollars and alerts.json economic bins).",
     "PAGER alert level is the USGS overall colour (the higher of the fatality and economic alerts) as published on the event; it is not an insured-loss figure and not a contract result. It is provided so a consumer can colour a map.",
     "Magnitudes, locations, depths and PAGER levels can be revised by USGS. This file is a snapshot at generated_at_utc.",
     "The verified bond watchlist is empty (no verified deal documents). Private contract tests are not represented on this public site.",
     "This snapshot was produced by a one-shot `run` (or `site`) command. No routine or polling service is installed.",
     "Times are converted from the USGS epoch-millisecond origin to UTC and Europe/Zurich (CET/CEST).",
     "ALERT band is M > 6.0 (strictly greater). WATCH band is 5.8 ≤ M ≤ 6.0. Events below M 5.8 are not included.",
-    "Scenario-module assumptions, the PAGER Earthquake Impact Scale reading (quoted from USGS), and the three-way loss-field separation are documented in site/assumptions.json. Those assumptions are not used in any event calculation in Phase 1.",
-    "Historical comparisons on each event (PAGER published comps and USGS catalog analogs) are documented in events.json under historical_comps and in assumptions.json (historical_comps_rules). Catalog analogs use M>=6.0, 250 km, since 1900 — our own choice (d), not a USGS rule. The USGS catalog is incomplete before modern instrumentation. PAGER comps are listed as published. No insured-loss, PCS/PERILS or bond outcomes are included."
+    "Scenario-module assumptions, the PAGER Earthquake Impact Scale reading (quoted from USGS), and the three-way loss-field separation are documented in site/assumptions.json. Those scenario-module assumptions are not used in any event calculation in Phase 1. The pager_economic_usd section of assumptions.json documents the verified bin-to-USD conversion and this tool's own (d) p50/p90 quantile method, which ARE applied to the public PAGER figures.",
+    "Historical comparisons on each event (PAGER published comps and USGS catalog analogs) are documented in events.json under historical_comps and in assumptions.json (historical_comps_rules). Catalog analogs use M>=6.0, 250 km, since 1900 — our own choice (d), not a USGS rule. The USGS catalog is incomplete before modern instrumentation. PAGER comps are listed as published. No insured-loss, PCS/PERILS or bond outcomes are included.",
+    "pager_economic_loss_usd is USGS PAGER modelled economic loss (all losses). The point estimate is the published empirical_economic.total_dollars. Bin edges 0, 1, 10, 100… are converted to USD as millions (factor 1,000,000), verified against the PAGER one-pager axis 'USD (Millions)', the Earthquake Impact Scale, and empirical point estimates falling in the modal bin; see assumptions.json (pager_economic_usd). p50_range_usd and p90_range_usd are this tool's own calculation (d): log-space interpolation of the cumulative bin probabilities (central 50% = 25th–75th percentiles; central 90% = 5th–95th). They are not a USGS published range and are not insured-loss or bond-impairment figures."
   ]
 }

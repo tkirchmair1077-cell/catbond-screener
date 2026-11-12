@@ -150,6 +150,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v6",
+        "pager_version": 6,
+        "point_estimate_usd": 32,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 32 (90% range 2–3.2m, USGS PAGER v6)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -252,6 +356,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.989349182243839
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.01064875712266733
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 2.060631031697291e-06
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 2.4619195571062846e-12
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 0.0
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 0.0
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 0.0
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 33,
+          "high_usd": 35354,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 577249,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–577k, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -405,6 +613,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v6",
+        "pager_version": 6,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v6)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -556,6 +868,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v5",
+        "pager_version": 5,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v5)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -709,6 +1125,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -860,6 +1380,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v3",
+        "pager_version": 3,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v3)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -1013,6 +1637,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -1115,6 +1843,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.989349182243839
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.01064875712266733
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 2.060631031697291e-06
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 2.4619195571062846e-12
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 0.0
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 0.0
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 0.0
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 33,
+          "high_usd": 35354,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 577249,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–577k, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -1268,6 +2100,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -1419,6 +2355,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v2",
+        "pager_version": 2,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v2)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -1572,6 +2612,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -1723,6 +2867,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 378207,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 378k (90% range 2–3.2m, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -1876,6 +3124,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v5",
+        "pager_version": 5,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v5)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -1996,6 +3348,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v3",
+        "pager_version": 3,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v3)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -2098,6 +3554,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.989349182243839
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.01064875712266733
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 2.060631031697291e-06
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 2.4619195571062846e-12
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 0.0
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 0.0
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 0.0
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 33,
+          "high_usd": 35354,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 577249,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–577k, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -2251,6 +3811,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v3",
+        "pager_version": 3,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v3)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -2402,6 +4066,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v5",
+        "pager_version": 5,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v5)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -2555,6 +4323,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -2706,6 +4578,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -2859,6 +4835,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v4",
+        "pager_version": 4,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v4)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -2988,6 +5068,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v8",
+        "pager_version": 8,
+        "point_estimate_usd": 301381391,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.011204979155313158
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.07534408056072575
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.2429551813647795
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 0.35479370209079497
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 0.23506294669385308
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 0.0705177832296161
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 0.01012132690209866
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 47071897,
+          "high_usd": 1903304840,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 3272689,
+          "high_usd": 27194915252,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 301m (90% range 3.3m–27bn, USGS PAGER v8)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -3141,6 +5325,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v3",
+        "pager_version": 3,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v3)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -3292,6 +5580,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v5",
+        "pager_version": 5,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v5)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     },
@@ -3445,6 +5837,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v5",
+        "pager_version": 5,
+        "point_estimate_usd": 8895,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 8.9k (90% range 2–3.2m, USGS PAGER v5)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -3597,6 +6093,110 @@
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
         }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v1",
+        "pager_version": 1,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v1)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
+        }
       }
     },
     {
@@ -3748,6 +6348,110 @@
           ],
           "earth_radius_km": 6371.0,
           "note": "The USGS catalog is incomplete before modern instrumentation. This list is not an insured-loss comparison and contains no PCS/PERILS or bond outcomes."
+        }
+      },
+      "pager_economic_loss_usd": {
+        "label": "USGS PAGER modelled economic loss (all losses, not insured, not a bond trigger); USGS PAGER v5",
+        "pager_version": 5,
+        "point_estimate_usd": 0,
+        "point_estimate_source": "losspager losses.json empirical_economic.total_dollars, as published",
+        "bins": [
+          {
+            "color": "green",
+            "raw_min": "0",
+            "raw_max": "1",
+            "raw_units_field": "USD",
+            "min_usd": 0,
+            "max_usd": 1000000,
+            "probability": 0.90444908046074
+          },
+          {
+            "color": "yellow",
+            "raw_min": "1",
+            "raw_max": "10",
+            "raw_units_field": "USD",
+            "min_usd": 1000000,
+            "max_usd": 10000000,
+            "probability": 0.09108479987398588
+          },
+          {
+            "color": "yellow",
+            "raw_min": "10",
+            "raw_max": "100",
+            "raw_units_field": "USD",
+            "min_usd": 10000000,
+            "max_usd": 100000000,
+            "probability": 0.004422119542692227
+          },
+          {
+            "color": "orange",
+            "raw_min": "100",
+            "raw_max": "1000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000,
+            "max_usd": 1000000000,
+            "probability": 4.382995608342988e-05
+          },
+          {
+            "color": "red",
+            "raw_min": "1000",
+            "raw_max": "10000",
+            "raw_units_field": "USD",
+            "min_usd": 1000000000,
+            "max_usd": 10000000000,
+            "probability": 8.505178272777414e-08
+          },
+          {
+            "color": "red",
+            "raw_min": "10000",
+            "raw_max": "100000",
+            "raw_units_field": "USD",
+            "min_usd": 10000000000,
+            "max_usd": 100000000000,
+            "probability": 3.14629433617597e-11
+          },
+          {
+            "color": "red",
+            "raw_min": "100000",
+            "raw_max": "10000000",
+            "raw_units_field": "USD",
+            "min_usd": 100000000000,
+            "max_usd": 10000000000000,
+            "probability": 2.220446049250313e-15
+          }
+        ],
+        "p50_range_usd": {
+          "low_usd": 46,
+          "high_usd": 94494,
+          "percentiles": [
+            0.25,
+            0.75
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "p90_range_usd": {
+          "low_usd": 2,
+          "high_usd": 3162952,
+          "percentiles": [
+            0.05,
+            0.95
+          ],
+          "status": "own calculation (d)",
+          "method": "Log-space interpolation of the cumulative distribution within published bins, after converting edges to USD. Probabilities are renormalized to sum to 1. A published lower edge of 0 is replaced by 1 USD for the logarithm only (the q=0 edge stays 0). See assumptions.json (pager_economic_usd)."
+        },
+        "display": "~USD 0 (90% range 2–3.2m, USGS PAGER v5)",
+        "bin_conversion": {
+          "verified": true,
+          "factor": 1000000,
+          "statement": "Raw losspager alerts.json (and pager.xml) economic bin edges 0, 1, 10, 100, 1000, 10000, 100000, 10000000 are in USD millions. Converted min_usd / max_usd = raw_edge × 1,000,000. The alerts.json units field is 'USD' and does not itself say 'millions'; the millions scale was verified against the product and the published Earthquake Impact Scale (see evidence).",
+          "evidence": [
+            "The PAGER one-pager PDF (onepager.pdf) labels the estimated-economic-loss histogram axis 'USD (Millions)'. Verified on us6000u43g (M7.0 Nagqu, PAGER version 8) on 2026-11-12 by extracting text from the published PDF.",
+            "The PAGER Earthquake Impact Scale (https://earthquake.usgs.gov/data/pager/background.php) states economic colour thresholds as green < $1 million, yellow $1 million–$100 million, orange $100 million–$1 billion, red $1 billion+. These match the seven published bin edges under a millions interpretation (0–1 green; 1–10 and 10–100 yellow; 100–1000 orange; 1000+ red).",
+            "Empirical point estimates (losses.json empirical_economic.total_dollars, published in USD) fall in the highest-probability bin only when edges are read as millions: us6000u43g $301,381,391 is in 100–1000 million (orange, p≈0.35); us6000tjl2 $8,159,004,208 is in 1000–10000 million (red, p≈0.33); us7000tx16 $32 is in 0–1 million (green). The raw-USD reading (edges as dollars) cannot place $301 million in 100–1000 or $32 in 0–1."
+          ],
+          "pager_background_url": "https://earthquake.usgs.gov/data/pager/background.php",
+          "onepager_axis_label": "USD (Millions)"
         }
       }
     }
