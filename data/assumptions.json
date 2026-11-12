@@ -1,0 +1,196 @@
+{
+  "version": "phase1-0.1",
+  "generated_at_utc": "2026-11-12T16:39:38.983Z",
+  "generated_at_europe_zurich": "2026-11-12T17:39:38.983+01:00",
+  "status": "not used in any event calculation in Phase 1",
+  "severity_reading": {
+    "pager_alert_levels": {
+      "source_url": "https://earthquake.usgs.gov/data/pager/background.php",
+      "source_title": "PAGER Scientific Background (USGS Earthquake Impact Scale)",
+      "fetched_and_quoted": "2026-11-12",
+      "quotes": {
+        "colour_meaning": "alerts of green (little or no impact), yellow (regional impact and response), orange (national-scale impact and response), and red (international response)",
+        "thresholds_prose": "Corresponding fatality thresholds for yellow, orange, and red alert levels are 1, 100, and 1,000, respectively. For damage impact, yellow, orange, and red thresholds are triggered by estimated losses reaching $1 million, $100 million, and $1 billion respectively.",
+        "overall_alert": "The alert levels are determined by estimated ranges of fatalities and economic loss, with the higher of the two setting the overall alert level."
+      },
+      "fatality_bins": [
+        {
+          "level": "green",
+          "estimated_fatalities": "0",
+          "verification": "verified",
+          "quoted_from": "PAGER Scientific Background, Earthquake Impact Scale table, 'Estimated Fatalities' column"
+        },
+        {
+          "level": "yellow",
+          "estimated_fatalities": "1 - 99",
+          "verification": "verified",
+          "quoted_from": "PAGER Scientific Background, Earthquake Impact Scale table, 'Estimated Fatalities' column"
+        },
+        {
+          "level": "orange",
+          "estimated_fatalities": "100 - 999",
+          "verification": "verified",
+          "quoted_from": "PAGER Scientific Background, Earthquake Impact Scale table, 'Estimated Fatalities' column"
+        },
+        {
+          "level": "red",
+          "estimated_fatalities": "1,000+",
+          "verification": "verified",
+          "quoted_from": "PAGER Scientific Background, Earthquake Impact Scale table, 'Estimated Fatalities' column"
+        }
+      ],
+      "economic_bins": [
+        {
+          "level": "green",
+          "estimated_losses_usd": "< $1 million",
+          "verification": "verified",
+          "quoted_from": "PAGER Scientific Background, Earthquake Impact Scale table, 'Estimated Losses (USD)' column"
+        },
+        {
+          "level": "yellow",
+          "estimated_losses_usd": "$1 million - $100 million",
+          "verification": "verified",
+          "quoted_from": "PAGER Scientific Background, Earthquake Impact Scale table, 'Estimated Losses (USD)' column"
+        },
+        {
+          "level": "orange",
+          "estimated_losses_usd": "$100 million - $1 billion",
+          "verification": "verified",
+          "quoted_from": "PAGER Scientific Background, Earthquake Impact Scale table, 'Estimated Losses (USD)' column"
+        },
+        {
+          "level": "red",
+          "estimated_losses_usd": "$1 billion+",
+          "verification": "verified",
+          "quoted_from": "PAGER Scientific Background, Earthquake Impact Scale table, 'Estimated Losses (USD)' column"
+        }
+      ],
+      "unverified_thresholds": [],
+      "interpretation_note": "These are USGS-published PAGER Earthquake Impact Scale thresholds. They are used only to interpret PAGER colour levels. They are not contract attachment levels, not insured-industry-loss figures, and are never used as contract X. The seven-bin probability distributions in losspager alerts.json are a separate, finer published product; this section quotes the four-colour EIS table from the background page, not a rescaling of those bins."
+    },
+    "screening_magnitude_bands": {
+      "status": "our own screening rule (d), not a USGS rule",
+      "alert": "M > 6.0 (strictly greater)",
+      "watch": "5.8 <= M <= 6.0",
+      "note": "USGS does not define these ALERT and WATCH bands. They are a Phase 1 screening choice of this tool, marked (d)."
+    }
+  },
+  "scenario_module_assumptions": [
+    {
+      "id": "damage_ratios",
+      "label": "Damage ratios by damage state (illustrative)",
+      "value": {
+        "slight": 0.05,
+        "moderate": 0.15,
+        "extensive": 0.6,
+        "complete": 1.0
+      },
+      "status": "ASSUMPTION",
+      "source": "unsourced (design draft 2026-11-12)",
+      "used_in_phase_1": false,
+      "note": "No primary public source was attached to these four figures. They are not used in Phase 1."
+    },
+    {
+      "id": "penetration",
+      "label": "Insurance penetration (qualitative only; no rates invented)",
+      "value": {
+        "New Zealand": "high",
+        "Japan": "moderate",
+        "California": "low",
+        "emerging_markets": "low"
+      },
+      "status": "ASSUMPTION",
+      "source": "unsourced (design draft 2026-11-12)",
+      "used_in_phase_1": false,
+      "note": "Qualitative labels only, as in the design draft. No numeric penetration rates are stated or invented."
+    },
+    {
+      "id": "coverage_ratio",
+      "label": "Coverage ratio",
+      "value": "not set",
+      "status": "ASSUMPTION",
+      "source": "unsourced (design draft 2026-11-12)",
+      "used_in_phase_1": false,
+      "note": "No coverage-ratio figure is stated in the design draft and none is invented."
+    },
+    {
+      "id": "deductibles",
+      "label": "Deductibles (per-policy treatment required)",
+      "value": "A percentage deductible on the limit, with coverage below 1, differs from max(0, DR - d). Per-policy treatment is needed in the real insurance-math module.",
+      "status": "ASSUMPTION",
+      "source": "unsourced (design draft 2026-11-12)",
+      "used_in_phase_1": false,
+      "note": "No numeric deductible is set. This is a modelling note, not a deal term."
+    },
+    {
+      "id": "demand_surge",
+      "label": "Demand surge (sensitivity only)",
+      "value": {
+        "range": [
+          1.1,
+          1.3
+        ],
+        "role": "sensitivity only"
+      },
+      "status": "ASSUMPTION",
+      "source": "unsourced (design draft 2026-11-12)",
+      "used_in_phase_1": false,
+      "note": "Not a base-case factor. Unsourced; not used in Phase 1."
+    },
+    {
+      "id": "hours_clause",
+      "label": "Hours clause",
+      "value": "often 72h for EQ",
+      "status": "ASSUMPTION",
+      "source": "unsourced (design draft 2026-11-12)",
+      "used_in_phase_1": false,
+      "note": "Unsourced in the design draft. The contractual hours-clause value comes only from verified deal documents, which Phase 1 does not have."
+    },
+    {
+      "id": "linear_layer_formula",
+      "label": "Principal-loss linear layer",
+      "value": "min(1, max(0, (X - A) / (E - A)))",
+      "status": "formula only",
+      "source": "design draft 2026-11-12 (insurance ladder item 3)",
+      "used_in_phase_1": "The formula is implemented as a numeric function and is applied only when X, A and E are all verified. Phase 1 has no verified deal numbers, so no event produces a numeric result. The formula itself carries no attachment, exhaustion or loss figures.",
+      "note": "No deal numbers are attached to this formula."
+    }
+  ],
+  "three_way_separation": {
+    "statement": "PAGER economic loss, insured industry loss, and bond principal impairment are three strictly separate quantities. PAGER economic loss (alert colour, published probability bins, and any empirical point estimate) is a USGS modelled economic figure; it is never used as contract X. Insured industry loss X is a contractual industry index (for example PCS or PERILS) or an equivalent settlement input; it is not configured in Phase 1 and is licensed when it exists. Bond principal impairment is min(1, max(0, (X-A)/(E-A))) and is numeric only when X, A and E are all verified on a verified overlapping bond.",
+    "fields": [
+      "PAGER economic loss",
+      "insured industry loss (X)",
+      "bond principal impairment"
+    ]
+  },
+  "not_modelled_yet": [
+    "Physical damage engine (GEM / OpenQuake-compatible)",
+    "Insurance-math module (damage ratios, penetration, coverage, deductibles, demand surge)",
+    "Monte Carlo / sampling of the PAGER loss distribution to obtain P(X > A)",
+    "Verified bond watchlist and trigger engine",
+    "Public coverage zones (zones.json is an empty FeatureCollection)"
+  ],
+  "historical_comps_rules": {
+    "pager_historical": {
+      "description": "Comparison events are listed as published in the USGS losspager product (historical_earthquakes.json, and the historical_comment in comments.json when present). Nothing is added from memory.",
+      "status": "as published by USGS PAGER"
+    },
+    "catalog_analogs": {
+      "minmagnitude": 6.0,
+      "maxradius_km": 250,
+      "start": "1900-01-01",
+      "max_listed": 5,
+      "plus_count": true,
+      "earth_radius_km_for_haversine": 6371.0,
+      "status": "our own choice (d), not a USGS rule",
+      "description": "M >= 6.0 events within 250 km of the epicentre since 1900-01-01, queried from the USGS FDSN event API, excluding the event itself (and its associated USGS ids). Up to the five largest are listed, plus a count of all matches. Distances are a haversine calculation by this tool (d) using a mean Earth radius of 6371 km. The radius, magnitude floor, start year and 'five largest' cap are screening choices of this tool, not a USGS rule."
+    },
+    "caveats": [
+      "The USGS catalog is incomplete before modern instrumentation, and early 20th-century magnitudes, locations and completeness vary.",
+      "PAGER historical comparisons are listed as published. They are not a complete regional catalog; PAGER place names and country codes (for example Name=UK) are shown as in the product and are not independently recoded.",
+      "PAGER historical comparison times are often published without a timezone suffix and are shown as published.",
+      "No insured-loss figures, PCS/PERILS values, or bond outcomes are included in historical comps."
+    ]
+  }
+}
