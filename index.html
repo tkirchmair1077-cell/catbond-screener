@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Earthquake cat-bond screener</title>
+<title>Cat-bond screener — earthquakes and a tropical-cyclone demo</title>
 <meta name="color-scheme" content="dark">
-<meta name="description" content="Public Phase 1 map of recent earthquakes from USGS ComCat and PAGER, for catastrophe‑bond geographic screening. Not investment advice. No deal terms or principal‑impairment figures.">
+<meta name="description" content="Public Phase 1 map of recent earthquakes from USGS ComCat and PAGER, plus a tropical-cyclone demo for Hurricane Melissa and the IBRD CAR Jamaica 2024 bond. Not investment advice. No deal terms or principal-impairment figures.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230a111e' stroke='%237ba5e6' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='9.5' fill='none' stroke='%233d6cb3' stroke-width='0.8' opacity='0.7'/%3E%3Ccircle cx='22' cy='12' r='2.2' fill='%23f08a2c'/%3E%3Ccircle cx='11' cy='18' r='1.4' fill='%233dcc7a'/%3E%3Ccircle cx='18' cy='22' r='1.1' fill='%233dcc7a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,10 +58,39 @@ section{margin-bottom:42px;scroll-margin-top:84px}
 .kpi .s .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px;vertical-align:middle}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px}
 .map-card{position:relative;background:var(--map-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;height:min(72vh,760px);min-height:480px}
-#starCanvas,#globeCanvas,#eventLayer{position:absolute;inset:0;width:100%;height:100%;display:block}
-#eventLayer{z-index:2;touch-action:none}
+
+#starCanvas,#globeCanvas,#stormCanvas,#eventLayer{position:absolute;inset:0;width:100%;height:100%;display:block}
+#stormCanvas{z-index:2;pointer-events:none}
+#eventLayer{z-index:3;touch-action:none}
 #globeCanvas{z-index:1}
 #starCanvas{z-index:0}
+path.zone.zone-tc{fill:rgba(80,196,176,.30);stroke:rgba(170,235,215,.95);stroke-width:1.35}
+path.zone.zone-tc:hover,path.zone.zone-tc.selected{fill:rgba(80,196,176,.48);stroke:#fff;stroke-width:1.9}
+.leg-zone.zone-tc{background:rgba(80,196,176,.45);border-color:rgba(170,235,215,.95)}
+.leg-line{display:inline-block;height:0;flex:none;border-radius:1px}
+.leg-line.thin{width:22px;border-top:1.5px solid currentColor}
+.leg-line.bold{width:22px;border-top:3px solid currentColor}
+.leg-swatch{display:inline-block;width:16px;height:10px;border-radius:2px;flex:none}
+.layer-box{background:rgba(17,26,43,.78);backdrop-filter:blur(10px);border:1px solid var(--border-strong);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--text-2);max-width:280px;line-height:1.4}
+.layer-box h3{margin:0 0 6px;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);font-weight:650}
+.layer-box label{display:flex;align-items:flex-start;gap:7px;margin:3px 0;cursor:pointer;color:var(--text);font-size:12px;font-weight:500}
+.layer-box label input{margin:2px 0 0;accent-color:var(--accent);flex:none}
+.layer-box .layer-note{margin:6px 0 0;font-size:10.5px;color:var(--text-3);line-height:1.4}
+.map-attrib{position:absolute;left:16px;right:16px;bottom:8px;z-index:6;font-size:11px;color:var(--text-2);line-height:1.45;background:rgba(17,26,43,.86);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:10px;padding:8px 12px;max-width:min(560px,calc(100% - 460px))}
+.map-attrib strong{color:var(--text);font-weight:620}
+.map-attrib .attrib-line + .attrib-line{margin-top:2px}
+.map-legend{bottom:96px;max-width:300px;max-height:min(40%,340px);overflow:auto}
+.map-hint{left:16px;bottom:auto;top:auto;display:none}
+.badge.demo{color:var(--amber);background:var(--amber-bg);border-color:transparent}
+.badge.demo::before{background:var(--amber)}
+.badge.relevance{color:var(--pager-orange);background:#3a2410;border-color:transparent;white-space:normal;line-height:1.3}
+.badge.relevance::before{background:var(--pager-orange)}
+.relevance-block{margin:8px 0 0;padding:8px 10px;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--pager-orange);border-radius:8px}
+.relevance-block .rel-state{font-size:12px;font-weight:650;color:var(--pager-orange);letter-spacing:.04em;text-transform:uppercase}
+.relevance-block .rel-reason{margin:6px 0 0;font-size:12px;color:var(--text);line-height:1.45}
+.relevance-block .rel-link{margin:6px 0 0}
+.public-summary-label{margin:4px 0 0;font-size:11.5px;color:var(--amber);font-weight:550;line-height:1.35}
+.legend-toggle{display:none}
 .map-status{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;color:var(--text-2);font-size:14px;background:rgba(7,12,22,.35);pointer-events:none}
 .map-status[hidden]{display:none}
 .map-controls{position:absolute;top:16px;left:16px;z-index:5;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
@@ -80,7 +109,7 @@ section{margin-bottom:42px;scroll-margin-top:84px}
 .leg-sz i{display:block;border-radius:50%;background:var(--pager-green);box-shadow:0 0 8px rgba(61,204,122,.35)}
 .zone-note{margin:8px 0 0;padding-top:8px;border-top:1px solid var(--border);color:var(--amber);font-size:11.5px;font-weight:550;line-height:1.45}
 .map-hint{position:absolute;left:16px;bottom:12px;z-index:5;margin:0;font-size:11px;color:var(--text-3)}
-.event-panel{position:absolute;top:16px;right:16px;z-index:6;width:min(360px,calc(100% - 32px));background:rgba(17,26,43,.9);backdrop-filter:blur(16px);border:1px solid var(--border-strong);border-radius:14px;padding:12px 14px 14px;box-shadow:0 16px 40px rgba(0,0,0,.4);max-height:calc(100% - 32px);overflow:auto}
+.event-panel{position:absolute;top:16px;right:16px;bottom:16px;z-index:6;width:min(360px,calc(100% - 32px));background:rgba(17,26,43,.9);backdrop-filter:blur(16px);border:1px solid var(--border-strong);border-radius:14px;padding:12px 14px 14px;box-shadow:0 16px 40px rgba(0,0,0,.4);max-height:calc(100% - 32px);overflow:auto}
 .event-panel[hidden]{display:none}
 .event-panel .panel-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
 .event-panel .mag{font-size:32px;font-weight:650;letter-spacing:-.03em;line-height:1;color:var(--text)}
@@ -276,8 +305,13 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
   .brand h1{font-size:18px}
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
   .map-card{height:min(78vh,640px);min-height:420px;border-radius:12px}
-  .event-panel{width:calc(100% - 24px);top:auto;bottom:36px;right:12px;left:12px;max-height:48%}
-  .map-legend{display:none}
+  .event-panel{width:calc(100% - 24px);top:auto;bottom:92px;right:12px;left:12px;max-height:42%}
+  .map-controls{top:10px;left:10px;right:10px}
+  .layer-box{max-width:100%}
+  .legend-toggle{display:inline-flex}
+  .map-legend{left:10px;right:auto;bottom:92px;max-width:min(300px,calc(100% - 20px));max-height:38%;display:none}
+  .map-legend.open{display:block}
+  .map-attrib{left:10px;right:10px;bottom:8px;font-size:10.5px;padding:7px 10px}
   .map-hint{display:none}
 }
 </style>
@@ -287,8 +321,8 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
   <div class="top-inner">
     <div class="brand">
       <div class="kicker">Cat-bond desk · Phase 1</div>
-      <h1>Earthquake cat-bond screener</h1>
-      <div class="sub">A planet-wide view of recent earthquakes relevant to catastrophe‑bond screening</div>
+      <h1>Cat-bond screener</h1>
+      <div class="sub">Recent earthquakes for geographic screening, plus a tropical‑cyclone demo (Hurricane Melissa / Jamaica)</div>
     </div>
     <div class="meta">
       <div class="fresh">
@@ -328,7 +362,8 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
     <div class="map-card" id="mapCard">
       <canvas id="starCanvas" aria-hidden="true"></canvas>
       <canvas id="globeCanvas" aria-hidden="true"></canvas>
-      <svg id="eventLayer" role="img" aria-label="Earthquakes on the world map"></svg>
+      <canvas id="stormCanvas" aria-hidden="true"></canvas>
+      <svg id="eventLayer" role="img" aria-label="Earthquakes and tropical-cyclone tracks on the world map"></svg>
       <div id="tooltip" hidden></div>
       <aside id="eventPanel" class="event-panel" hidden aria-live="polite"></aside>
       <div class="map-controls">
@@ -339,10 +374,14 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
         <div class="ctrl-row">
           <button type="button" class="btn-ghost" id="spinBtn" aria-pressed="true">Pause spin</button>
           <button type="button" class="btn-ghost" id="resetBtn">Reset view</button>
+          <button type="button" class="btn-ghost" id="melissaBtn" hidden>View Melissa demo</button>
+          <button type="button" class="btn-ghost legend-toggle" id="legendToggle" aria-expanded="false">Legend</button>
         </div>
+        <div class="layer-box" id="layerBox" hidden></div>
       </div>
       <div class="map-legend" id="legend"></div>
       <p class="map-hint" id="mapHint">Drag to rotate · scroll to zoom · click a coverage region or a circle for details</p>
+      <div class="map-attrib" id="mapAttrib" hidden></div>
       <div class="map-status" id="mapStatus">Loading the earth…</div>
     </div>
     <p class="window-note" id="windowNote"></p>
@@ -393,6 +432,7 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
       <p><strong>USGS PAGER modelled economic loss.</strong> Each event may carry a USD figure from the public PAGER product, shown on the map tooltip, in the event panel and in the table, using the snapshot’s own <span style="font-variant:normal">display</span> text. The label on this page is: “USGS PAGER modelled economic loss: all losses, not insured loss, not a bond trigger.” The 50% and 90% ranges attached to that figure are this desk’s own calculation (d), not a USGS published range. Missing values are shown as n/a. These figures are never used as a contractual measure or a bond trigger.</p>
       <p><strong>The loss ladder stays separate.</strong> Economic loss, insured (industry) loss and bond principal impairment are three different quantities and are kept apart. This public page does not publish insured‑loss figures or numeric principal‑impairment estimates. A principal‑loss figure would appear only when the contractual measure and the attachment and exhaustion points have all been verified from deal documents — and those terms stay off this page.</p>
       <p><strong>Phase 1 scope.</strong> Detection uses the USGS earthquake catalogue (ComCat via the FDSN API). Alert‑band events are M&gt;6.0 (strictly greater); watch band events are 5.8≤M≤6.0. Public status values are “no overlap”, “overlap, assessment pending”, or “threshold met”. The last of these is used only with a stated public basis; Phase 1 has no such criterion. The map and table show the status carried in the snapshot; they do not recompute it.</p>
+      <p><strong>Tropical-cyclone demo.</strong> When <span style="font-variant:normal">storms.json</span> is present, the map can show official National Hurricane Center (NHC) forecast cones and tracks, the NHC observed best track, and Google DeepMind Weather Lab ensemble member tracks for a named demo storm. Official NHC products are U.S. Government works (public domain). Weather Lab tracks are experimental research data, not official, licensed CC BY 4.0. The cone is not the wind, surge or rain footprint. A track entering a coarse country outline is a watch condition, not a payout. The relevance state “REPORTED TRIGGER OUTCOME” is used only when a public source reports that outcome, and is cited. Bond fields on the Jamaica zone are a public summary, not verified against an offering circular, and are flagged as a demo/example. Official NHC and Weather Lab results are shown side by side and are never blended.</p>
     </div>
   </section>
 
@@ -407,6 +447,7 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
 <footer>
   <div class="wrap">
     <p>Data: <a href="https://www.usgs.gov/programs/earthquake-hazards">USGS Earthquake Hazards Program</a> / <a href="https://earthquake.usgs.gov/data/comcat/">ComCat</a> and <a href="https://earthquake.usgs.gov/data/pager/">PAGER</a>. Event catalogue via the <a href="https://earthquake.usgs.gov/fdsnws/event/1/">FDSN event API</a>.</p>
+    <p>Tropical-cyclone demo: official forecast cones, forecast tracks and best track from the <a href="https://www.nhc.noaa.gov/">NOAA National Hurricane Center</a> (U.S. Government work, public domain). Ensemble member tracks: <a href="https://deepmind.google.com/science/weatherlab">Google DeepMind Weather Lab</a> (WeatherNext Cyclones), CC BY 4.0, experimental research data, not official. Cone is not the wind, surge or rain footprint.</p>
     <p>This page is a public research view of a Phase 1 geographic screen. It is not investment advice, and it does not publish insured‑loss figures, deal terms or principal‑impairment estimates. Magnitudes, locations, depths and PAGER levels can be revised by USGS.</p>
     <p id="footerGen"></p>
   </div>
@@ -441,12 +482,34 @@ function getCss(name, fallback) {
   }
 }
 
+const GOOGLE_WL_ATTRIB = "Google DeepMind Weather Lab, CC BY 4.0, experimental research data, not official";
+const CONE_NOTE = "Cone is not the wind, surge or rain footprint";
+const NHC_CREDIT = "Official cone, forecast track and best track: NOAA National Hurricane Center (U.S. Government work, public domain).";
+const PUBLIC_SUMMARY_LABEL = "public summary, not verified against offering circular";
+const STORM_COLOUR = {
+  cone11fill: "rgba(227, 178, 90, 0.20)",
+  cone11stroke: "rgba(227, 178, 90, 0.95)",
+  cone19fill: "rgba(240, 138, 44, 0.22)",
+  cone19stroke: "rgba(240, 138, 44, 0.95)",
+  track11: "#e3b25a",
+  track19: "#f08a2c",
+  ens0: "rgba(110, 214, 214, 0.42)",
+  ens1: "rgba(176, 148, 230, 0.42)",
+  ens0solid: "#6ed6d6",
+  ens1solid: "#b094e6",
+  best: "#f7f1d4",
+  bestHalo: "rgba(10, 14, 22, 0.95)",
+};
+
 const state = {
   events: [],
   zones: { type: "FeatureCollection", features: [] },
   meta: null,
   assumptions: null,
   land: null,
+  storms: null,
+  stormPrepared: null,
+  layers: {},
   mode: "globe",
   filter: "all",
   selectedId: null,
@@ -489,6 +552,11 @@ const el = {
   tableHint: document.getElementById("tableHint"),
   assumptionsRoot: document.getElementById("assumptionsRoot"),
   assumptionsHint: document.getElementById("assumptionsHint"),
+  storm: document.getElementById("stormCanvas"),
+  layerBox: document.getElementById("layerBox"),
+  mapAttrib: document.getElementById("mapAttrib"),
+  melissaBtn: document.getElementById("melissaBtn"),
+  legendToggle: document.getElementById("legendToggle"),
 };
 
 function pagerColour(level) {
@@ -607,12 +675,16 @@ async function loadAll() {
     fetch("data/land-110m.json", FETCH_OPT)
       .then((r) => check(r, "land-110m.json"))
       .catch(() => null),
+    fetch("data/storms.json", FETCH_OPT)
+      .then((r) => check(r, "storms.json"))
+      .catch((err) => ({ __error: String(err && err.message ? err.message : err) })),
   ];
-  const [eventsDoc, zonesDoc, metaDoc, assumptionsDoc, landDoc] = await Promise.all(fetches);
+  const [eventsDoc, zonesDoc, metaDoc, assumptionsDoc, landDoc, stormsDoc] = await Promise.all(fetches);
   state.events = Array.isArray(eventsDoc.events) ? eventsDoc.events.slice() : [];
   state.zones = zonesDoc && zonesDoc.type === "FeatureCollection" ? zonesDoc : { type: "FeatureCollection", features: [] };
   state.meta = metaDoc;
   state.assumptions = assumptionsDoc;
+  prepareStorms(stormsDoc);
   if (landDoc && landDoc.type === "Topology" && landDoc.objects && landDoc.objects.land && typeof topojson !== "undefined") {
     state.land = topojson.feature(landDoc, landDoc.objects.land);
     window.__CATBOND__.landLoaded = true;
@@ -661,7 +733,8 @@ function sizeCanvases() {
   state.width = width;
   state.height = height;
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  for (const c of [el.stars, el.globe]) {
+  for (const c of [el.stars, el.globe, el.storm]) {
+    if (!c) continue;
     c.width = Math.floor(width * dpr);
     c.height = Math.floor(height * dpr);
     c.style.width = width + "px";
@@ -928,6 +1001,7 @@ function render() {
   if (!state.width) return;
   const proj = drawGlobe();
   if (proj) {
+    drawStorms(proj);
     drawZones(proj);
     drawEvents(proj);
   }
@@ -1068,6 +1142,7 @@ function drawZones(proj) {
       }
     })
     .classed("selected", (d) => zoneId(d) && zoneId(d) === state.selectedZoneId)
+    .classed("zone-tc", (d) => isTcZone(d))
     .attr("tabindex", 0)
     .attr("role", "button")
     .attr("aria-label", (d) => {
@@ -1093,6 +1168,343 @@ function drawZones(proj) {
     showZoneTooltip(event, d);
   });
   all.on("mouseleave", hideTooltip);
+}
+
+
+function isTcZone(feat) {
+  const props = (feat && feat.properties) || {};
+  const peril = String(props.peril || "").toLowerCase();
+  return !!(props.demo || /named storm|tropical|hurricane|cyclone/.test(peril));
+}
+
+function jamaicaZone() {
+  return zoneById("jamaica-ns-country-outline");
+}
+
+function hasStorms() {
+  return !!(state.stormPrepared && state.stormPrepared.storms && state.stormPrepared.storms.length);
+}
+
+function defaultLayers(prepared) {
+  const layers = {};
+  (prepared.storms || []).forEach((s) => {
+    (s.cones || []).forEach((c) => { layers[c.key] = true; });
+    (s.forecasts || []).forEach((c) => { layers[c.key] = true; });
+    (s.ensembles || []).forEach((c) => { layers[c.key] = true; });
+    if (s.best) layers[s.best.key] = true;
+  });
+  return layers;
+}
+
+function lineString(coords) {
+  const clean = (coords || []).filter((c) => Array.isArray(c) && Number.isFinite(c[0]) && Number.isFinite(c[1]));
+  if (clean.length < 2) return null;
+  return { type: "LineString", coordinates: clean };
+}
+
+function pointsToCoords(points) {
+  return (points || [])
+    .map((pt) => {
+      if (!pt) return null;
+      if (Array.isArray(pt) && Number.isFinite(pt[0]) && Number.isFinite(pt[1])) return [pt[0], pt[1]];
+      if (Number.isFinite(pt.lon) && Number.isFinite(pt.lat)) return [pt.lon, pt.lat];
+      if (Number.isFinite(pt.longitude) && Number.isFinite(pt.latitude)) return [pt.longitude, pt.latitude];
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function fmtInitLabel(iso) {
+  if (!iso) return "ensemble init";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return String(iso);
+  const fmt = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "UTC",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+    timeZoneName: "short",
+  });
+  return fmt.format(d).replace(",", "");
+}
+
+function prepareStorms(doc) {
+  state.storms = doc && !doc.__error && Array.isArray(doc.storms) ? doc : null;
+  const prepared = { storms: [], notes: (doc && Array.isArray(doc.notes) ? doc.notes : []), attribution: GOOGLE_WL_ATTRIB, coneNote: CONE_NOTE, nhc: NHC_CREDIT, label: doc && doc.label, error: doc && doc.__error };
+  if (state.storms) {
+    state.storms.storms.forEach((storm, si) => {
+      const pack = {
+        id: storm.id || ("storm-" + si),
+        name: storm.name || storm.id || "Storm",
+        demo: !!(storm.demo || (storm.label && /demo/i.test(storm.label))),
+        label: storm.label || "",
+        cones: [],
+        forecasts: [],
+        ensembles: [],
+        best: null,
+        zoneAssessment: storm.zone_assessment || null,
+        official: storm.official || null,
+        google: storm.google_ensemble || null,
+      };
+      const advisories = (storm.official && storm.official.advisories) || [];
+      advisories.forEach((adv) => {
+        const num = String(adv.advisory != null ? adv.advisory : "").trim();
+        const is11 = num === "11";
+        const is19 = num === "19";
+        const coneKey = "cone-" + pack.id + "-" + num;
+        const trackKey = "track-" + pack.id + "-" + num;
+        if (adv.cone && (adv.cone.type === "Polygon" || adv.cone.type === "MultiPolygon")) {
+          pack.cones.push({
+            key: coneKey,
+            advisory: num,
+            issued: adv.issued_text || adv.issued_utc || "",
+            note: adv.cone_note || CONE_NOTE,
+            source_url: adv.source_url,
+            geometry: adv.cone,
+            fill: is19 ? STORM_COLOUR.cone19fill : STORM_COLOUR.cone11fill,
+            stroke: is19 ? STORM_COLOUR.cone19stroke : STORM_COLOUR.cone11stroke,
+            title: "NHC cone · advisory " + num,
+          });
+        }
+        const geom = lineString(pointsToCoords(adv.forecast_track));
+        if (geom) {
+          pack.forecasts.push({
+            key: trackKey,
+            advisory: num,
+            issued: adv.issued_text || adv.issued_utc || "",
+            source_url: adv.source_url,
+            geometry: geom,
+            color: is19 ? STORM_COLOUR.track19 : STORM_COLOUR.track11,
+            title: "NHC forecast track · advisory " + num,
+            end: geom.coordinates[geom.coordinates.length - 1],
+          });
+        }
+      });
+      const inits = (storm.google_ensemble && storm.google_ensemble.initialisations) || [];
+      inits.forEach((ini, ii) => {
+        const key = "ens-" + pack.id + "-" + (ini.init_utc || ii);
+        const members = [];
+        (ini.members || []).forEach((mem) => {
+          const geom = lineString(mem.coords || pointsToCoords(mem.points || mem.track));
+          if (geom) members.push({ member: mem.member, geometry: geom });
+        });
+        pack.ensembles.push({
+          key: key,
+          init_utc: ini.init_utc,
+          initLabel: fmtInitLabel(ini.init_utc),
+          n: members.length,
+          label: ini.label || (storm.google_ensemble && storm.google_ensemble.label) || "experimental research data, not official",
+          source_url: ini.source_url,
+          color: ii === 0 ? STORM_COLOUR.ens0 : STORM_COLOUR.ens1,
+          solid: ii === 0 ? STORM_COLOUR.ens0solid : STORM_COLOUR.ens1solid,
+          members: members,
+          title: "Weather Lab ensemble · " + fmtInitLabel(ini.init_utc),
+        });
+      });
+      const obsPts = (storm.observed && storm.observed.points) || [];
+      const bestGeom = lineString(pointsToCoords(obsPts));
+      if (bestGeom) {
+        pack.best = {
+          key: "best-" + pack.id,
+          geometry: bestGeom,
+          source_url: storm.observed.source_url,
+          label: storm.observed.label || "NHC best track",
+          title: "NHC best track (observed)",
+          end: bestGeom.coordinates[bestGeom.coordinates.length - 1],
+          start: bestGeom.coordinates[0],
+        };
+      }
+      prepared.storms.push(pack);
+    });
+  }
+  state.stormPrepared = prepared;
+  state.layers = defaultLayers(prepared);
+  window.__CATBOND__.stormsLoaded = !!(state.storms);
+  window.__CATBOND__.stormCount = prepared.storms.length;
+}
+
+function strokePath(ctx, path, geom, color, width, dash) {
+  if (!geom) return;
+  ctx.beginPath();
+  path(geom);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.lineJoin = "round";
+  ctx.lineCap = "round";
+  ctx.setLineDash(dash || []);
+  ctx.stroke();
+  ctx.setLineDash([]);
+}
+
+function fillPath(ctx, path, geom, fill, stroke, width) {
+  if (!geom) return;
+  ctx.beginPath();
+  path(geom);
+  if (fill) {
+    ctx.fillStyle = fill;
+    ctx.fill();
+  }
+  if (stroke) {
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = width || 1.2;
+    ctx.stroke();
+  }
+}
+
+function labelAt(ctx, proj, coord, text, color) {
+  if (!coord) return;
+  const p = frontPoint(proj, coord[0], coord[1]);
+  if (!p) return;
+  ctx.save();
+  ctx.font = "650 11px " + (getCss("--font", "Inter, sans-serif"));
+  ctx.lineWidth = 3.5;
+  ctx.strokeStyle = "rgba(7,12,22,0.9)";
+  ctx.fillStyle = color || "#e5ebf4";
+  ctx.textBaseline = "middle";
+  ctx.strokeText(text, p[0] + 8, p[1]);
+  ctx.fillText(text, p[0] + 8, p[1]);
+  ctx.restore();
+}
+
+function drawStorms(proj) {
+  const canvas = el.storm;
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const w = state.width, h = state.height;
+  ctx.clearRect(0, 0, w, h);
+  if (!hasStorms() || typeof d3 === "undefined") return;
+  const path = d3.geoPath(proj, ctx);
+  state.stormPrepared.storms.forEach((s) => {
+    s.cones.forEach((c) => {
+      if (!state.layers[c.key]) return;
+      fillPath(ctx, path, c.geometry, c.fill, c.stroke, 1.3);
+    });
+    (s.ensembles || []).forEach((ens) => {
+      if (!state.layers[ens.key]) return;
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+      ens.members.forEach((m) => {
+        strokePath(ctx, path, m.geometry, ens.color, 0.7);
+      });
+      ctx.restore();
+    });
+    s.forecasts.forEach((t) => {
+      if (!state.layers[t.key]) return;
+      strokePath(ctx, path, t.geometry, t.color, 1.8, t.advisory === "11" ? [5, 4] : []);
+      labelAt(ctx, proj, t.end, "Adv. " + t.advisory, t.color);
+    });
+    if (s.best && state.layers[s.best.key]) {
+      strokePath(ctx, path, s.best.geometry, STORM_COLOUR.bestHalo, 5);
+      strokePath(ctx, path, s.best.geometry, STORM_COLOUR.best, 2.6);
+      labelAt(ctx, proj, s.best.start, s.name + " best track", STORM_COLOUR.best);
+    }
+  });
+}
+
+function setLayer(key, on) {
+  state.layers[key] = !!on;
+  render();
+}
+
+function renderLayerBox() {
+  if (!el.layerBox) return;
+  if (!hasStorms()) {
+    el.layerBox.hidden = true;
+    el.layerBox.innerHTML = "";
+    if (el.melissaBtn) el.melissaBtn.hidden = true;
+    return;
+  }
+  el.layerBox.hidden = false;
+  if (el.melissaBtn) el.melissaBtn.hidden = false;
+  const bits = ["<h3>Storm layers</h3>"];
+  state.stormPrepared.storms.forEach((s) => {
+    s.cones.forEach((c) => {
+      bits.push(layerCheck(c.key, c.title, '<span class="leg-swatch" style="background:' + c.fill + ';border:1px solid ' + c.stroke + '"></span>'));
+    });
+    s.forecasts.forEach((t) => {
+      const dash = t.advisory === "11" ? "border-top-style:dashed;" : "";
+      bits.push(layerCheck(t.key, t.title, '<span class="leg-line" style="width:22px;border-top:2px solid ' + t.color + ';' + dash + '"></span>'));
+    });
+    (s.ensembles || []).forEach((ens) => {
+      bits.push(layerCheck(ens.key, "Weather Lab ensemble · " + ens.initLabel + " (" + ens.n + " members)", '<span class="leg-line thin" style="color:' + ens.solid + '"></span>'));
+    });
+    if (s.best) {
+      bits.push(layerCheck(s.best.key, s.best.title, '<span class="leg-line bold" style="color:' + STORM_COLOUR.best + '"></span>'));
+    }
+  });
+  bits.push('<p class="layer-note">' + escapeHtml(CONE_NOTE) + ". Official NHC and Weather Lab tracks are shown side by side and never blended.</p>");
+  el.layerBox.innerHTML = bits.join("");
+  el.layerBox.querySelectorAll("input[data-layer]").forEach((input) => {
+    input.addEventListener("change", () => setLayer(input.getAttribute("data-layer"), input.checked));
+  });
+}
+
+function layerCheck(key, label, swatch) {
+  const on = state.layers[key] !== false;
+  return (
+    "<label>" +
+    '<input type="checkbox" data-layer="' + escapeAttr(key) + '"' + (on ? " checked" : "") + ">" +
+    (swatch || "") +
+    "<span>" + escapeHtml(label) + "</span></label>"
+  );
+}
+
+function renderStormAttrib() {
+  if (!el.mapAttrib) return;
+  if (!hasStorms()) {
+    el.mapAttrib.hidden = true;
+    el.mapAttrib.innerHTML = "";
+    return;
+  }
+  el.mapAttrib.hidden = false;
+  const storm = state.stormPrepared.storms[0];
+  const name = storm ? (storm.name + (storm.id ? " (" + storm.id + ")" : "")) : "Tropical-cyclone demo";
+  el.mapAttrib.innerHTML =
+    '<div class="attrib-line"><strong>' + escapeHtml(name) + (storm && storm.label ? " — " + escapeHtml(storm.label) : "") + ".</strong> " +
+    escapeHtml(NHC_CREDIT) + "</div>" +
+    '<div class="attrib-line">' + escapeHtml(GOOGLE_WL_ATTRIB) + "</div>" +
+    '<div class="attrib-line">' + escapeHtml(CONE_NOTE) + ".</div>";
+}
+
+function jamaicaFocusPoint() {
+  const feat = jamaicaZone();
+  if (feat) {
+    try {
+      const c = d3.geoCentroid(feat);
+      if (c && Number.isFinite(c[0]) && Number.isFinite(c[1])) return c;
+    } catch (err) {}
+  }
+  return [-77.3, 18.15];
+}
+
+function focusMelissa(opts) {
+  if (!hasStorms() && !jamaicaZone()) return false;
+  stopSpin();
+  const target = jamaicaFocusPoint();
+  const instant = !!(opts && opts.instant);
+  if (state.mode === "globe") {
+    state.scale = Math.max(state.scale, 2.35);
+    if (instant) {
+      state.rotation[0] = shortestYaw(state.rotation[0], -target[0]);
+      state.rotation[1] = -target[1];
+      render();
+    } else {
+      flyTo(target[0], target[1]);
+    }
+  } else {
+    state.scale = Math.max(2.4, state.scale);
+    state.pan = [0, 0];
+    const proj = makeProjection(state.width, state.height);
+    const p = proj(target);
+    if (p) state.pan = [state.width / 2 - p[0], state.height / 2 - p[1]];
+    render();
+  }
+  const feat = jamaicaZone();
+  if (feat && (!opts || opts.openPanel !== false)) selectZone(feat, { fly: false });
+  return true;
 }
 
 function zoneBonds(feat) {
@@ -1126,12 +1538,17 @@ function showZoneTooltip(event, feat) {
   const names = bonds.map(publicBondLabel).filter(Boolean);
   t.hidden = false;
   t.classList.add("tt-wide");
+  const kicker = props.demo || props.demo_label
+    ? (props.demo_label || "demo/example")
+    : "Publicly issued / publicly traded bond";
+  const rel = props.tc_relevance || {};
   t.innerHTML =
-    '<div class="tt-kicker">Publicly issued / publicly traded bond</div>' +
+    '<div class="tt-kicker">' + escapeHtml(kicker) + "</div>" +
     '<div class="tt-name">' + escapeHtml(props.name || "Coverage region") + "</div>" +
     (names.length
       ? '<div class="tt-bonds">' + names.map((n) => escapeHtml(n)).join("<br>") + "</div>"
       : "") +
+    (rel.state ? '<div class="tt-note">' + escapeHtml(rel.state) + "</div>" : "") +
     (props.note ? '<div class="tt-note">' + escapeHtml(props.note) + "</div>" : "") +
     '<div class="tt-hint">Click for details and document links</div>';
   positionTooltip(event, t);
@@ -1141,16 +1558,39 @@ function renderZonePanel(feat) {
   const props = (feat && feat.properties) || {};
   const bonds = zoneBonds(feat);
   const cards = bonds.map((b) => renderBondCard(b, feat)).join("");
+  const isDemo = !!(props.demo || props.demo_label);
+  const idline = isDemo ? "" : "Publicly issued / publicly traded catastrophe bond";
+  const demoBadge = isDemo ? '<span class="badge demo">' + escapeHtml(props.demo_label || "demo/example") + "</span>" : "";
   el.panel.hidden = false;
   el.panel.innerHTML =
     '<div class="panel-top"><div>' +
     '<div class="place">' + escapeHtml(props.name || "Coverage region") + "</div>" +
-    '<div class="idline">Publicly issued / publicly traded catastrophe bond</div>' +
+    '<div class="idline">' + escapeHtml(idline) + demoBadge + "</div>" +
     "</div><button type='button' class='btn-close' id='panelClose' aria-label='Close'>×</button></div>" +
     (props.note ? '<div class="zone-note-block">' + escapeHtml(props.note) + "</div>" : "") +
+    renderRelevanceBlock(props.tc_relevance) +
     (cards || '<p class="idline">No publicly listed bonds are attached to this region.</p>');
   const closeBtn = document.getElementById("panelClose");
   if (closeBtn) closeBtn.addEventListener("click", closePanel);
+}
+
+function renderRelevanceBlock(rel) {
+  if (!rel || typeof rel !== "object") return "";
+  const stateLabel = rel.state || "";
+  const reason = rel.reason || "";
+  const href = safeHttpUrl(rel.source_url);
+  return (
+    '<div class="relevance-block">' +
+    (stateLabel ? '<div class="rel-state">' + escapeHtml(stateLabel) + "</div>" : "") +
+    (reason ? '<div class="rel-reason">' + escapeHtml(reason) + "</div>" : "") +
+    (href ? '<div class="rel-link">' + extLink(href, "World Bank press release, 7 November 2025", true) + "</div>" : "") +
+    "</div>"
+  );
+}
+
+function isPublicSummaryBond(bond) {
+  if (!bond || typeof bond !== "object") return false;
+  return !!(bond.demo || bond.demo_label || bond.label === PUBLIC_SUMMARY_LABEL || (bond.size && !bond.issue_size && !bond.isin));
 }
 
 function renderBondCard(bond, feat) {
@@ -1163,6 +1603,7 @@ function renderBondCard(bond, feat) {
       "</div>"
     );
   }
+  if (isPublicSummaryBond(bond)) return renderPublicSummaryCard(bond, feat);
   const trigger = bond.trigger != null && String(bond.trigger).trim() ? String(bond.trigger).trim() : "";
   const attr = triggerAttribution(bond, feat);
   const links = [];
@@ -1194,6 +1635,40 @@ function renderBondCard(bond, feat) {
     '<div class="bond-kicker">Publicly issued / publicly traded bond</div>' +
     '<div class="bond-name">' + escapeHtml(bond.name || "Unnamed bond") + "</div>" +
     (rows.length || triggerHtml ? "<dl>" + rows.join("") + triggerHtml + "</dl>" : "") +
+    (links.length ? '<div class="links">' + links.join("") + "</div>" : "") +
+    "</div>"
+  );
+}
+
+function renderPublicSummaryCard(bond, feat) {
+  const props = (feat && feat.properties) || {};
+  const summaryLabel = bond.label || PUBLIC_SUMMARY_LABEL;
+  const demoLabel = bond.demo_label || props.demo_label || (bond.demo || props.demo ? "demo/example" : "");
+  const rows = [];
+  function row(label, value) {
+    if (value == null || value === "") return;
+    rows.push("<dt>" + escapeHtml(label) + "</dt><dd>" + escapeHtml(String(value)) + "</dd>");
+  }
+  row("Issuer", bond.issuer);
+  row("Sponsor", bond.sponsor || bond.insured);
+  row("Peril", bond.peril);
+  row("Trigger", bond.trigger_type || bond.trigger_type_as_described || bond.trigger);
+  row("Size", bond.size || bond.issue_size);
+  row("Issue date", bond.issue_date || bond.issue_date_as_described);
+  row("Status", bond.status);
+  const links = [];
+  const rel = props.tc_relevance || {};
+  const wb = safeHttpUrl(bond.press_release_url) || safeHttpUrl(rel.source_url);
+  const caseStudy = safeHttpUrl(bond.case_study_url);
+  if (wb) links.push(extLink(wb, "World Bank press release", true));
+  if (caseStudy) links.push(extLink(caseStudy, "World Bank case study", true));
+  return (
+    '<div class="bond-card">' +
+    '<div class="bond-kicker">Public bond summary</div>' +
+    '<div class="bond-name">' + escapeHtml(bond.name || "Unnamed bond") + "</div>" +
+    '<div class="public-summary-label">' + escapeHtml(summaryLabel) + "</div>" +
+    (demoLabel ? ' <span class="badge demo">' + escapeHtml(demoLabel) + "</span>" : "") +
+    (rows.length ? "<dl>" + rows.join("") + "</dl>" : "") +
     (links.length ? '<div class="links">' + links.join("") + "</div>" : "") +
     "</div>"
   );
@@ -1497,7 +1972,8 @@ function renderAssumptions() {
   parts.push(renderSeparationCard(doc));
   parts.push(renderNotModelledCard(doc));
   parts.push(renderHistRulesCard(doc));
-  const known = ["version","generated_at_utc","generated_at_europe_zurich","status","severity_reading","pager_economic_usd","scenario_module_assumptions","three_way_separation","not_modelled_yet","historical_comps_rules"];
+  parts.push(renderTcAssumptionsCard(doc));
+  const known = ["version","generated_at_utc","generated_at_europe_zurich","status","severity_reading","pager_economic_usd","scenario_module_assumptions","three_way_separation","not_modelled_yet","historical_comps_rules","tc_assumptions"];
   const extra = Object.keys(doc).filter((k) => known.indexOf(k) < 0);
   if (extra.length) {
     const leftover = {};
@@ -1509,6 +1985,34 @@ function renderAssumptions() {
     );
   }
   root.innerHTML = '<div class="assume-stack">' + parts.filter(Boolean).join("") + "</div>";
+}
+
+
+function renderTcAssumptionsCard(doc) {
+  const tc = doc && doc.tc_assumptions;
+  if (!tc) return "";
+  const methods = Array.isArray(tc.methods) ? tc.methods : [];
+  const caveats = Array.isArray(tc.caveats) ? tc.caveats : [];
+  const states = Array.isArray(tc.relevance_states) ? tc.relevance_states : [];
+  const methodHtml = methods.map((m) => {
+    return (
+      '<div class="assume-item' + (m.note ? " full" : "") + '"><h4>' + escapeHtml(m.label || m.id || "Method") + " " + assumptionTag(m.status) + "</h4>" +
+      '<p>' + escapeHtml(m.value || "") + "</p>" +
+      (m.note ? '<p class="assume-note">' + escapeHtml(m.note) + "</p>" : "") +
+      (m.source ? '<div class="src">Source: ' + (safeHttpUrl(m.source) ? extLink(m.source, m.source, true) : escapeHtml(String(m.source))) + "</div>" : "") +
+      "</div>"
+    );
+  }).join("");
+  return (
+    '<div class="assume-card"><div class="assume-head"><h3>Tropical-cyclone demo methods</h3>' +
+    assumptionTag(tc.label || "demo/example") +
+    "</div>" +
+    (tc.status ? '<p>' + escapeHtml(tc.status) + "</p>" : "") +
+    (methodHtml ? '<div class="assume-items">' + methodHtml + "</div>" : "") +
+    (states.length ? '<p class="assume-note">Relevance states: ' + escapeHtml(states.join(" · ")) + "</p>" : "") +
+    (caveats.length ? '<ul class="not-modelled">' + caveats.map((c) => "<li>" + escapeHtml(c) + "</li>").join("") + "</ul>" : "") +
+    "</div>"
+  );
 }
 
 function renderGenericValue(v) {
@@ -1791,7 +2295,7 @@ function renderKpis() {
     kpi("Watch band", String(watch), "5.8 ≤ M ≤ 6.0") +
     kpi("Highest M", Number.isFinite(highest) ? fmtMag(highest) : "—", highestPlace(evs, highest)) +
     kpi("PAGER", pagerSummary(pager), pagerParts || "No levels") +
-    kpi("Coverage zones", String(zones), zones === 0 ? "None verified in this snapshot" : "Publicly sourced regions");
+    kpi("Coverage zones", String(zones), zones === 0 ? "None verified in this snapshot" : (hasStorms() ? "Mexico EQ + Jamaica TC demo" : "Publicly sourced regions"));
 }
 
 function kpi(k, v, s) {
@@ -1848,7 +2352,40 @@ function renderLegend() {
     '<div class="leg-row"><span class="leg-dot" style="background:' + PAGER_NONE + '"></span>PAGER unavailable</div>' +
     '<div class="leg-sizes">' + sizeHtml + "</div>" +
     '<p class="leg-note">' + escapeHtml(PAGER_ECON_LABEL) + " " + escapeHtml(PAGER_RANGE_NOTE) + "</p>" +
-    zoneNote;
+    zoneNote +
+    stormLegendHtml();
+}
+
+function stormLegendHtml() {
+  if (!hasStorms()) return "";
+  const rows = [];
+  const names = [];
+  state.stormPrepared.storms.forEach((s) => {
+    names.push(s.name + (s.id ? " (" + s.id + ")" : "") + (s.label ? " — " + s.label : ""));
+    s.cones.forEach((c) => {
+      rows.push('<div class="leg-row"><span class="leg-swatch" style="background:' + c.fill + ';border:1px solid ' + c.stroke + '"></span>' + escapeHtml(c.title) + "</div>");
+    });
+    s.forecasts.forEach((t) => {
+      const dash = t.advisory === "11" ? "border-top-style:dashed;" : "";
+      rows.push('<div class="leg-row"><span class="leg-line" style="width:22px;border-top:2.2px solid ' + t.color + ';' + dash + '"></span>' + escapeHtml(t.title) + "</div>");
+    });
+    (s.ensembles || []).forEach((ens) => {
+      rows.push('<div class="leg-row"><span class="leg-line thin" style="color:' + ens.solid + '"></span>' + escapeHtml("Weather Lab ensemble · " + ens.initLabel + " (" + ens.n + " thin tracks)") + "</div>");
+    });
+    if (s.best) {
+      rows.push('<div class="leg-row"><span class="leg-line bold" style="color:' + STORM_COLOUR.best + '"></span>' + escapeHtml(s.best.title) + "</div>");
+    }
+  });
+  const jam = jamaicaZone();
+  if (jam) {
+    rows.push('<div class="leg-row" style="margin-top:6px"><span class="leg-zone zone-tc"></span>Jamaica named-storm outline (display only)</div>');
+  }
+  return (
+    '<h3 style="margin-top:12px">Tropical-cyclone demo</h3>' +
+    (names.length ? '<p class="leg-note" style="margin-top:0">' + escapeHtml(names.join("; ")) + "</p>" : "") +
+    rows.join("") +
+    '<p class="zone-note">' + escapeHtml(CONE_NOTE) + ".</p>"
+  );
 }
 
 function renderTable() {
@@ -1935,9 +2472,23 @@ function renderHeader() {
     el.freshDot.className = "dot " + (ageH < 24 ? "green" : ageH < 72 ? "amber" : "");
   }
   if (el.footerGen) {
+    const updated = m.updated_at_europe_zurich || m.updated_at_utc;
     el.footerGen.textContent =
-      "Snapshot generated " + (gen ? fmtWhen(gen, "Europe/Zurich") : "at an unavailable time") +
+      "Earthquake snapshot generated " + (gen ? fmtWhen(gen, "Europe/Zurich") : "at an unavailable time") +
+      (updated ? " · tropical-cyclone demo updated " + fmtWhen(updated, "Europe/Zurich") : "") +
       (m.version ? " · data version " + m.version : "") + ".";
+  }
+  if (el.banner) {
+    const demo = m.demo;
+    if (demo && (demo.storms || demo.bonds || hasStorms())) {
+      const stormBit = Array.isArray(demo.storms) && demo.storms.length ? demo.storms.join("; ") : "Hurricane Melissa tropical-cyclone layer";
+      el.banner.hidden = false;
+      el.banner.innerHTML =
+        "Demo/example: " + escapeHtml(stormBit) +
+        ". Official NHC products are public domain. " +
+        escapeHtml(GOOGLE_WL_ATTRIB) + ". " +
+        escapeHtml(CONE_NOTE) + ".";
+    }
   }
   const zoneCount = (m.counts && m.counts.zones) || (state.zones.features || []).length;
   if (el.zoneMethod) {
@@ -2003,6 +2554,16 @@ function bindControls() {
     state.pan = [0, 0];
     render();
   });
+  if (el.melissaBtn) {
+    el.melissaBtn.addEventListener("click", () => focusMelissa());
+  }
+  if (el.legendToggle && el.legend) {
+    el.legendToggle.addEventListener("click", () => {
+      const open = !el.legend.classList.contains("open");
+      el.legend.classList.toggle("open", open);
+      el.legendToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
   document.querySelectorAll("#eventTable th[data-sort]").forEach((th) => {
     th.addEventListener("click", () => {
       const key = th.getAttribute("data-sort");
@@ -2075,6 +2636,8 @@ async function main() {
   renderHeader();
   renderKpis();
   renderLegend();
+  renderLayerBox();
+  renderStormAttrib();
   renderCaveats();
   renderAssumptions();
   renderWindowNote();
@@ -2086,8 +2649,9 @@ async function main() {
   const params = new URLSearchParams(location.search);
   const wantEvent = params.get("event");
   const wantZone = params.get("zone");
+  const wantView = params.get("view");
   const hash = location.hash ? location.hash.replace(/^#/, "") : "";
-  const want = wantEvent || (!wantZone && hash ? hash : "");
+  const want = wantEvent || (!wantZone && !wantView && hash ? hash : "");
   window.__CATBOND__.openZone = function (id, opts) {
     const feat = zoneById(id) || ((state.zones.features || [])[0] && id == null ? state.zones.features[0] : null);
     if (!feat) return false;
@@ -2098,9 +2662,13 @@ async function main() {
   window.__CATBOND__.zoneIds = function () {
     return ((state.zones && state.zones.features) || []).map(zoneId);
   };
+  window.__CATBOND__.focusMelissa = focusMelissa;
   if (want && state.events.some((e) => e.id === want)) {
     stopSpin();
     selectEvent(want, { fly: state.mode === "globe" });
+  } else if (wantView === "melissa" || wantView === "tc" || wantZone === "jamaica-ns-country-outline") {
+    const instant = params.get("instant") === "1" || REDUCE;
+    focusMelissa({ openPanel: true, instant: instant });
   } else if (wantZone && zoneById(wantZone)) {
     stopSpin();
     selectZone(zoneById(wantZone), { fly: true });

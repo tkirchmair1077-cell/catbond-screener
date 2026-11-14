@@ -1,7 +1,7 @@
 {
-  "version": "phase1-0.1",
-  "generated_at_utc": "2026-11-12T20:58:59.484Z",
-  "generated_at_europe_zurich": "2026-11-12T21:58:59.484+01:00",
+  "version": "phase1-0.2-tc",
+  "generated_at_utc": "2026-11-14T08:01:31.892Z",
+  "generated_at_europe_zurich": "2026-11-14T09:01:31.892+01:00",
   "status": "not used in any event calculation in Phase 1",
   "severity_reading": {
     "pager_alert_levels": {
@@ -254,5 +254,68 @@
       "compact_units": "Values under 1,000 USD are shown as whole dollars; then k, m, bn, tn (thousands, millions, billions, trillions). Millions and billions of 100 or more are rounded to the nearest whole unit (301m); 10–99 to a whole unit (27bn); under 10 to one decimal (3.3m, 8.2bn). The tilde marks a model estimate. This is a display rule only; stored USD figures are not rounded this way."
     },
     "three_way_reminder": "These USD figures are USGS PAGER modelled economic loss (all losses). They are not insured industry loss and not a bond-impairment figure, and they are never used as contract X."
+  },
+  "tc_assumptions": {
+    "status": "used for storms.json only (demo/example); own calculations marked (d)",
+    "label": "demo/example",
+    "methods": [
+      {
+        "id": "tc_zone_entry",
+        "label": "Zone entry (d)",
+        "value": "first crossing of a track (fixes joined by straight lines in lon/lat) with the zone outline",
+        "status": "(d) own method",
+        "source": "this tool",
+        "used_in_phase_1": false
+      },
+      {
+        "id": "tc_ensemble_fraction",
+        "label": "ensemble fraction (d)",
+        "value": "members whose track enters the zone divided by members in the file, per initialisation",
+        "status": "(d) own method",
+        "source": "this tool",
+        "used_in_phase_1": false,
+        "note": "Not a calibrated probability. Never blended or added with official NHC products. The mean track is never used alone."
+      },
+      {
+        "id": "tc_closest_approach",
+        "label": "Closest approach (d)",
+        "value": "minimum distance from the track, densified every 5 km, to the zone outline (0 inside); local equirectangular km, Earth radius 6371 km",
+        "status": "(d) own method",
+        "source": "this tool",
+        "used_in_phase_1": false
+      },
+      {
+        "id": "tc_entry_intensity",
+        "label": "Intensity at entry (d)",
+        "value": "pressure (hPa) and wind (kt) linearly interpolated in time to the entry time; NHC wind = one-minute sustained at 10 m (NHC glossary); Weather Lab wind averaging period not stated",
+        "status": "(d) own method",
+        "source": "https://www.nhc.noaa.gov/aboutgloss.shtml",
+        "used_in_phase_1": false
+      },
+      {
+        "id": "tc_horizon",
+        "label": "Forecast horizon",
+        "value": "120 h for both NHC advisories and Weather Lab members (Google tracks thinned to 120 h)",
+        "status": "(d) own choice",
+        "source": "this tool",
+        "used_in_phase_1": false
+      }
+    ],
+    "caveats": [
+      "ensemble fraction is the share of ensemble members entering a zone, not a calibrated probability.",
+      "Cone is not the wind, surge or rain footprint. It shows the probable track of the storm centre.",
+      "Google DeepMind Weather Lab cyclone tracks are experimental research data, not official, and not an officially supported Google product. Historical data (1 h or more old) are CC BY 4.0; only such data are published.",
+      "Zones are coarse display approximations (simplified country outlines), not contractual coverage, grids or boxes. Entry into a land outline is not the contractual test.",
+      "A track entering a zone is a watch condition, not a payout. REPORTED TRIGGER OUTCOME is used only when a public source reports the outcome, cited.",
+      "Bond fields on TC zones are a public summary, not verified against offering circular.",
+      "No payout scale, trigger-grid geometry, risk statistics, pricing or loss figures are published."
+    ],
+    "relevance_states": [
+      "OUTSIDE SCOPE",
+      "POTENTIAL EXPOSURE",
+      "TRIGGER WATCH",
+      "MODELLED IMPAIRMENT",
+      "REPORTED TRIGGER OUTCOME"
+    ]
   }
 }

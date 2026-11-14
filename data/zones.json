@@ -839,6 +839,131 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jamaica-ns-country-outline",
+        "name": "Jamaica (named-storm coverage, coarse country outline) — demo/example",
+        "peril": "named storm",
+        "demo": true,
+        "demo_label": "demo/example",
+        "source_url": "https://thedocs.worldbank.org/en/doc/401877c87631461af8ad227793affc5f-0340012025/original/Case-Study-Jamaica-2024-Cat-Bond.pdf",
+        "source_title": "World Bank case study, Jamaica 2024 cat bond (updated as of December 2025)",
+        "source_quote": "Peril — Jamaica Named Storm",
+        "secondary_source_url": "https://www.worldbank.org/en/news/press-release/2025/11/07/hurricane-melissa-triggers-100-payout-of-150-million-world-bank-catastrophe-bond-for-jamaica",
+        "secondary_source_title": "World Bank press release, 7 November 2025",
+        "geometry_source_url": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/JAM.geo.json",
+        "geometry_note": "Simplified 10-vertex Jamaica country outline (d) from the public GeoJSON at geometry_source_url. Display approximation, not contractual coverage. The bond is described publicly as a parametric grid around the island; that grid is not published on this site, and this land outline is not a substitute for it.",
+        "note": "Display approximation, not contractual coverage. A storm track entering this outline is a watch condition, not a payout.",
+        "public_basis": "World Bank case study (Peril: Jamaica Named Storm). Geometry is a simplified country outline (d).",
+        "tc_relevance": {
+          "storm_id": "AL132025",
+          "storm_name": "Melissa",
+          "state": "REPORTED TRIGGER OUTCOME",
+          "reason": "A public source reports the outcome: World Bank press release, 7 November 2025, says the third-party calculation agent “concluded that Hurricane Melissa reached pre-agreed parametric triggers qualifying for a full redemption of the World Bank Catastrophe Bond”. This tool did not compute that outcome; the track checks in storms.json are watch conditions against a coarse outline only.",
+          "source_url": "https://www.worldbank.org/en/news/press-release/2025/11/07/hurricane-melissa-triggers-100-payout-of-150-million-world-bank-catastrophe-bond-for-jamaica",
+          "label": "demo/example"
+        },
+        "bonds": [
+          {
+            "name": "IBRD CAR Jamaica 2024",
+            "label": "public summary, not verified against offering circular",
+            "demo": true,
+            "demo_label": "demo/example",
+            "issuer": "IBRD (World Bank)",
+            "sponsor": "Government of Jamaica",
+            "peril": "named storm",
+            "trigger_type": "parametric",
+            "size": "US$150 million",
+            "issue_date": "April 2024",
+            "status": "fully redeemed after Hurricane Melissa",
+            "press_release_url": "https://www.worldbank.org/en/news/press-release/2025/11/07/hurricane-melissa-triggers-100-payout-of-150-million-world-bank-catastrophe-bond-for-jamaica",
+            "case_study_url": "https://thedocs.worldbank.org/en/doc/401877c87631461af8ad227793affc5f-0340012025/original/Case-Study-Jamaica-2024-Cat-Bond.pdf",
+            "sources": {
+              "issuer": {
+                "source_url": "https://www.worldbank.org/en/news/press-release/2025/11/07/hurricane-melissa-triggers-100-payout-of-150-million-world-bank-catastrophe-bond-for-jamaica",
+                "citation": "World Bank press release, 7 November 2025: “a catastrophe bond issued in 2024 by the World Bank (International Bank for Reconstruction and Development, or IBRD, AAA/Aaa)”."
+              },
+              "sponsor": {
+                "source_url": "https://thedocs.worldbank.org/en/doc/401877c87631461af8ad227793affc5f-0340012025/original/Case-Study-Jamaica-2024-Cat-Bond.pdf",
+                "citation": "World Bank case study (updated as of December 2025): “The World Bank issued a $150 million cat bond and simultaneously entered into a risk transfer agreement with the Government of Jamaica.”"
+              },
+              "peril": {
+                "source_url": "https://thedocs.worldbank.org/en/doc/401877c87631461af8ad227793affc5f-0340012025/original/Case-Study-Jamaica-2024-Cat-Bond.pdf",
+                "citation": "World Bank case study (updated as of December 2025), Transaction Summary: “Peril — Jamaica Named Storm”."
+              },
+              "trigger_type": {
+                "source_url": "https://thedocs.worldbank.org/en/doc/401877c87631461af8ad227793affc5f-0340012025/original/Case-Study-Jamaica-2024-Cat-Bond.pdf",
+                "citation": "World Bank case study (updated as of December 2025), Transaction Summary: “Trigger Type — Parametric CAT-in-a-grid, based on central pressure”."
+              },
+              "size": {
+                "source_url": "https://thedocs.worldbank.org/en/doc/401877c87631461af8ad227793affc5f-0340012025/original/Case-Study-Jamaica-2024-Cat-Bond.pdf",
+                "citation": "World Bank case study (updated as of December 2025): “The World Bank issued a $150 million cat bond”."
+              },
+              "issue_date": {
+                "source_url": "https://thedocs.worldbank.org/en/doc/401877c87631461af8ad227793affc5f-0340012025/original/Case-Study-Jamaica-2024-Cat-Bond.pdf",
+                "citation": "World Bank case study (updated as of December 2025): “In April 2024, the World Bank issued a catastrophe (cat) bond”."
+              },
+              "status": {
+                "source_url": "https://thedocs.worldbank.org/en/doc/401877c87631461af8ad227793affc5f-0340012025/original/Case-Study-Jamaica-2024-Cat-Bond.pdf",
+                "citation": "World Bank case study (updated as of December 2025): “Jamaica received the funds on December 1, 2025 and the bond was fully redeemed.”"
+              }
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.569601,
+              18.490525
+            ],
+            [
+              -76.896619,
+              18.400867
+            ],
+            [
+              -76.365359,
+              18.160701
+            ],
+            [
+              -76.199659,
+              17.886867
+            ],
+            [
+              -76.902561,
+              17.868238
+            ],
+            [
+              -77.206341,
+              17.701116
+            ],
+            [
+              -77.766023,
+              17.861597
+            ],
+            [
+              -78.337719,
+              18.225968
+            ],
+            [
+              -78.217727,
+              18.454533
+            ],
+            [
+              -77.797365,
+              18.524218
+            ],
+            [
+              -77.569601,
+              18.490525
+            ]
+          ]
+        ]
+      }
     }
   ]
 }
