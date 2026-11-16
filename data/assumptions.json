@@ -1,7 +1,7 @@
 {
-  "version": "phase1-0.2-tc",
-  "generated_at_utc": "2026-11-14T08:01:31.892Z",
-  "generated_at_europe_zurich": "2026-11-14T09:01:31.892+01:00",
+  "version": "phase1-0.3-deals",
+  "generated_at_utc": "2026-11-16T06:18:33.647Z",
+  "generated_at_europe_zurich": "2026-11-16T07:18:33.647+01:00",
   "status": "not used in any event calculation in Phase 1",
   "severity_reading": {
     "pager_alert_levels": {

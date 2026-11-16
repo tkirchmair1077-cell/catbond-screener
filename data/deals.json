@@ -1,0 +1,138 @@
+{
+  "schema": "catbond-deals/1",
+  "generated_at_utc": "2026-11-16T06:18:33.647Z",
+  "generated_at_europe_zurich": "2026-11-16T07:18:33.647+01:00",
+  "title": "Latest cat bond deals (3)",
+  "source": "Source: Artemis.bm",
+  "directory_url": "https://www.artemis.bm/deal-directory/",
+  "directory_retrieved_utc": "2026-11-16T06:15:11Z",
+  "ordering_basis": "Order of the 'Latest catastrophe bonds and insurance-linked securities' table on the deal directory (newest first), checked against its Date column (month of issue, as shown). Ranks 1-2 are 'Dec 2026'; rank 3 is the first of several 'Nov 2026' rows, so rank 3 is decided by table position only (U: the page shows no day or date-added).",
+  "label": "public summary, not verified against offering circular",
+  "u_marker": "U = unclear or not stated on the deal page; no value is estimated",
+  "excluded": "Left out on purpose although the deal pages show them: all pricing, loss-layer and risk-model figures, placement and modelling parties, and index-provider names.",
+  "deals": [
+    {
+      "rank": 1,
+      "name": "High Point Re Ltd. (Series 2027-1)",
+      "issuer": "High Point Re Ltd.",
+      "sponsor": "Selective Insurance Company",
+      "size": "$300m (U: deal yet to settle; final size not confirmed on the page)",
+      "peril": "U.S. named storm, earthquake, severe thunderstorm, winter storm, wildfire, meteorite impact, volcanic eruption",
+      "peril_labels": [
+        "named storm",
+        "earthquake",
+        "severe thunderstorm",
+        "winter storm",
+        "wildfire",
+        "meteorite impact",
+        "volcanic eruption"
+      ],
+      "region": "United States (all 50 states and DC, as described)",
+      "trigger_type": "Indemnity (per-occurrence, as described)",
+      "date": {
+        "value": "Dec 2026",
+        "page_field": "Date of issue",
+        "note": "U: month only; no day given; deal yet to settle"
+      },
+      "status_note": "Directory row is shaded with the colour the page key defines as 'catastrophe bond issuances yet to settle'.",
+      "quotes": {
+        "sponsor": "Cedent / sponsor: Selective Insurance Company",
+        "size": "Size: $300m",
+        "peril": "At a glance, risks-covered line: U.S. named storm, earthquake, severe thunderstorm, winter storm, wildfire, meteorite impact, volcanic eruption",
+        "region": "this new High Point Re 2027-1 cat bond will include coverage for all 50 US states and DC, we understand",
+        "trigger_type": "Trigger type: Indemnity; “protection on an indemnity trigger and per-occurrence basis, sources said”",
+        "date": "Date of issue: Dec 2026"
+      },
+      "source": "Source: Artemis.bm",
+      "deal_page_url": "https://www.artemis.bm/deal-directory/high-point-re-ltd-series-2027-1/",
+      "retrieved_utc": "2026-11-16T06:15:25Z",
+      "as_of": "deal page retrieved 2026-11-16T06:15:25Z",
+      "label": "public summary, not verified against offering circular",
+      "display": {
+        "mode": "zone",
+        "zone_id": "deal-high-point-re-2027-1-usa",
+        "outline_url": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/USA.geo.json",
+        "outline_name": "United States country outline",
+        "why": "Covered region is stated as the whole United States (all 50 states and DC); a public country outline matches that description."
+      }
+    },
+    {
+      "rank": 2,
+      "name": "Fish Pond Re Ltd. (Series 2026-1)",
+      "issuer": "Fish Pond Re Ltd.",
+      "sponsor": "Texas Farm Bureau Insurance",
+      "size": "$400m (U: deal yet to settle; page shows the target raised to $400m in Update 1)",
+      "peril": "Texas named storm",
+      "peril_labels": [
+        "named storm"
+      ],
+      "region": "Texas (state of Texas, as described)",
+      "trigger_type": "Indemnity (per-occurrence, as described)",
+      "date": {
+        "value": "Dec 2026",
+        "page_field": "Date of issue",
+        "note": "U: month only; no day given; deal yet to settle"
+      },
+      "status_note": "Directory row is shaded with the colour the page key defines as 'catastrophe bond issuances yet to settle'.",
+      "quotes": {
+        "sponsor": "Cedent / sponsor: Texas Farm Bureau Insurance",
+        "size": "Size: $400m; Update 1: “target size ... has increased ... to now $400 million of notes”",
+        "peril": "At a glance, risks-covered line: Texas named storm",
+        "region": "named storm reinsurance protection covering the state of Texas, on an indemnity trigger and per-occurrence basis",
+        "trigger_type": "Trigger type: Indemnity",
+        "date": "Date of issue: Dec 2026"
+      },
+      "source": "Source: Artemis.bm",
+      "deal_page_url": "https://www.artemis.bm/deal-directory/fish-pond-re-ltd-series-2026-1/",
+      "retrieved_utc": "2026-11-16T06:15:25Z",
+      "as_of": "deal page retrieved 2026-11-16T06:15:25Z",
+      "label": "public summary, not verified against offering circular",
+      "display": {
+        "mode": "zone",
+        "zone_id": "deal-fish-pond-re-2026-1-texas",
+        "outline_url": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/USA/TX.geo.json",
+        "outline_name": "Texas state outline",
+        "why": "Covered region is a single US state (Texas); a public state outline matches that description."
+      }
+    },
+    {
+      "rank": 3,
+      "name": "2001 CAT Re Ltd. (Series 2026-1)",
+      "issuer": "2001 CAT Re Ltd.",
+      "sponsor": "Allied World Assurance Company",
+      "size": "$325m (U: page calls this the initial target across three tranches; deal yet to settle)",
+      "peril": "U.S named storm, U.S. & Canada earthquake, European windstorm",
+      "peril_labels": [
+        "named storm",
+        "earthquake",
+        "windstorm"
+      ],
+      "region": "U.S. (named storm), U.S. and Canada (earthquake), Europe (windstorm), as described",
+      "trigger_type": "Industry loss index (weighted, annual aggregate, as described)",
+      "date": {
+        "value": "Nov 2026",
+        "page_field": "Date of issue",
+        "note": "U: month only; no day given; deal yet to settle. The page separately describes three annual risk periods from January 1st 2027."
+      },
+      "status_note": "Directory row is shaded with the colour the page key defines as 'catastrophe bond issuances yet to settle'.",
+      "quotes": {
+        "sponsor": "Cedent / sponsor: Allied World Assurance Company",
+        "size": "Size: $325m; “The initial target is to secure $325 million of limit across the three tranches”",
+        "peril": "At a glance, risks-covered line: U.S named storm, U.S. & Canada earthquake, European windstorm",
+        "region": "significant losses from U.S named storms, U.S. and Canada earthquakes, and European windstorm risks",
+        "trigger_type": "Trigger type: Industry loss index; “annual aggregate protection across three annual risk periods from January 1st 2027”",
+        "date": "Date of issue: Nov 2026"
+      },
+      "source": "Source: Artemis.bm",
+      "deal_page_url": "https://www.artemis.bm/deal-directory/2001-cat-re-ltd-series-2026-1/",
+      "retrieved_utc": "2026-11-16T06:15:25Z",
+      "as_of": "deal page retrieved 2026-11-16T06:15:25Z",
+      "label": "public summary, not verified against offering circular",
+      "display": {
+        "mode": "list",
+        "region_label": "U.S. / Canada / Europe (multi-region)",
+        "why": "Three regions on two continents with a different peril in each; no single coarse outline would describe it honestly, so it is listed with a region label instead of a zone."
+      }
+    }
+  ]
+}

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cat-bond screener — earthquakes and a tropical-cyclone demo</title>
 <meta name="color-scheme" content="dark">
-<meta name="description" content="Public Phase 1 map of recent earthquakes from USGS ComCat and PAGER, plus a tropical-cyclone demo for Hurricane Melissa and the IBRD CAR Jamaica 2024 bond. Not investment advice. No deal terms or principal-impairment figures.">
+<meta name="description" content="Public Phase 1 map of recent earthquakes from USGS ComCat and PAGER, a tropical-cyclone demo for Hurricane Melissa and the IBRD CAR Jamaica 2024 bond, and the latest market cat-bond deals as a public summary. Not investment advice. No principal-impairment figures.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230a111e' stroke='%237ba5e6' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='9.5' fill='none' stroke='%233d6cb3' stroke-width='0.8' opacity='0.7'/%3E%3Ccircle cx='22' cy='12' r='2.2' fill='%23f08a2c'/%3E%3Ccircle cx='11' cy='18' r='1.4' fill='%233dcc7a'/%3E%3Ccircle cx='18' cy='22' r='1.1' fill='%233dcc7a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,6 +67,9 @@ section{margin-bottom:42px;scroll-margin-top:84px}
 path.zone.zone-tc{fill:rgba(80,196,176,.30);stroke:rgba(170,235,215,.95);stroke-width:1.35}
 path.zone.zone-tc:hover,path.zone.zone-tc.selected{fill:rgba(80,196,176,.48);stroke:#fff;stroke-width:1.9}
 .leg-zone.zone-tc{background:rgba(80,196,176,.45);border-color:rgba(170,235,215,.95)}
+path.zone.zone-deal{fill:rgba(186,140,230,.28);stroke:rgba(214,176,245,.95);stroke-width:1.35}
+path.zone.zone-deal:hover,path.zone.zone-deal.selected{fill:rgba(186,140,230,.46);stroke:#fff;stroke-width:1.9}
+.leg-zone.zone-deal{background:rgba(186,140,230,.45);border-color:rgba(214,176,245,.95)}
 .leg-line{display:inline-block;height:0;flex:none;border-radius:1px}
 .leg-line.thin{width:22px;border-top:1.5px solid currentColor}
 .leg-line.bold{width:22px;border-top:3px solid currentColor}
@@ -207,6 +210,20 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
 .bond-card .links{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:8px 12px}
 .bond-card .links a{color:var(--accent);text-decoration:none;font-size:12.5px;font-weight:550}
 .bond-card .links a:hover{text-decoration:underline}
+.deals-stack{display:flex;flex-direction:column;gap:12px}
+.deal-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.deal-card.linked{cursor:pointer}
+.deal-card.linked:hover{border-color:var(--border-strong)}
+.deal-card.selected{border-color:rgba(214,176,245,.95);box-shadow:0 0 0 1px rgba(186,140,230,.5)}
+.deal-card .deal-name{font-size:15px;font-weight:620;line-height:1.35;color:var(--text)}
+.deal-card dl{margin:10px 0 0;display:grid;grid-template-columns:88px 1fr;gap:4px 10px}
+.deal-card dt{margin:0;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);font-weight:650;padding-top:2px}
+.deal-card dd{margin:0;font-size:13px;color:var(--text);line-height:1.4}
+.deal-card .deal-credit{margin:10px 0 0;font-size:12.5px}
+.deal-card .deal-credit a{color:var(--accent);text-decoration:none;font-weight:550}
+.deal-card .deal-credit a:hover{text-decoration:underline}
+.event-panel .deal-card{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
+.event-panel .deal-card dl{grid-template-columns:118px 1fr}
 .leg-zone{display:inline-block;width:16px;height:10px;border-radius:2px;flex:none;background:rgba(123,165,230,.45);border:1px solid rgba(180,215,255,.95)}
 .event-panel .overlap-list{margin:0;padding:0 0 0 16px}
 .event-panel .overlap-list li{margin:0 0 4px}
@@ -322,7 +339,7 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
     <div class="brand">
       <div class="kicker">Cat-bond desk · Phase 1</div>
       <h1>Cat-bond screener</h1>
-      <div class="sub">Recent earthquakes for geographic screening, plus a tropical‑cyclone demo (Hurricane Melissa / Jamaica)</div>
+      <div class="sub">Recent earthquakes for geographic screening, plus a tropical‑cyclone demo (Hurricane Melissa / Jamaica) and the latest market deals</div>
     </div>
     <div class="meta">
       <div class="fresh">
@@ -363,7 +380,7 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
       <canvas id="starCanvas" aria-hidden="true"></canvas>
       <canvas id="globeCanvas" aria-hidden="true"></canvas>
       <canvas id="stormCanvas" aria-hidden="true"></canvas>
-      <svg id="eventLayer" role="img" aria-label="Earthquakes and tropical-cyclone tracks on the world map"></svg>
+      <svg id="eventLayer" role="img" aria-label="Earthquakes, coverage regions and deal outlines on the world map"></svg>
       <div id="tooltip" hidden></div>
       <aside id="eventPanel" class="event-panel" hidden aria-live="polite"></aside>
       <div class="map-controls">
@@ -387,9 +404,17 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
     <p class="window-note" id="windowNote"></p>
   </section>
 
+  <section id="deals-section" hidden>
+    <div class="sec-head">
+      <h2>2 · Latest deals</h2>
+      <span class="hint" id="dealsHint"></span>
+    </div>
+    <div id="dealsRoot"></div>
+  </section>
+
   <section id="table-section">
     <div class="sec-head">
-      <h2>2 · Events</h2>
+      <h2>3 · Events</h2>
       <span class="hint" id="tableHint">Click a row to open it on the map. Status values are as published in the snapshot.</span>
     </div>
     <div class="card">
@@ -417,14 +442,14 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
 
   <section id="assumptions-section">
     <div class="sec-head">
-      <h2>3 · Assumptions and scale</h2>
+      <h2>4 · Assumptions and scale</h2>
       <span class="hint" id="assumptionsHint">From the snapshot file assumptions.json. Not used in any Phase 1 event calculation.</span>
     </div>
     <div id="assumptionsRoot"></div>
   </section>
 
   <section id="method-section">
-    <div class="sec-head"><h2>4 · Methodology</h2></div>
+    <div class="sec-head"><h2>5 · Methodology</h2></div>
     <div class="card method">
       <h3>How to read this page</h3>
       <p>Circles are earthquakes of magnitude 5.8 or greater in the snapshot window. Size is magnitude; colour is the USGS PAGER overall alert level (green, yellow, orange, red). Grey means PAGER has not been published. Translucent overlays, when present, are publicly sourced catastrophe‑bond coverage regions. <strong id="zoneMethodNote">This snapshot has no verified coverage zones, so every event is marked “no overlap”.</strong></p>
@@ -432,6 +457,7 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
       <p><strong>USGS PAGER modelled economic loss.</strong> Each event may carry a USD figure from the public PAGER product, shown on the map tooltip, in the event panel and in the table, using the snapshot’s own <span style="font-variant:normal">display</span> text. The label on this page is: “USGS PAGER modelled economic loss: all losses, not insured loss, not a bond trigger.” The 50% and 90% ranges attached to that figure are this desk’s own calculation (d), not a USGS published range. Missing values are shown as n/a. These figures are never used as a contractual measure or a bond trigger.</p>
       <p><strong>The loss ladder stays separate.</strong> Economic loss, insured (industry) loss and bond principal impairment are three different quantities and are kept apart. This public page does not publish insured‑loss figures or numeric principal‑impairment estimates. A principal‑loss figure would appear only when the contractual measure and the attachment and exhaustion points have all been verified from deal documents — and those terms stay off this page.</p>
       <p><strong>Phase 1 scope.</strong> Detection uses the USGS earthquake catalogue (ComCat via the FDSN API). Alert‑band events are M&gt;6.0 (strictly greater); watch band events are 5.8≤M≤6.0. Public status values are “no overlap”, “overlap, assessment pending”, or “threshold met”. The last of these is used only with a stated public basis; Phase 1 has no such criterion. The map and table show the status carried in the snapshot; they do not recompute it.</p>
+      <p><strong>Latest deals.</strong> When <span style="font-variant:normal">deals.json</span> is present, the page lists every deal in that file: name, sponsor, size, peril, trigger and date, as published, including any (U) marker. Each deal carries the credit line “Source: Artemis.bm” linked to that deal’s page, and the label “public summary, not verified against offering circular”. A deal that references a zone is drawn as an outline in a deal style. Deal outlines are not used for earthquake overlap status; the map and table keep the status carried in the snapshot.</p>
       <p><strong>Tropical-cyclone demo.</strong> When <span style="font-variant:normal">storms.json</span> is present, the map can show official National Hurricane Center (NHC) forecast cones and tracks, the NHC observed best track, and Google DeepMind Weather Lab ensemble member tracks for a named demo storm. Official NHC products are U.S. Government works (public domain). Weather Lab tracks are experimental research data, not official, licensed CC BY 4.0. The cone is not the wind, surge or rain footprint. A track entering a coarse country outline is a watch condition, not a payout. The relevance state “REPORTED TRIGGER OUTCOME” is used only when a public source reports that outcome, and is cited. Bond fields on the Jamaica zone are a public summary, not verified against an offering circular, and are flagged as a demo/example. Official NHC and Weather Lab results are shown side by side and are never blended.</p>
     </div>
   </section>
@@ -448,6 +474,7 @@ path.zone:hover,path.zone.selected{fill:rgba(123,165,230,.46);stroke:#fff;stroke
   <div class="wrap">
     <p>Data: <a href="https://www.usgs.gov/programs/earthquake-hazards">USGS Earthquake Hazards Program</a> / <a href="https://earthquake.usgs.gov/data/comcat/">ComCat</a> and <a href="https://earthquake.usgs.gov/data/pager/">PAGER</a>. Event catalogue via the <a href="https://earthquake.usgs.gov/fdsnws/event/1/">FDSN event API</a>.</p>
     <p>Tropical-cyclone demo: official forecast cones, forecast tracks and best track from the <a href="https://www.nhc.noaa.gov/">NOAA National Hurricane Center</a> (U.S. Government work, public domain). Ensemble member tracks: <a href="https://deepmind.google.com/science/weatherlab">Google DeepMind Weather Lab</a> (WeatherNext Cyclones), CC BY 4.0, experimental research data, not official. Cone is not the wind, surge or rain footprint.</p>
+    <p>Latest deals, when listed, are a public summary with the credit line “Source: Artemis.bm” on each deal. They are not verified against an offering circular.</p>
     <p>This page is a public research view of a Phase 1 geographic screen. It is not investment advice, and it does not publish insured‑loss figures, deal terms or principal‑impairment estimates. Magnitudes, locations, depths and PAGER levels can be revised by USGS.</p>
     <p id="footerGen"></p>
   </div>
@@ -508,6 +535,7 @@ const state = {
   assumptions: null,
   land: null,
   storms: null,
+  deals: null,
   stormPrepared: null,
   layers: {},
   mode: "globe",
@@ -552,6 +580,9 @@ const el = {
   tableHint: document.getElementById("tableHint"),
   assumptionsRoot: document.getElementById("assumptionsRoot"),
   assumptionsHint: document.getElementById("assumptionsHint"),
+  dealsRoot: document.getElementById("dealsRoot"),
+  dealsHint: document.getElementById("dealsHint"),
+  dealsSection: document.getElementById("deals-section"),
   storm: document.getElementById("stormCanvas"),
   layerBox: document.getElementById("layerBox"),
   mapAttrib: document.getElementById("mapAttrib"),
@@ -678,13 +709,19 @@ async function loadAll() {
     fetch("data/storms.json", FETCH_OPT)
       .then((r) => check(r, "storms.json"))
       .catch((err) => ({ __error: String(err && err.message ? err.message : err) })),
+    fetch("data/deals.json", FETCH_OPT)
+      .then((r) => check(r, "deals.json"))
+      .catch((err) => ({ __error: String(err && err.message ? err.message : err) })),
   ];
-  const [eventsDoc, zonesDoc, metaDoc, assumptionsDoc, landDoc, stormsDoc] = await Promise.all(fetches);
+  const [eventsDoc, zonesDoc, metaDoc, assumptionsDoc, landDoc, stormsDoc, dealsDoc] = await Promise.all(fetches);
   state.events = Array.isArray(eventsDoc.events) ? eventsDoc.events.slice() : [];
   state.zones = zonesDoc && zonesDoc.type === "FeatureCollection" ? zonesDoc : { type: "FeatureCollection", features: [] };
   state.meta = metaDoc;
   state.assumptions = assumptionsDoc;
+  state.deals = dealsDoc && !dealsDoc.__error ? dealsDoc : null;
   prepareStorms(stormsDoc);
+  window.__CATBOND__.dealCount = state.deals && Array.isArray(state.deals.deals) ? state.deals.deals.length : 0;
+  window.__CATBOND__.dealZoneCount = zoneFeatures().filter(isDealZone).length;
   if (landDoc && landDoc.type === "Topology" && landDoc.objects && landDoc.objects.land && typeof topojson !== "undefined") {
     state.land = topojson.feature(landDoc, landDoc.objects.land);
     window.__CATBOND__.landLoaded = true;
@@ -1081,6 +1118,7 @@ function selectEvent(id, opts) {
   state.selectedZoneId = null;
   renderPanel(ev);
   renderTable();
+  renderDeals();
   render();
   if (opts && opts.fly && ev.longitude != null && ev.latitude != null) flyTo(ev.longitude, ev.latitude);
   const row = document.querySelector('tr[data-id="' + CSS.escape(id) + '"]');
@@ -1094,6 +1132,7 @@ function closePanel() {
   el.panel.innerHTML = "";
   hideTooltip();
   renderTable();
+  renderDeals();
   render();
 }
 
@@ -1115,6 +1154,7 @@ function selectZone(feat, opts) {
   state.selectedId = null;
   renderZonePanel(feat);
   renderTable();
+  renderDeals();
   render();
   if (opts && opts.fly) {
     try {
@@ -1143,10 +1183,16 @@ function drawZones(proj) {
     })
     .classed("selected", (d) => zoneId(d) && zoneId(d) === state.selectedZoneId)
     .classed("zone-tc", (d) => isTcZone(d))
+    .classed("zone-deal", (d) => isDealZone(d))
+    .attr("data-kind", (d) => (isDealZone(d) ? "deal" : (isTcZone(d) ? "tc" : "coverage")))
     .attr("tabindex", 0)
     .attr("role", "button")
     .attr("aria-label", (d) => {
       const props = (d && d.properties) || {};
+      if (isDealZone(d)) {
+        const deal = dealForZone(d);
+        return ((deal && deal.name) || props.name || "Deal") + ", deal";
+      }
       const n = (props.bonds && props.bonds.length) || 0;
       return (props.name || "Coverage region") + (n ? ", " + n + " publicly issued bond" + (n === 1 ? "" : "s") : "");
     });
@@ -1171,10 +1217,118 @@ function drawZones(proj) {
 }
 
 
+function zoneFeatures() {
+  return (state.zones && state.zones.features) || [];
+}
+
+function isDealZone(feat) {
+  const props = (feat && feat.properties) || {};
+  if (props.kind === "market_deal" || (props.deal && typeof props.deal === "object")) return true;
+  const id = props.id || "";
+  const deals = state.deals && Array.isArray(state.deals.deals) ? state.deals.deals : [];
+  return deals.some((d) => d && d.display && d.display.mode === "zone" && d.display.zone_id === id);
+}
+
+function coverageZoneFeatures() {
+  return zoneFeatures().filter((f) => !isDealZone(f));
+}
+
 function isTcZone(feat) {
+  if (isDealZone(feat)) return false;
   const props = (feat && feat.properties) || {};
   const peril = String(props.peril || "").toLowerCase();
   return !!(props.demo || /named storm|tropical|hurricane|cyclone/.test(peril));
+}
+
+function dealForZone(feat) {
+  const id = zoneId(feat);
+  const deals = state.deals && Array.isArray(state.deals.deals) ? state.deals.deals : [];
+  const hit = deals.find((d) => d && d.display && d.display.zone_id === id);
+  if (hit) return hit;
+  const embedded = feat && feat.properties && feat.properties.deal;
+  return embedded && typeof embedded === "object" ? embedded : null;
+}
+
+function dealZoneLink(deal) {
+  const display = deal && deal.display;
+  if (!display || display.mode !== "zone" || !display.zone_id) return "";
+  return zoneById(display.zone_id) ? display.zone_id : "";
+}
+
+function dealDateParts(deal) {
+  const d = deal && deal.date;
+  if (d == null) return { value: "", note: "" };
+  if (typeof d === "string") return { value: d, note: "" };
+  if (typeof d === "object") {
+    return {
+      value: d.value != null ? String(d.value) : "",
+      note: d.note != null ? String(d.note) : "",
+    };
+  }
+  return { value: String(d), note: "" };
+}
+
+function renderDealCard(deal, opts) {
+  if (!deal || typeof deal !== "object") return "";
+  const embed = !!(opts && opts.embed);
+  const zone = embed ? "" : dealZoneLink(deal);
+  const selected = zone && zone === state.selectedZoneId;
+  const rows = [];
+  function row(label, value, note) {
+    if ((value == null || value === "") && !note) return;
+    let dd = value != null && value !== "" ? escapeHtml(String(value)) : "";
+    if (note) dd += '<div class="time-utc">' + escapeHtml(String(note)) + "</div>";
+    rows.push("<dt>" + escapeHtml(label) + "</dt><dd>" + dd + "</dd>");
+  }
+  row("Sponsor", deal.sponsor);
+  row("Size", deal.size);
+  row("Peril", deal.peril);
+  row("Trigger", deal.trigger_type);
+  const date = dealDateParts(deal);
+  row("Date", date.value, date.note);
+  const source = deal.source || (state.deals && state.deals.source) || "Source: Artemis.bm";
+  const href = safeHttpUrl(deal.deal_page_url);
+  const credit = href ? extLink(href, source, true) : escapeHtml(source);
+  const label = deal.label || (state.deals && state.deals.label) || PUBLIC_SUMMARY_LABEL;
+  const cls = "deal-card" + (zone ? " linked" : "") + (selected ? " selected" : "");
+  const attr = zone ? ' data-zone-id="' + escapeAttr(zone) + '" tabindex="0" role="button"' : "";
+  return (
+    '<article class="' + cls + '"' + attr + ">" +
+    '<div class="deal-name">' + escapeHtml(deal.name || "Deal") + "</div>" +
+    '<div class="public-summary-label">' + escapeHtml(label) + "</div>" +
+    (rows.length ? "<dl>" + rows.join("") + "</dl>" : "") +
+    '<div class="deal-credit">' + credit + "</div>" +
+    "</article>"
+  );
+}
+
+function renderDeals() {
+  const root = el.dealsRoot;
+  const section = el.dealsSection;
+  if (!root) return;
+  const doc = state.deals;
+  const deals = doc && Array.isArray(doc.deals) ? doc.deals : [];
+  if (!deals.length) {
+    if (section) section.hidden = true;
+    root.innerHTML = "";
+    return;
+  }
+  if (section) section.hidden = false;
+  if (el.dealsHint) el.dealsHint.textContent = doc.u_marker ? String(doc.u_marker) : "";
+  root.innerHTML = '<div class="deals-stack">' + deals.map(function (d) { return renderDealCard(d); }).join("") + "</div>";
+  root.querySelectorAll("[data-zone-id]").forEach((node) => {
+    node.addEventListener("click", (event) => {
+      if (event.target.closest("a")) return;
+      const feat = zoneById(node.getAttribute("data-zone-id"));
+      if (feat) selectZone(feat, { fly: state.mode === "globe" });
+    });
+    node.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      const feat = zoneById(node.getAttribute("data-zone-id"));
+      if (feat) selectZone(feat, { fly: state.mode === "globe" });
+    });
+  });
 }
 
 function jamaicaZone() {
@@ -1534,6 +1688,18 @@ function triggerAttribution(bond, feat) {
 function showZoneTooltip(event, feat) {
   const t = el.tooltip;
   const props = (feat && feat.properties) || {};
+  if (isDealZone(feat)) {
+    const deal = dealForZone(feat);
+    t.hidden = false;
+    t.classList.add("tt-wide");
+    t.innerHTML =
+      '<div class="tt-kicker">Deal</div>' +
+      '<div class="tt-name">' + escapeHtml((deal && deal.name) || props.name || "Deal") + "</div>" +
+      (props.note ? '<div class="tt-note">' + escapeHtml(props.note) + "</div>" : "") +
+      '<div class="tt-hint">Click for the public summary</div>';
+    positionTooltip(event, t);
+    return;
+  }
   const bonds = zoneBonds(feat);
   const names = bonds.map(publicBondLabel).filter(Boolean);
   t.hidden = false;
@@ -1556,6 +1722,20 @@ function showZoneTooltip(event, feat) {
 
 function renderZonePanel(feat) {
   const props = (feat && feat.properties) || {};
+  if (isDealZone(feat)) {
+    const deal = dealForZone(feat);
+    el.panel.hidden = false;
+    el.panel.innerHTML =
+      '<div class="panel-top"><div>' +
+      '<div class="place">' + escapeHtml((deal && deal.name) || props.name || "Deal") + "</div>" +
+      '<div class="idline">Deal</div>' +
+      "</div><button type='button' class='btn-close' id='panelClose' aria-label='Close'>×</button></div>" +
+      (props.note ? '<div class="zone-note-block">' + escapeHtml(props.note) + "</div>" : "") +
+      (deal ? renderDealCard(deal, { embed: true }) : '<p class="idline">No deal record is attached to this outline.</p>');
+    const closeBtn = document.getElementById("panelClose");
+    if (closeBtn) closeBtn.addEventListener("click", closePanel);
+    return;
+  }
   const bonds = zoneBonds(feat);
   const cards = bonds.map((b) => renderBondCard(b, feat)).join("");
   const isDemo = !!(props.demo || props.demo_label);
@@ -2281,7 +2461,7 @@ function renderKpis() {
   const watch = counts.watch_band != null ? counts.watch_band : evs.filter((e) => e.band === "watch").length;
   const pager = counts.pager_levels || {};
   const highest = evs.reduce((m, e) => (e.magnitude != null && e.magnitude > m ? e.magnitude : m), -Infinity);
-  const zones = counts.zones != null ? counts.zones : (state.zones.features || []).length;
+  const zones = coverageZoneFeatures().length;
   const pagerParts = ["green", "yellow", "orange", "red", "unavailable"]
     .filter((k) => (pager[k] || 0) > 0)
     .map((k) => {
@@ -2322,12 +2502,14 @@ function renderLegend() {
       return '<div class="leg-sz"><i style="width:' + (r * 2) + "px;height:" + (r * 2) + 'px"></i>M ' + m.toFixed(1) + "</div>";
     })
     .join("");
-  const zoneCount = (state.zones.features || []).length;
+  const coverage = coverageZoneFeatures();
+  const dealFeats = zoneFeatures().filter(isDealZone);
+  const zoneCount = coverage.length;
   let zoneNote;
   if (zoneCount === 0) {
     zoneNote = '<p class="zone-note">No verified coverage zones yet. Every event is marked “no overlap”.</p>';
   } else {
-    const names = (state.zones.features || [])
+    const names = coverage
       .map((f) => f && f.properties && f.properties.name)
       .filter(Boolean)
       .map((n) => escapeHtml(n));
@@ -2342,6 +2524,11 @@ function renderLegend() {
       "). Click for publicly issued / publicly traded bonds." +
       (names.length ? " " + names.join("; ") + "." : "") +
       "</p>";
+  }
+  if (dealFeats.length) {
+    zoneNote +=
+      '<div class="leg-row" style="margin-top:8px"><span class="leg-zone zone-deal"></span>Deal</div>' +
+      '<p class="zone-note" style="color:var(--text-2)">Deal outlines are not used for earthquake overlap status.</p>';
   }
   el.legend.innerHTML =
     "<h3>Legend</h3>" +
@@ -2472,11 +2659,14 @@ function renderHeader() {
     el.freshDot.className = "dot " + (ageH < 24 ? "green" : ageH < 72 ? "amber" : "");
   }
   if (el.footerGen) {
+    const demo = m.demo || {};
+    const tcAt = demo.storms_generated_at_utc;
     const updated = m.updated_at_europe_zurich || m.updated_at_utc;
-    el.footerGen.textContent =
-      "Earthquake snapshot generated " + (gen ? fmtWhen(gen, "Europe/Zurich") : "at an unavailable time") +
-      (updated ? " · tropical-cyclone demo updated " + fmtWhen(updated, "Europe/Zurich") : "") +
-      (m.version ? " · data version " + m.version : "") + ".";
+    let text = "Earthquake snapshot generated " + (gen ? fmtWhen(gen, "Europe/Zurich") : "at an unavailable time");
+    if (tcAt) text += " · tropical-cyclone demo updated " + fmtWhen(tcAt, "Europe/Zurich");
+    else if (updated) text += " · updated " + fmtWhen(updated, "Europe/Zurich");
+    if (m.version) text += " · data version " + m.version;
+    el.footerGen.textContent = text + ".";
   }
   if (el.banner) {
     const demo = m.demo;
@@ -2490,15 +2680,18 @@ function renderHeader() {
         escapeHtml(CONE_NOTE) + ".";
     }
   }
-  const zoneCount = (m.counts && m.counts.zones) || (state.zones.features || []).length;
+  const zoneCount = coverageZoneFeatures().length;
+  const dealCount = zoneFeatures().filter(isDealZone).length;
   if (el.zoneMethod) {
     if (zoneCount === 0) {
-      el.zoneMethod.textContent = "This snapshot has no verified coverage zones, so every event is marked “no overlap”.";
+      el.zoneMethod.textContent = "This snapshot has no verified coverage zones, so every event is marked “no overlap”." +
+        (dealCount ? " Deal outlines are not used for earthquake overlap status." : "");
     } else {
       el.zoneMethod.textContent =
         "This snapshot has " +
         zoneCount +
-        " publicly sourced coverage region(s). Click an overlay for the publicly issued / publicly traded bonds listed on that region. The outline is for display only, not the contractual covered area, and contract tests are not shown. Status is taken from the snapshot.";
+        " publicly sourced coverage region(s). Click an overlay for the publicly issued / publicly traded bonds listed on that region. The outline is for display only, not the contractual covered area, and contract tests are not shown. Status is taken from the snapshot." +
+        (dealCount ? " Deal outlines are not used for earthquake overlap status." : "");
     }
   }
 }
@@ -2642,6 +2835,7 @@ async function main() {
   renderAssumptions();
   renderWindowNote();
   renderTable();
+  renderDeals();
   bindControls();
   sizeCanvases();
   render();
